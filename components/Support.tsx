@@ -8,6 +8,8 @@ const tiers = [
   { name: "Team Sponsor", amount: "Custom", recognition: "Custom sponsor package" },
 ];
 
+const layerOffsets = ["lg:translate-y-3", "lg:translate-y-4", "lg:translate-y-5", "lg:translate-y-6", "lg:translate-y-7"];
+
 const fundraiser = {
   raised: "$350",
   goal: "$500",
@@ -19,7 +21,7 @@ export default function Support() {
   return (
     <section id="support" className="bg-white py-20 md:py-28">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div>
+        <div className="lg:pt-3">
           <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-[#d71920] text-white">
             <HeartHandshake size={31} aria-hidden />
           </div>
@@ -53,8 +55,8 @@ export default function Support() {
           </div>
         </div>
 
-        <div className="grid gap-3">
-          <article className="rounded-lg border border-[var(--line)] bg-[#071827] p-5 text-white shadow-[0_22px_54px_rgba(7,24,39,0.16)]">
+        <div className="grid gap-4 lg:pt-8">
+          <article className="rounded-lg border border-[var(--line)] bg-[#071827] p-5 text-white shadow-[0_22px_54px_rgba(7,24,39,0.16)] lg:translate-y-2">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">GoFundMe Goal</p>
@@ -77,8 +79,11 @@ export default function Support() {
               </a>
             </div>
           </article>
-          {tiers.map((tier) => (
-            <article key={tier.name} className="grid gap-3 rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5 sm:grid-cols-[1fr_auto] sm:items-center">
+          {tiers.map((tier, index) => (
+            <article
+              key={tier.name}
+              className={`grid gap-3 rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5 shadow-[0_12px_28px_rgba(7,24,39,0.06)] sm:grid-cols-[1fr_auto] sm:items-center ${layerOffsets[index]}`}
+            >
               <div className="flex items-start gap-4">
                 <BadgeDollarSign className="mt-1 h-6 w-6 flex-none text-[#d71920]" aria-hidden />
                 <div>
