@@ -36,6 +36,11 @@ export default function Support() {
             Every contribution helps the Huskies continue building a strong
             basketball community and creating opportunities for players to compete and grow.
           </p>
+          <p className="mt-4 rounded-lg border border-[#071827]/12 bg-[#f4f6f8] p-4 text-sm font-bold leading-6 text-[#1f2933]/74">
+            Tournament entry fees typically run $350-$600 per team, often with
+            two teams competing twice per month. The MADE Hoops circuit is
+            approximately $2,500 for one team.
+          </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="https://gofund.me/192839eaa"

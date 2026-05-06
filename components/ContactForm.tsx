@@ -1,9 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Mail, Send } from "lucide-react";
+import { FileText, Mail, Phone, Send } from "lucide-react";
 
 const CONTACT_EMAIL = "gbchuskiesoc@gmail.com";
+const COACH_PHONE = "657-253-0078";
+const REGISTRATION_FORM =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 const interestTypes = [
   "Joining a team",
   "Skills development",
@@ -72,13 +75,31 @@ export default function ContactForm() {
             supporting the program, or learning more? Send a message and GBC
             Huskies will get back to you.
           </p>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/32 bg-white/8 px-5 font-extrabold text-white transition hover:bg-white/14"
-          >
-            <Mail size={19} aria-hidden />
-            {CONTACT_EMAIL}
-          </a>
+          <div className="mt-8 grid gap-3">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/32 bg-white/8 px-5 font-extrabold text-white transition hover:bg-white/14"
+            >
+              <Mail size={19} aria-hidden />
+              {CONTACT_EMAIL}
+            </a>
+            <a
+              href="tel:+16572530078"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/32 bg-white/8 px-5 font-extrabold text-white transition hover:bg-white/14"
+            >
+              <Phone size={19} aria-hidden />
+              Call/Text Coach Jay: {COACH_PHONE}
+            </a>
+            <a
+              href={REGISTRATION_FORM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:bg-[#f02a31]"
+            >
+              <FileText size={19} aria-hidden />
+              Open Registration Form
+            </a>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="rounded-lg bg-white p-5 text-[#071827] shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:p-7">

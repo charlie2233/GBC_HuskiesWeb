@@ -15,11 +15,11 @@ export default function Hero() {
             Developing Players. Building Teams. Competing Nationally.
           </p>
           <p className="mt-4 text-sm font-black uppercase text-[#b8d8ea] sm:text-base md:hidden">
-            AAU Basketball &bull; Skills Development &bull; Tournaments
+            Skills Development &bull; MADE Hoops &bull; 2025 14U Champions
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/76 md:mx-0 md:mt-5 md:text-lg md:leading-8">
             Orange County AAU basketball program focused on skills development,
-            strength & conditioning, and local/national tournament competition.
+            MADE Hoops tournament competition, and regional/national exposure.
           </p>
           <a
             href="https://www.instagram.com/gbc_huskies/"

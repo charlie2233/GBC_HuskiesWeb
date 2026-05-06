@@ -1,4 +1,4 @@
-import { ArrowRight, Users } from "lucide-react";
+import { ArrowRight, FileText, Phone, Users } from "lucide-react";
 
 const teams = [
   {
@@ -15,6 +15,9 @@ const teams = [
   },
 ];
 
+const registrationForm =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
+
 export default function Teams() {
   return (
     <section id="teams" className="bg-[#f4f6f8] py-20 md:py-28">
@@ -28,11 +31,34 @@ export default function Teams() {
               GBC Huskies currently provides 13U-15U team opportunities for athletes
               ready to train, compete, and represent the program in tournament play.
             </p>
+            <p className="mt-4 text-base leading-7 text-[#1f2933]/72">
+              The program is actively building MADE Hoops spring/summer rosters.
+              Families can contact Coach Jay by DM, call/text, or registration form.
+            </p>
           </div>
           <p className="max-w-sm rounded-lg border border-[#071827]/12 bg-white p-4 text-sm leading-6 text-[#1f2933]/72">
             Full rosters are not listed here unless GBC Huskies provides
             permission and verified roster information.
           </p>
+        </div>
+
+        <div className="mt-8 grid gap-3 rounded-lg border border-[#071827]/12 bg-white p-4 shadow-[0_14px_34px_rgba(7,24,39,0.06)] sm:grid-cols-2">
+          <a
+            href={registrationForm}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
+          >
+            <FileText size={18} aria-hidden />
+            Registration Form
+          </a>
+          <a
+            href="tel:+16572530078"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#071827]/18 px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#071827]"
+          >
+            <Phone size={18} aria-hidden />
+            Call/Text Coach Jay
+          </a>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">

@@ -8,6 +8,17 @@ const tournaments = [
   { date: "July 11-12", event: "Vegas Summer Live S2", location: "Las Vegas, NV" },
 ];
 
+const results = [
+  {
+    title: "MADE Hoops West Mania",
+    detail: "15U went 3-1 in division play and 3-2 overall against gold-level competition.",
+  },
+  {
+    title: "Best of the West Showdown",
+    detail: "2025 Gold champions, with every win by double digits.",
+  },
+];
+
 export default function Tournaments() {
   return (
     <section id="tournaments" className="bg-white py-20 md:py-28">
@@ -29,6 +40,16 @@ export default function Tournaments() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {results.map((result) => (
+            <article key={result.title} className="rounded-lg bg-[#071827] p-5 text-white shadow-[0_18px_42px_rgba(7,24,39,0.12)]">
+              <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">Recent Result</p>
+              <h3 className="mt-2 text-2xl font-black">{result.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-white/74">{result.detail}</p>
+            </article>
+          ))}
         </div>
 
         <div className="mt-10 hidden overflow-hidden rounded-lg border border-[var(--line)] md:block">
