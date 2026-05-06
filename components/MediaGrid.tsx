@@ -56,7 +56,7 @@ export default function MediaGrid() {
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
             >
               <AtSign size={19} aria-hidden />
-              Team Instagram
+              Instagram @gbc_huskies
             </a>
             <a
               href="https://www.instagram.com/coachjaygill/"

@@ -1,4 +1,4 @@
-import { ArrowRight, HeartHandshake, Trophy } from "lucide-react";
+import { ArrowRight, AtSign, HeartHandshake, Trophy } from "lucide-react";
 import SiteMark from "./SiteMark";
 
 export default function Hero() {
@@ -21,6 +21,15 @@ export default function Hero() {
             Orange County AAU basketball program focused on skills development,
             strength & conditioning, and local/national tournament competition.
           </p>
+          <a
+            href="https://www.instagram.com/gbc_huskies/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-auto mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/28 bg-[#101820]/70 px-4 text-sm font-black text-[#b8d8ea] transition hover:border-white/40 hover:text-white md:mx-0"
+          >
+            <AtSign size={16} aria-hidden />
+            @gbc_huskies
+          </a>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center md:mt-8 md:justify-start">
             <a
               href="#contact"
@@ -50,8 +59,8 @@ export default function Hero() {
         <div className="reveal relative mx-auto hidden w-full max-w-[460px] items-center justify-center md:flex md:justify-end">
           <div className="absolute h-[310px] w-[310px] rounded-full bg-[#d71920]/28 blur-3xl" aria-hidden />
           <div className="absolute h-[230px] w-[230px] translate-x-16 translate-y-12 rounded-full bg-[#b8d8ea]/20 blur-3xl" aria-hidden />
-          <div className="relative flex aspect-square w-full max-w-[360px] items-center justify-center rounded-lg border border-transparent bg-transparent p-0 shadow-none md:border-white/12 md:bg-white/8 md:p-7 md:shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
-            <SiteMark className="h-full w-full drop-shadow-[0_18px_40px_rgba(0,0,0,0.36)]" />
+          <div className="relative flex aspect-square w-full max-w-[380px] items-center justify-center rounded-full bg-white p-3 shadow-[0_24px_80px_rgba(0,0,0,0.38)] ring-1 ring-white/25">
+            <SiteMark className="h-full w-full drop-shadow-[0_12px_30px_rgba(0,0,0,0.22)]" />
           </div>
         </div>
       </div>
