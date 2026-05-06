@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AtSign, ExternalLink, Play, UserRound } from "lucide-react";
+import BrandName from "./BrandName";
 
 const media = [
   {
@@ -68,7 +69,7 @@ export default function MediaGrid() {
               Follow the Huskies
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
-              Stay connected with GBC Huskies for team updates, tournament
+              Stay connected with <BrandName /> for team updates, tournament
               schedules, highlights, photos, videos, and program announcements.
             </p>
           </div>

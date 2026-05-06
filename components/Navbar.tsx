@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
 const navItems = [
@@ -22,7 +23,7 @@ export default function Navbar() {
       <nav className="section-shell flex min-h-20 items-center justify-between gap-5">
         <a href="#home" className="flex items-center gap-3" aria-label="GBC Huskies home">
           <SiteMark compact className="h-12 w-12" />
-          <span className="font-display text-3xl leading-none">GBC Huskies</span>
+          <BrandName className="font-display text-3xl leading-none" />
         </a>
 
         <div className="hidden items-center gap-6 text-sm font-semibold md:flex">

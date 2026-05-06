@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { FileText, Mail, Phone, Send } from "lucide-react";
+import BrandName from "./BrandName";
 
 const CONTACT_EMAIL = "gbchuskiesoc@gmail.com";
 const COACH_PHONE = "657-253-0078";
@@ -69,11 +70,13 @@ export default function ContactForm() {
     <section id="contact" className="bg-[#071827] py-20 text-white md:py-28">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div>
-          <h2 className="font-display text-6xl leading-none md:text-7xl">Contact GBC Huskies</h2>
+          <h2 className="font-display text-6xl leading-none md:text-7xl">
+            Contact <BrandName />
+          </h2>
           <p className="mt-6 text-lg leading-8 text-white/76">
             Interested in joining a team, attending skills development,
-            supporting the program, or learning more? Send a message and GBC
-            Huskies will get back to you.
+            supporting the program, or learning more? Send a message and{" "}
+            <BrandName /> will get back to you.
           </p>
           <div className="mt-8 grid gap-3">
             <a
@@ -158,7 +161,8 @@ export default function ContactForm() {
 
           {status === "sent" ? (
             <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
-              Thanks for contacting GBC Huskies. Your message has been sent, and we&apos;ll get back to you soon.
+              Thanks for contacting <BrandName />. Your message has been sent,
+              and we&apos;ll get back to you soon.
             </p>
           ) : null}
           {status === "error" ? (

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Trophy } from "lucide-react";
+import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
 const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
@@ -50,7 +51,7 @@ export default function Championship() {
             <span className="block text-white">14U Champions</span>
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
-            The GBC Huskies 14U team captured the 2025 Coca Cola Nationals
+            The <BrandName /> 14U team captured the 2025 Coca Cola Nationals
             championship, representing the program&apos;s commitment to development,
             teamwork, and competitive excellence.
           </p>

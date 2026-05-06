@@ -1,3 +1,4 @@
+import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
 export default function Footer() {
@@ -8,7 +9,9 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <SiteMark compact className="h-12 w-12" />
             <div>
-              <p className="font-display text-3xl leading-none">GBC Huskies Basketball</p>
+              <p className="font-display text-3xl leading-none">
+                <BrandName suffix="Basketball" />
+              </p>
               <p className="mt-1 text-sm text-white/62">AAU Basketball Program • Orange County, CA</p>
             </div>
           </div>

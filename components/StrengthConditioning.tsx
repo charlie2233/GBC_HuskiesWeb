@@ -1,4 +1,5 @@
 import { Activity, Dumbbell, ShieldPlus } from "lucide-react";
+import BrandName from "./BrandName";
 
 const focusAreas = [
   "Speed and agility",
@@ -22,7 +23,7 @@ export default function StrengthConditioning() {
             Build the Athlete, Not Just the Player
           </h2>
           <p className="mt-6 text-lg leading-8 text-white/76">
-            GBC Huskies emphasizes athletic development through strength,
+            <BrandName /> emphasizes athletic development through strength,
             conditioning, movement, and durability. Training is designed to help
             players become stronger, faster, more balanced, and more prepared
             for competitive basketball.

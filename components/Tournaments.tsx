@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, MapPin, Trophy } from "lucide-react";
+import BrandName from "./BrandName";
 
 const tournaments = [
   { date: "May 8-9", event: "SoCal Clash", location: "Corona, CA", note: "Opening road test" },
@@ -69,8 +70,8 @@ export default function Tournaments() {
                   </p>
                   <h3 className="mt-2 font-display text-5xl leading-none">MADE Hoops Run</h3>
                   <p className="mt-3 text-sm leading-6 text-white/68">
-                    Schedule style pulled from public GBC Huskies Instagram content,
-                    with every date kept easy to scan on mobile.
+                    Schedule style pulled from public <BrandName /> Instagram
+                    content, with every date kept easy to scan on mobile.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm font-black">
@@ -119,7 +120,8 @@ export default function Tournaments() {
         </div>
 
         <p className="mt-5 text-sm leading-6 text-[#1f2933]/65">
-          Schedule subject to change. Contact GBC Huskies for the latest tournament information.
+          Schedule subject to change. Contact <BrandName /> for the latest
+          tournament information.
         </p>
       </div>
     </section>

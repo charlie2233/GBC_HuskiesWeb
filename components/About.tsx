@@ -1,4 +1,5 @@
 import { Brain, ShieldCheck, UsersRound } from "lucide-react";
+import BrandName from "./BrandName";
 
 const pillars = [
   {
@@ -27,10 +28,10 @@ export default function About() {
             Built for Development and Competition
           </h2>
           <p className="mt-6 text-lg leading-8 text-[#1f2933]/80">
-            GBC Huskies is an Orange County-based AAU basketball program focused
-            on developing young athletes through skills training, strength &
-            conditioning, competitive team play, and local/national tournament
-            competition.
+            <BrandName /> is an Orange County-based AAU basketball program
+            focused on developing young athletes through skills training,
+            strength & conditioning, competitive team play, and local/national
+            tournament competition.
           </p>
           <p className="mt-4 text-lg leading-8 text-[#1f2933]/80">
             The program is built around discipline, teamwork, player growth, and

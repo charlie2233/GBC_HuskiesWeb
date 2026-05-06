@@ -1,4 +1,5 @@
 import { ArrowRight, FileText, Phone, Users } from "lucide-react";
+import BrandName from "./BrandName";
 
 const teams = [
   {
@@ -28,8 +29,9 @@ export default function Teams() {
               Huskies Teams
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
-              GBC Huskies currently provides 13U-15U team opportunities for athletes
-              ready to train, compete, and represent the program in tournament play.
+              <BrandName /> currently provides 13U-15U team opportunities for
+              athletes ready to train, compete, and represent the program in
+              tournament play.
             </p>
             <p className="mt-4 text-base leading-7 text-[#1f2933]/72">
               The program is actively building MADE Hoops spring/summer rosters.
@@ -37,7 +39,7 @@ export default function Teams() {
             </p>
           </div>
           <p className="max-w-sm rounded-lg border border-[#071827]/12 bg-white p-4 text-sm leading-6 text-[#1f2933]/72">
-            Full rosters are not listed here unless GBC Huskies provides
+            Full rosters are not listed here unless <BrandName /> provides
             permission and verified roster information.
           </p>
         </div>

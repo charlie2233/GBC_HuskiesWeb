@@ -1,4 +1,5 @@
 import { CircleDot, Footprints, Gauge, Hand, Shield, Target } from "lucide-react";
+import BrandName from "./BrandName";
 
 const skills = [
   {
@@ -42,7 +43,7 @@ export default function Skills() {
             Train With Purpose
           </h2>
           <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
-            GBC Huskies skills development is built around the details that
+            <BrandName /> skills development is built around the details that
             translate to real games: ball handling, shooting, footwork,
             finishing, defense, decision-making, and basketball IQ.
           </p>
