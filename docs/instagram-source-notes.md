@@ -28,6 +28,17 @@ Public source pass completed on 2026-05-06.
 - Frequent themes in captions: development, championship results, tournaments, support/fundraising, high school progression, MADE Hoops.
 - Frequent hashtags: `#huskies`, `#gilliambasketballclub`, `#gbc`.
 
+## Local Media Assets
+
+Local copies were saved under `public/media/instagram/` so the website does not depend on expiring Instagram CDN URLs.
+
+- `made-hoops-rosters.jpg` from https://www.instagram.com/p/DXhlRQRjSLh/
+- `aau-club-team.jpg` from https://www.instagram.com/p/DV6webKEna1/
+- `support-fundraiser.jpg` from https://www.instagram.com/p/DPwwqI2EoaC/
+- `made-hoops-west-mania.jpg` from https://www.instagram.com/p/DXVzpu5lc5m/
+- `huskies-high-school.jpg` from https://www.instagram.com/p/DRc1xDykmnn/
+- `best-of-west-champs.jpg` from https://www.instagram.com/p/DPu_Y6mjq6f/
+
 ## GoFundMe
 
 - Fundraiser: https://www.gofundme.com/f/sd6zec-help-the-huskies

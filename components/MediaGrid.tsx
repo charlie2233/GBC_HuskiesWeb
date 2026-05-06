@@ -1,36 +1,60 @@
 import Image from "next/image";
-import { AtSign, Play, UserRound } from "lucide-react";
+import { AtSign, ExternalLink, Play, UserRound } from "lucide-react";
 
 const media = [
   {
-    src: "/media/team-huddle.svg",
-    alt: "GBC Huskies team huddle graphic",
-    label: "Team moments",
+    src: "/media/instagram/made-hoops-rosters.jpg",
+    alt: "GBC Huskies MADE Hoops summer schedule graphic from Instagram",
+    label: "MADE Hoops schedule",
+    tag: "Recruiting",
+    url: "https://www.instagram.com/p/DXhlRQRjSLh/",
+    fit: "contain",
+    bg: "bg-white",
   },
   {
-    src: "/media/training-night.svg",
-    alt: "GBC Huskies training graphic",
-    label: "Training clips",
+    src: "/media/instagram/made-hoops-west-mania.jpg",
+    alt: "GBC Huskies 15U team photo from MADE Hoops West Mania",
+    label: "15U West Mania",
+    tag: "Team result",
+    url: "https://www.instagram.com/p/DXVzpu5lc5m/",
+    fit: "cover",
+    bg: "bg-[#071827]",
   },
   {
-    src: "/media/championship-banner.svg",
-    alt: "GBC Huskies championship banner graphic",
-    label: "Championship result",
+    src: "/media/instagram/best-of-west-champs.jpg",
+    alt: "GBC Huskies Best of the West Showdown champions photo",
+    label: "Best of the West",
+    tag: "Champions",
+    url: "https://www.instagram.com/p/DPu_Y6mjq6f/",
+    fit: "cover",
+    bg: "bg-[#071827]",
   },
   {
-    src: "/media/tournament-card.svg",
-    alt: "GBC Huskies tournament schedule graphic",
-    label: "Tournament graphics",
+    src: "/media/instagram/aau-club-team.jpg",
+    alt: "GBC Huskies AAU club team information graphic from Instagram",
+    label: "Club team info",
+    tag: "Program",
+    url: "https://www.instagram.com/p/DV6webKEna1/",
+    fit: "contain",
+    bg: "bg-[#dfeff3]",
   },
   {
-    src: "/media/skills-reps.svg",
-    alt: "GBC Huskies skills reps graphic",
-    label: "Skills reps",
+    src: "/media/instagram/huskies-high-school.jpg",
+    alt: "GBC Huskies high school progression post from Instagram",
+    label: "High school path",
+    tag: "Development",
+    url: "https://www.instagram.com/p/DRc1xDykmnn/",
+    fit: "cover",
+    bg: "bg-[#071827]",
   },
   {
-    src: "/media/support-post.svg",
-    alt: "GBC Huskies support post graphic",
-    label: "Support updates",
+    src: "/media/instagram/support-fundraiser.jpg",
+    alt: "GBC Huskies GoFundMe support graphic from Instagram",
+    label: "Help the Huskies",
+    tag: "Support",
+    url: "https://www.instagram.com/p/DPwwqI2EoaC/",
+    fit: "contain",
+    bg: "bg-white",
   },
 ];
 
@@ -72,23 +96,35 @@ export default function MediaGrid() {
 
         <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
           {media.map((item, index) => (
-            <article key={item.src} className="group relative overflow-hidden rounded-lg bg-[#071827] shadow-[0_18px_42px_rgba(7,24,39,0.12)]">
+            <a
+              key={item.src}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group relative overflow-hidden rounded-lg ${item.bg} shadow-[0_18px_42px_rgba(7,24,39,0.12)]`}
+            >
               <Image
                 src={item.src}
                 alt={item.alt}
                 width={720}
                 height={720}
-                className="aspect-square h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                className={`aspect-square h-full w-full ${item.fit === "contain" ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-105`}
               />
               <div className="absolute inset-x-0 bottom-0 flex min-h-16 items-center justify-between bg-gradient-to-t from-black/80 to-transparent px-4 pb-4 pt-8 text-white">
-                <span className="text-sm font-black">{item.label}</span>
-                {index === 1 || index === 4 ? <Play size={18} aria-hidden /> : null}
+                <span>
+                  <span className="block text-[11px] font-black uppercase tracking-wide text-[#b8d8ea]">
+                    {item.tag}
+                  </span>
+                  <span className="block text-sm font-black">{item.label}</span>
+                </span>
+                {index === 4 ? <Play size={18} aria-hidden /> : <ExternalLink size={17} aria-hidden />}
               </div>
-            </article>
+            </a>
           ))}
         </div>
         <p className="mt-5 text-sm leading-6 text-[#1f2933]/64">
-          Use only approved player photos and videos on the public website.
+          Media sourced from public @gbc_huskies Instagram posts. Use only approved
+          player photos and videos on the public website.
         </p>
       </div>
     </section>

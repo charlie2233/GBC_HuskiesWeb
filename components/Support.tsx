@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, BadgeDollarSign, HeartHandshake } from "lucide-react";
 
 const tiers = [
@@ -62,6 +63,15 @@ export default function Support() {
 
         <div className="grid gap-4 lg:pt-8">
           <article className="rounded-lg border border-[var(--line)] bg-[#071827] p-5 text-white shadow-[0_22px_54px_rgba(7,24,39,0.16)] lg:translate-y-2">
+            <div className="mb-5 overflow-hidden rounded-lg border border-white/12 bg-white">
+              <Image
+                src="/media/instagram/support-fundraiser.jpg"
+                alt="GBC Huskies Help the Huskies fundraiser graphic"
+                width={720}
+                height={720}
+                className="aspect-[16/9] w-full object-cover object-bottom"
+              />
+            </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">GoFundMe Goal</p>
