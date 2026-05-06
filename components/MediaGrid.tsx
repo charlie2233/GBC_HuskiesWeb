@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AtSign, Play } from "lucide-react";
+import { AtSign, Play, UserRound } from "lucide-react";
 
 const media = [
   {
@@ -48,15 +48,26 @@ export default function MediaGrid() {
               schedules, highlights, photos, videos, and program announcements.
             </p>
           </div>
-          <a
-            href="https://www.instagram.com/gbc_huskies/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
-          >
-            <AtSign size={19} aria-hidden />
-            View Instagram
-          </a>
+          <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
+            <a
+              href="https://www.instagram.com/gbc_huskies/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
+            >
+              <AtSign size={19} aria-hidden />
+              Team Instagram
+            </a>
+            <a
+              href="https://www.instagram.com/coachjaygill/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#071827]/18 px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#071827]"
+            >
+              <UserRound size={19} aria-hidden />
+              Coach Jay
+            </a>
+          </div>
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">

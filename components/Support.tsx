@@ -8,6 +8,13 @@ const tiers = [
   { name: "Team Sponsor", amount: "Custom", recognition: "Custom sponsor package" },
 ];
 
+const fundraiser = {
+  raised: "$350",
+  goal: "$500",
+  progress: 70,
+  donations: 3,
+};
+
 export default function Support() {
   return (
     <section id="support" className="bg-white py-20 md:py-28">
@@ -47,6 +54,29 @@ export default function Support() {
         </div>
 
         <div className="grid gap-3">
+          <article className="rounded-lg border border-[var(--line)] bg-[#071827] p-5 text-white shadow-[0_22px_54px_rgba(7,24,39,0.16)]">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">GoFundMe Goal</p>
+                <h3 className="mt-2 font-display text-5xl leading-none">
+                  {fundraiser.raised} raised of {fundraiser.goal}
+                </h3>
+              </div>
+              <p className="rounded-lg bg-white/10 px-3 py-2 text-sm font-black text-[#b8d8ea]">
+                {fundraiser.progress}% funded
+              </p>
+            </div>
+            <div className="mt-5 h-3 overflow-hidden rounded-full bg-white/14">
+              <div className="h-full rounded-full bg-[#b8d8ea]" style={{ width: `${fundraiser.progress}%` }} />
+            </div>
+            <div className="mt-4 flex flex-col gap-3 text-sm font-bold text-white/74 sm:flex-row sm:items-center sm:justify-between">
+              <span>{fundraiser.donations} donations so far</span>
+              <a href="https://gofund.me/192839eaa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white transition hover:text-[#b8d8ea]">
+                Help the Huskies
+                <ArrowRight size={16} aria-hidden />
+              </a>
+            </div>
+          </article>
           {tiers.map((tier) => (
             <article key={tier.name} className="grid gap-3 rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5 sm:grid-cols-[1fr_auto] sm:items-center">
               <div className="flex items-start gap-4">

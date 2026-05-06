@@ -20,12 +20,20 @@ export default function Footer() {
           <a href="https://www.instagram.com/gbc_huskies/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
             @gbc_huskies
           </a>
+          <a href="https://www.instagram.com/coachjaygill/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+            Coach Jay: @coachjaygill
+          </a>
           <a href="https://gofund.me/192839eaa" target="_blank" rel="noopener noreferrer" className="hover:text-white">
             https://gofund.me/192839eaa
           </a>
         </div>
       </div>
-      <p className="mt-8 text-center text-[11px] text-white/35">created by atrak.dev</p>
+      <p className="mt-8 text-center text-[11px] text-white/35">
+        created by{" "}
+        <a href="https://atrak.dev" target="_blank" rel="noopener noreferrer" className="underline decoration-white/25 underline-offset-4 transition hover:text-white">
+          atrak.dev
+        </a>
+      </p>
     </footer>
   );
 }
