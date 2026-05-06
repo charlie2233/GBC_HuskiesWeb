@@ -55,7 +55,8 @@ textarea {
   font-family: var(--font-bebas), Impact, sans-serif;
 }
 
-.court-texture {
+.court-texture,
+.home-arena {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
@@ -66,6 +67,49 @@ textarea {
     36px 36px,
     auto,
     auto;
+}
+
+.home-arena {
+  background-color: #071827;
+  background-image:
+    linear-gradient(105deg, rgba(215, 25, 32, 0.18) 0 1.5px, transparent 1.5px 15%),
+    linear-gradient(115deg, transparent 0 60%, rgba(184, 216, 234, 0.1) 60% 60.35%, transparent 60.35%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 112px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.032) 0 1px, transparent 1px 46px),
+    linear-gradient(180deg, #0b2235 0%, #071827 45%, #06111d 100%);
+  background-size:
+    100% 100%,
+    100% 100%,
+    auto,
+    auto,
+    auto;
+}
+
+.home-arena::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(215, 25, 32, 0.24), transparent 34%),
+    linear-gradient(140deg, transparent 0 58%, rgba(215, 25, 32, 0.13) 58% 58.75%, transparent 58.75%),
+    repeating-linear-gradient(26deg, rgba(184, 216, 234, 0.075) 0 1px, transparent 1px 24px);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.86) 72%, transparent 100%);
+}
+
+.home-arena::after {
+  content: "";
+  position: absolute;
+  right: max(16px, calc((100vw - 1120px) / 2));
+  bottom: -72px;
+  width: clamp(220px, 32vw, 460px);
+  aspect-ratio: 1;
+  background-image: url("/brand/gbc-huskies-emblem.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.035;
+  pointer-events: none;
 }
 
 .court-lines {
@@ -97,6 +141,69 @@ textarea {
   bottom: 110px;
   border-radius: 0 0 140px 140px;
   border-top: 0;
+}
+
+.route-line {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.route-line::before {
+  content: "";
+  position: absolute;
+  right: 13%;
+  top: 8%;
+  width: min(54vw, 640px);
+  height: min(52vw, 560px);
+  border: 2px solid rgba(184, 216, 234, 0.16);
+  border-left-color: transparent;
+  border-bottom-color: rgba(215, 25, 32, 0.24);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+}
+
+.route-line::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: 6%;
+  width: 38%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 216, 234, 0.42), transparent);
+  transform: rotate(-28deg);
+}
+
+.event-board {
+  position: relative;
+}
+
+.event-board::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 1px solid rgba(184, 216, 234, 0.16);
+  border-radius: 16px;
+  pointer-events: none;
+  transform: rotate(-1.5deg);
+}
+
+.event-board::after {
+  content: "";
+  position: absolute;
+  inset: 12px -10px auto auto;
+  width: 46%;
+  height: 4px;
+  background: #d71920;
+  pointer-events: none;
+  transform: rotate(5deg);
+  box-shadow: 0 12px 0 rgba(184, 216, 234, 0.42);
+}
+
+.paper-grain {
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 38%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px);
 }
 
 .section-shell {

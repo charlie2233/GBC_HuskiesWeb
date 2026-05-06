@@ -26,10 +26,12 @@ const roadStops = [
 
 export default function Hero() {
   return (
-    <section id="home" className="court-texture relative overflow-hidden bg-[#071827] text-white">
+    <section id="home" className="home-arena relative isolate overflow-hidden text-white">
       <div className="court-lines" aria-hidden />
-      <div className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,#d71920_0_38%,#b8d8ea_38%_70%,#ffffff_70%)]" aria-hidden />
-      <div className="section-shell relative grid min-h-[calc(88svh-80px)] items-center gap-10 py-10 md:grid-cols-[0.9fr_1.1fr] md:py-16">
+      <div className="route-line" aria-hidden />
+      <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#d71920_0_34%,#b8d8ea_34%_62%,#ffffff_62%_70%,transparent_70%)]" aria-hidden />
+      <div className="absolute left-0 top-20 h-px w-full bg-[linear-gradient(90deg,transparent,rgba(184,216,234,0.28),transparent)]" aria-hidden />
+      <div className="section-shell relative grid min-h-[calc(92svh-80px)] items-center gap-10 py-10 md:grid-cols-[0.88fr_1.12fr] md:py-16">
         <div className="reveal relative z-10 max-w-3xl text-center md:text-left">
           <h1 className="font-display text-6xl leading-[0.88] sm:text-8xl lg:text-[9.25rem]">
             <BrandName className="block" />
@@ -45,6 +47,9 @@ export default function Hero() {
             Orange County AAU basketball program building athletes for skills
             sessions, road events, MADE Hoops competition, and moments that
             ask every player to bring energy for the team.
+          </p>
+          <p className="mt-4 hidden text-sm font-black uppercase tracking-[0.22em] text-white/54 md:block">
+            13U-15U / MADE Hoops / 2025 14U Champions
           </p>
           <a
             href="https://www.instagram.com/gbc_huskies/"
@@ -79,7 +84,7 @@ export default function Hero() {
               { icon: Users, label: "13U-15U", text: "Spring/summer roster call" },
               { icon: Phone, label: "Coach Jay", text: "657-253-0078" },
             ].map(({ icon: Icon, label, text }) => (
-              <div key={label} className="rounded-lg border border-[#b8d8ea]/18 bg-[#101820]/78 p-3">
+              <div key={label} className="rounded-lg border border-[#b8d8ea]/18 bg-[#06111d]/78 p-3 shadow-[0_16px_32px_rgba(0,0,0,0.16)]">
                 <Icon className="mb-3 h-5 w-5 text-[#d71920]" aria-hidden />
                 <p className="text-sm font-black text-white">{label}</p>
                 <p className="mt-1 text-xs font-semibold leading-5 text-white/64">{text}</p>
@@ -88,17 +93,21 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="reveal relative mx-auto w-full max-w-[640px]">
-          <div className="absolute -right-10 top-4 h-72 w-72 rounded-full bg-[#d71920]/24 blur-3xl" aria-hidden />
-          <div className="absolute -bottom-8 left-0 h-72 w-72 rounded-full bg-[#b8d8ea]/18 blur-3xl" aria-hidden />
-          <div className="relative rounded-lg border border-white/14 bg-white/[0.07] p-3 shadow-[0_30px_90px_rgba(0,0,0,0.36)] backdrop-blur">
+        <div className="event-board reveal relative mx-auto w-full max-w-[640px]">
+          <div className="relative rounded-lg border border-[#b8d8ea]/18 bg-[#06111d]/82 p-3 shadow-[0_30px_90px_rgba(0,0,0,0.42)] backdrop-blur-md">
+            <div className="mb-3 flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/7 px-4 py-3">
+              <p className="font-display text-3xl leading-none">Road Season Board</p>
+              <p className="text-right text-xs font-black uppercase tracking-[0.2em] text-[#b8d8ea]">
+                Orange County to Vegas
+              </p>
+            </div>
             <div className="grid gap-3 md:grid-cols-[0.82fr_1.18fr]">
               <a
                 href={bestOfWestPost}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View GBC Huskies Best of the West Instagram post"
-                className="group relative overflow-hidden rounded-lg bg-white"
+                className="group relative overflow-hidden rounded-lg bg-white shadow-[0_20px_40px_rgba(0,0,0,0.26)] md:-rotate-1"
               >
                 <Image
                   src="/media/instagram/best-of-west-champs.jpg"
@@ -119,7 +128,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View GBC Huskies MADE Hoops West Mania Instagram post"
-                  className="group relative min-h-56 overflow-hidden rounded-lg bg-[#101820]"
+                  className="group relative min-h-56 overflow-hidden rounded-lg bg-[#101820] shadow-[0_18px_34px_rgba(0,0,0,0.22)] md:rotate-1"
                 >
                   <Image
                     src="/media/instagram/made-hoops-west-mania.jpg"
@@ -136,14 +145,14 @@ export default function Hero() {
                     <p className="mt-2 text-sm font-semibold text-white/72">3-1 in division play</p>
                   </div>
                 </a>
-                <div className="rounded-lg border border-white/12 bg-[#071827] p-4">
+                <div className="paper-grain rounded-lg border border-white/12 bg-[#071827] p-4">
                   <div className="mb-3 flex items-center justify-between gap-3">
                     <p className="font-display text-3xl leading-none">Next Road Stops</p>
                     <SiteMark compact className="h-11 w-11 flex-none" />
                   </div>
                   <div className="grid gap-2">
                     {roadStops.map((stop) => (
-                      <div key={stop.event} className="grid grid-cols-[72px_1fr] gap-3 rounded-lg border border-white/10 bg-white/7 p-3">
+                      <div key={stop.event} className="grid grid-cols-[72px_1fr] gap-3 rounded-lg border border-white/10 bg-[#0f2435]/82 p-3">
                         <p className="text-xs font-black uppercase leading-5 text-[#b8d8ea]">{stop.date}</p>
                         <div>
                           <p className="text-sm font-black text-white">{stop.event}</p>
