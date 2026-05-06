@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Trophy } from "lucide-react";
 import SiteMark from "./SiteMark";
 
+const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
+
 export default function Championship() {
   return (
     <section className="relative overflow-hidden bg-[#071827] py-20 text-white md:py-28">
@@ -9,13 +11,19 @@ export default function Championship() {
       <SiteMark className="absolute -right-16 top-12 h-72 w-72 opacity-10" />
       <div className="section-shell relative grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div className="grid gap-4">
-          <div className="relative overflow-hidden rounded-lg border border-white/12 bg-white/8 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
+          <a
+            href={bestOfWestPost}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View GBC Huskies Best of the West Instagram post"
+            className="group relative overflow-hidden rounded-lg border border-white/12 bg-white/8 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.24)]"
+          >
             <Image
               src="/media/instagram/best-of-west-champs.jpg"
               alt="GBC Huskies championship team moment"
               width={750}
               height={750}
-              className="aspect-[4/3] w-full rounded-md object-cover"
+              className="aspect-[4/3] w-full rounded-md object-cover transition duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-x-3 bottom-3 rounded-md bg-[#071827]/88 p-4 backdrop-blur">
               <p className="text-xs font-black uppercase tracking-wide text-[#b8d8ea]">
@@ -23,7 +31,7 @@ export default function Championship() {
               </p>
               <p className="mt-1 text-lg font-black">Best of the West Gold Champions</p>
             </div>
-          </div>
+          </a>
           <div className="grid grid-cols-3 gap-3">
             {["Effort", "Team", "Toughness"].map((item) => (
               <div key={item} className="rounded-lg border border-white/12 bg-white/8 px-3 py-4 text-center text-sm font-black text-white">

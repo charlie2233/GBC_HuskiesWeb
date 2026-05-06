@@ -14,6 +14,9 @@ import SiteMark from "./SiteMark";
 const registrationForm =
   "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 
+const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
+const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
+
 const roadStops = [
   { date: "May 8-9", event: "SoCal Clash", location: "Corona" },
   { date: "May 15-17", event: "SoCal Live", location: "Anaheim" },
@@ -89,29 +92,41 @@ export default function Hero() {
           <div className="absolute -bottom-8 left-0 h-72 w-72 rounded-full bg-[#b8d8ea]/18 blur-3xl" aria-hidden />
           <div className="relative rounded-lg border border-white/14 bg-white/[0.07] p-3 shadow-[0_30px_90px_rgba(0,0,0,0.36)] backdrop-blur">
             <div className="grid gap-3 md:grid-cols-[0.82fr_1.18fr]">
-              <div className="relative overflow-hidden rounded-lg bg-white">
+              <a
+                href={bestOfWestPost}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View GBC Huskies Best of the West Instagram post"
+                className="group relative overflow-hidden rounded-lg bg-white"
+              >
                 <Image
                   src="/media/instagram/best-of-west-champs.jpg"
                   alt="GBC Huskies championship team photo"
                   width={750}
                   height={750}
                   priority
-                  className="h-full min-h-64 w-full object-cover"
+                  className="h-full min-h-64 w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/82 to-transparent p-4">
                   <p className="text-xs font-black uppercase tracking-wide text-[#b8d8ea]">Championship energy</p>
                   <p className="text-xl font-black">Best of the West</p>
                 </div>
-              </div>
+              </a>
               <div className="grid gap-3">
-                <div className="relative min-h-56 overflow-hidden rounded-lg bg-[#101820]">
+                <a
+                  href={westManiaPost}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View GBC Huskies MADE Hoops West Mania Instagram post"
+                  className="group relative min-h-56 overflow-hidden rounded-lg bg-[#101820]"
+                >
                   <Image
                     src="/media/instagram/made-hoops-west-mania.jpg"
                     alt="GBC Huskies 15U team at MADE Hoops West Mania"
                     width={750}
                     height={750}
                     priority
-                    className="h-full min-h-56 w-full object-cover"
+                    className="h-full min-h-56 w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071827]/92 via-[#071827]/22 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-4">
@@ -119,7 +134,7 @@ export default function Hero() {
                     <p className="text-2xl font-black leading-none">15U West Mania</p>
                     <p className="mt-2 text-sm font-semibold text-white/72">3-1 in division play</p>
                   </div>
-                </div>
+                </a>
                 <div className="rounded-lg border border-white/12 bg-[#071827] p-4">
                   <div className="mb-3 flex items-center justify-between gap-3">
                     <p className="font-display text-3xl leading-none">Next Road Stops</p>

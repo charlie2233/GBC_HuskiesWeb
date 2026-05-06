@@ -9,6 +9,8 @@ const tournaments = [
   { date: "July 11-12", event: "Vegas Summer Live S2", location: "Las Vegas, NV", note: "Finish the week" },
 ];
 
+const madeHoopsSchedulePost = "https://www.instagram.com/p/DXhlRQRjSLh/";
+
 const results = [
   {
     title: "MADE Hoops West Mania",
@@ -45,15 +47,21 @@ export default function Tournaments() {
           </div>
           <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-[#071827] p-3 shadow-[0_24px_68px_rgba(7,24,39,0.16)]">
             <div className="grid gap-3 sm:grid-cols-[0.7fr_1.3fr]">
-              <div className="overflow-hidden rounded-lg bg-white">
+              <a
+                href={madeHoopsSchedulePost}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View GBC Huskies MADE Hoops schedule Instagram post"
+                className="group overflow-hidden rounded-lg bg-white"
+              >
                 <Image
                   src="/media/instagram/made-hoops-rosters.jpg"
                   alt="GBC Huskies MADE Hoops summer schedule"
                   width={750}
                   height={750}
-                  className="aspect-[4/5] h-full w-full object-contain p-2"
+                  className="aspect-[4/5] h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105"
                 />
-              </div>
+              </a>
               <div className="grid content-between gap-4 p-3 text-white">
                 <div>
                   <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">
