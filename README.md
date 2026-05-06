@@ -19,6 +19,15 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site locally.
 
+## Live Site
+
+- Production: [https://gbchuskies.com](https://gbchuskies.com)
+- WWW: [https://www.gbchuskies.com](https://www.gbchuskies.com)
+- Vercel: [https://gbc-huskies-web.vercel.app](https://gbc-huskies-web.vercel.app)
+
+Keep [docs/deployment-status.md](docs/deployment-status.md) updated after every
+production deployment.
+
 ## Contact Form
 
 The form supports two modes:
@@ -28,7 +37,9 @@ The form supports two modes:
 
 ## Assets
 
-The repo includes branded vector placeholder graphics so the first version looks complete. Replace the placeholder SVGs in `public/brand` and `public/media` with approved GBC Huskies logo, team, training, tournament, and championship photos before a final public launch.
+The repo includes the GBC Huskies logo and selected public Instagram media under
+`public/media/instagram`. Use only approved player photos and videos on the
+public website.
 
 ## License
 
