@@ -29,8 +29,9 @@ export const metadata: Metadata = {
     "basketball skills development Orange County",
     "strength and conditioning basketball Orange County",
     "MADE Hoops basketball",
+    "13U AAU basketball",
     "14U AAU basketball",
-    "16U AAU basketball",
+    "15U AAU basketball",
     "Coca Cola Nationals 14U Champions",
   ],
   openGraph: {

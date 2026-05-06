@@ -2,12 +2,16 @@ import { ArrowRight, Users } from "lucide-react";
 
 const teams = [
   {
-    name: "14U / 8th Grade",
-    text: "Competitive AAU team focused on development, tournament play, and preparing athletes for higher-level competition.",
+    name: "13U",
+    text: "Development-focused AAU team experience for athletes building skills, confidence, and competitive habits.",
   },
   {
-    name: "16U",
-    text: "Upper-level team experience for players looking to compete in regional and national tournament settings.",
+    name: "14U",
+    text: "Competitive AAU team focused on tournament play, player growth, and preparing athletes for higher-level competition.",
+  },
+  {
+    name: "15U",
+    text: "Tournament-ready team experience for players looking to compete in regional and national settings.",
   },
 ];
 
@@ -21,7 +25,7 @@ export default function Teams() {
               Huskies Teams
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
-              GBC Huskies provides competitive team opportunities for athletes
+              GBC Huskies currently provides 13U-15U team opportunities for athletes
               ready to train, compete, and represent the program in tournament play.
             </p>
           </div>
@@ -31,7 +35,7 @@ export default function Teams() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           {teams.map((team) => (
             <article key={team.name} className="rounded-lg bg-white p-6 shadow-[0_18px_42px_rgba(7,24,39,0.08)]">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-lg bg-[#071827] text-[#b8d8ea]">
