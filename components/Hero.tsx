@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="section-shell relative grid min-h-[calc(84svh-80px)] items-center gap-10 py-8 md:grid-cols-[1.05fr_0.95fr] md:py-16">
         <div className="reveal relative z-10 max-w-3xl text-center md:text-left">
           <h1 className="font-display text-6xl leading-[0.88] sm:text-8xl lg:text-9xl">
-            GBC Huskies
+            GBC Huskies{" "}
             <span className="block text-[#b8d8ea]">Basketball</span>
           </h1>
           <p className="mt-5 max-w-2xl text-2xl font-black leading-tight text-white sm:text-4xl">

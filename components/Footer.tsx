@@ -14,23 +14,23 @@ export default function Footer() {
           </div>
         </div>
         <div className="grid gap-2 text-sm text-white/72 md:text-right">
-          <a href="mailto:gbchuskiesoc@gmail.com" className="hover:text-white">
+          <a href="mailto:gbchuskiesoc@gmail.com" className="text-[#ffffff]/72 hover:text-[#ffffff]">
             gbchuskiesoc@gmail.com
           </a>
-          <a href="https://www.instagram.com/gbc_huskies/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <a href="https://www.instagram.com/gbc_huskies/" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/72 hover:text-[#ffffff]">
             @gbc_huskies
           </a>
-          <a href="https://www.instagram.com/coachjaygill/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <a href="https://www.instagram.com/coachjaygill/" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/72 hover:text-[#ffffff]">
             Coach Jay: @coachjaygill
           </a>
-          <a href="https://gofund.me/192839eaa" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <a href="https://gofund.me/192839eaa" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/72 hover:text-[#ffffff]">
             https://gofund.me/192839eaa
           </a>
         </div>
       </div>
       <p className="mt-8 text-center text-[11px] text-white/35">
         created by{" "}
-        <a href="https://atrak.dev" target="_blank" rel="noopener noreferrer" className="underline decoration-white/25 underline-offset-4 transition hover:text-white">
+        <a href="https://atrak.dev" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/35 underline decoration-white/25 underline-offset-4 transition hover:text-[#ffffff]">
           atrak.dev
         </a>
       </p>

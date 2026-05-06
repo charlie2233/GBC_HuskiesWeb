@@ -35,7 +35,7 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
-a {
+a:not([class]) {
   color: inherit;
 }
 

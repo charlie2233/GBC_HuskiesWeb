@@ -42,7 +42,7 @@ export default function Navbar() {
         <button
           type="button"
           className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-lg border border-white/15 text-white md:hidden"
-          aria-label="Toggle menu"
+          aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
           onClick={() => setOpen((current) => !current)}
         >
