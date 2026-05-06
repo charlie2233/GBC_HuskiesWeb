@@ -1,0 +1,15 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="720" fill="#F4F6F8"/>
+  <rect x="54" y="56" width="612" height="608" rx="18" fill="#071827"/>
+  <path d="M98 156h524M98 282h524M98 408h524M98 534h524" stroke="#B8D8EA" stroke-opacity=".35" stroke-width="3"/>
+  <rect x="98" y="100" width="162" height="72" rx="8" fill="#D71920"/>
+  <text x="120" y="148" fill="#FFFFFF" font-size="34" font-family="Impact, Arial Black, sans-serif">MAY 8-9</text>
+  <text x="290" y="148" fill="#FFFFFF" font-size="42" font-family="Impact, Arial Black, sans-serif">SOCAL CLASH</text>
+  <text x="98" y="248" fill="#B8D8EA" font-size="36" font-family="Impact, Arial Black, sans-serif">MAY 15-17</text>
+  <text x="290" y="248" fill="#FFFFFF" font-size="42" font-family="Impact, Arial Black, sans-serif">SOCAL LIVE</text>
+  <text x="98" y="374" fill="#B8D8EA" font-size="36" font-family="Impact, Arial Black, sans-serif">JULY 2-3</text>
+  <text x="290" y="374" fill="#FFFFFF" font-size="38" font-family="Impact, Arial Black, sans-serif">SUMMER TUNE-UP</text>
+  <text x="98" y="500" fill="#B8D8EA" font-size="36" font-family="Impact, Arial Black, sans-serif">JULY 8-12</text>
+  <text x="290" y="500" fill="#FFFFFF" font-size="40" font-family="Impact, Arial Black, sans-serif">VEGAS LIVE</text>
+  <text x="98" y="614" fill="#D71920" font-size="54" font-family="Impact, Arial Black, sans-serif">TOURNAMENT SCHEDULE</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="720" fill="#101820"/>
+  <path d="M88 78h544v564H88z" fill="#071827" stroke="#B8D8EA" stroke-opacity=".45" stroke-width="5"/>
+  <path d="M88 230h544M88 490h544M360 78v564" stroke="#B8D8EA" stroke-opacity=".18" stroke-width="5"/>
+  <circle cx="360" cy="360" r="104" stroke="#D71920" stroke-width="12"/>
+  <path d="M245 430c33-73 75-110 126-110 62 0 98 47 111 140" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="371" cy="255" r="48" fill="#D71920"/>
+  <path d="M120 612h480" stroke="#D71920" stroke-width="18" stroke-linecap="round"/>
+  <text x="60" y="100" fill="#B8D8EA" font-size="38" font-family="Impact, Arial Black, sans-serif">TRAIN WITH PURPOSE</text>
+  <text x="60" y="664" fill="#FFFFFF" font-size="74" font-family="Impact, Arial Black, sans-serif">SKILLS DEVELOPMENT</text>
+</svg>

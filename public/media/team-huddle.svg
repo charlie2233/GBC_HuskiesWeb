@@ -1,0 +1,11 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="720" fill="#071827"/>
+  <path d="M0 110h720M0 360h720M0 610h720M110 0v720M360 0v720M610 0v720" stroke="#B8D8EA" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="360" cy="360" r="185" stroke="#B8D8EA" stroke-opacity=".22" stroke-width="10"/>
+  <circle cx="270" cy="300" r="54" fill="#D71920"/>
+  <circle cx="450" cy="300" r="54" fill="#B8D8EA"/>
+  <circle cx="360" cy="250" r="64" fill="#FFFFFF"/>
+  <path d="M185 560c20-107 79-162 175-162s155 55 175 162" fill="#101820" stroke="#D71920" stroke-width="16"/>
+  <text x="56" y="92" fill="#FFFFFF" font-size="42" font-family="Impact, Arial Black, sans-serif">GBC HUSKIES</text>
+  <text x="56" y="650" fill="#B8D8EA" font-size="92" font-family="Impact, Arial Black, sans-serif">TEAM FIRST</text>
+</svg>

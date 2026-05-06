@@ -1,0 +1,11 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="720" fill="#071827"/>
+  <circle cx="620" cy="120" r="168" fill="#D71920" fill-opacity=".22"/>
+  <circle cx="124" cy="602" r="180" fill="#B8D8EA" fill-opacity=".13"/>
+  <path d="M246 244h228l-44 92c-18 38-44 57-77 57s-59-19-77-57l-30-92Z" fill="#D71920"/>
+  <path d="M272 244c0-48 39-87 88-87s88 39 88 87" stroke="#B8D8EA" stroke-width="22"/>
+  <path d="M320 438h80M298 500h124" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <text x="60" y="118" fill="#B8D8EA" font-size="78" font-family="Impact, Arial Black, sans-serif">2025</text>
+  <text x="60" y="604" fill="#FFFFFF" font-size="82" font-family="Impact, Arial Black, sans-serif">14U CHAMPIONS</text>
+  <text x="60" y="660" fill="#B8D8EA" font-size="40" font-family="Impact, Arial Black, sans-serif">COCA COLA NATIONALS</text>
+</svg>

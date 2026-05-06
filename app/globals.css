@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #071827;
+  --dark: #101820;
+  --red: #d71920;
+  --ice-blue: #b8d8ea;
+  --white: #ffffff;
+  --light-gray: #f4f6f8;
+  --charcoal: #1f2933;
+  --ink: #09111c;
+  --line: rgba(7, 24, 39, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--white);
+  --color-foreground: var(--charcoal);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bebas);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--white);
+  color: var(--charcoal);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--white);
+}
+
+.font-display {
+  font-family: var(--font-bebas), Impact, sans-serif;
+}
+
+.court-texture {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 20% 10%, rgba(184, 216, 234, 0.22), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(215, 25, 32, 0.18), transparent 22%);
+  background-size:
+    36px 36px,
+    36px 36px,
+    auto,
+    auto;
+}
+
+.court-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.court-lines::before,
+.court-lines::after {
+  content: "";
+  position: absolute;
+  border: 2px solid rgba(184, 216, 234, 0.14);
+}
+
+.court-lines::before {
+  width: 420px;
+  height: 420px;
+  right: -110px;
+  top: 120px;
+  border-radius: 999px;
+}
+
+.court-lines::after {
+  width: 280px;
+  height: 180px;
+  left: -70px;
+  bottom: 110px;
+  border-radius: 0 0 140px 140px;
+  border-top: 0;
+}
+
+.section-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.reveal {
+  animation: rise-in 720ms ease both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    animation: none;
+  }
+}

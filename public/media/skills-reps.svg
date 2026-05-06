@@ -1,0 +1,10 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="720" fill="#071827"/>
+  <path d="M80 600C150 500 212 450 266 450c82 0 106 74 185 74 54 0 117-48 189-144" stroke="#D71920" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="236" cy="234" r="96" fill="#D71920"/>
+  <path d="M145 234h182M236 143v182M171 169c44 43 87 87 130 130M301 169 171 299" stroke="#071827" stroke-width="8"/>
+  <rect x="420" y="128" width="178" height="270" rx="8" stroke="#B8D8EA" stroke-width="10"/>
+  <path d="M420 240h178M510 128v270" stroke="#B8D8EA" stroke-opacity=".35" stroke-width="8"/>
+  <text x="56" y="632" fill="#FFFFFF" font-size="76" font-family="Impact, Arial Black, sans-serif">GAME-SPEED REPS</text>
+  <text x="56" y="678" fill="#B8D8EA" font-size="38" font-family="Impact, Arial Black, sans-serif">BALL HANDLING • SHOOTING • IQ</text>
+</svg>

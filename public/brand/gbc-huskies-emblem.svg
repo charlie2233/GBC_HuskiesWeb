@@ -1,0 +1,10 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="900" fill="#071827"/>
+  <circle cx="450" cy="450" r="330" fill="#101820" stroke="#B8D8EA" stroke-width="18"/>
+  <path d="M450 94 742 210v220c0 186-119 307-292 374-173-67-292-188-292-374V210L450 94Z" fill="#071827" stroke="#B8D8EA" stroke-width="24"/>
+  <path d="M234 285h432M214 438h472M300 660c39-53 89-80 150-80s111 27 150 80" stroke="#D71920" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="450" cy="438" r="157" stroke="#B8D8EA" stroke-width="18"/>
+  <path d="M450 281c-51 57-77 109-77 157s26 100 77 157c51-57 77-109 77-157S501 338 450 281Z" stroke="#B8D8EA" stroke-width="18"/>
+  <text x="450" y="418" text-anchor="middle" fill="#FFFFFF" font-size="190" font-family="Impact, Arial Black, sans-serif">GBC</text>
+  <text x="450" y="546" text-anchor="middle" fill="#FFFFFF" font-size="118" font-family="Impact, Arial Black, sans-serif">HUSKIES</text>
+</svg>
