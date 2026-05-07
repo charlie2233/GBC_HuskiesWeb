@@ -1,4 +1,5 @@
 import { ArrowRight, FileText, Phone, Users } from "lucide-react";
+import { coachPhoneHref, registrationFormUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const teams = [
@@ -15,9 +16,6 @@ const teams = [
     text: "Tournament-ready team experience for players looking to compete in regional and national settings.",
   },
 ];
-
-const registrationForm =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 
 export default function Teams() {
   return (
@@ -46,16 +44,20 @@ export default function Teams() {
 
         <div className="mt-8 grid gap-3 rounded-lg border border-[#071827]/12 bg-white p-4 shadow-[0_14px_34px_rgba(7,24,39,0.06)] sm:grid-cols-2">
           <a
-            href={registrationForm}
+            href={registrationFormUrl}
             target="_blank"
             rel="noopener noreferrer"
+            data-analytics-event="click_join_program"
+            data-analytics-label="Teams section registration form"
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
           >
             <FileText size={18} aria-hidden />
             Registration Form
           </a>
           <a
-            href="tel:+16572530078"
+            href={coachPhoneHref}
+            data-analytics-event="click_phone"
+            data-analytics-label="Teams section phone"
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#071827]/18 px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#071827]"
           >
             <Phone size={18} aria-hidden />
@@ -72,7 +74,9 @@ export default function Teams() {
               <h3 className="font-display text-5xl leading-none text-[#071827]">{team.name}</h3>
               <p className="mt-4 text-base leading-7 text-[#1f2933]/78">{team.text}</p>
               <a
-                href="#contact"
+                href="/contact"
+                data-analytics-event="click_contact"
+                data-analytics-label={`Ask about ${team.name}`}
                 className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
               >
                 Ask About This Team

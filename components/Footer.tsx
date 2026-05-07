@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { coachInstagramUrl, contactEmail, goFundMeUrl, instagramUrl, mainRoutes } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
@@ -18,26 +19,48 @@ export default function Footer() {
           </div>
         </div>
         <div className="grid gap-2 text-sm text-white/72 md:text-right">
-          <Link href="/payments" className="text-[#ffffff]/72 hover:text-[#ffffff]">
-            Payments
-          </Link>
-          <Link href="/store" className="text-[#ffffff]/72 hover:text-[#ffffff]">
-            Team Store
-          </Link>
-          <Link href="/reviews" className="text-[#ffffff]/72 hover:text-[#ffffff]">
-            Reviews
-          </Link>
-          <a href="mailto:gbchuskiesoc@gmail.com" className="text-[#ffffff]/72 hover:text-[#ffffff]">
-            gbchuskiesoc@gmail.com
+          {mainRoutes.map((route) => (
+            <Link key={route.path} href={route.path} className="text-[#ffffff]/72 hover:text-[#ffffff]">
+              {route.label}
+            </Link>
+          ))}
+          <a
+            href={`mailto:${contactEmail}`}
+            data-analytics-event="click_email"
+            data-analytics-label="Footer email"
+            className="text-[#ffffff]/72 hover:text-[#ffffff]"
+          >
+            {contactEmail}
           </a>
-          <a href="https://www.instagram.com/gbc_huskies/" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/72 hover:text-[#ffffff]">
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="click_instagram"
+            data-analytics-label="Footer Instagram"
+            className="text-[#ffffff]/72 hover:text-[#ffffff]"
+          >
             @gbc_huskies
           </a>
-          <a href="https://www.instagram.com/coachjaygill/" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/72 hover:text-[#ffffff]">
+          <a
+            href={coachInstagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="click_instagram"
+            data-analytics-label="Footer Coach Jay Instagram"
+            className="text-[#ffffff]/72 hover:text-[#ffffff]"
+          >
             Coach Jay: @coachjaygill
           </a>
-          <a href="https://gofund.me/192839eaa" target="_blank" rel="noopener noreferrer" className="text-[#ffffff]/72 hover:text-[#ffffff]">
-            https://gofund.me/192839eaa
+          <a
+            href={goFundMeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="click_payment_donation"
+            data-analytics-label="Footer GoFundMe"
+            className="text-[#ffffff]/72 hover:text-[#ffffff]"
+          >
+            {goFundMeUrl}
           </a>
         </div>
       </div>

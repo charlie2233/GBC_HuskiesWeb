@@ -4,21 +4,16 @@ import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
-import { reviewFormUrl, siteUrl, testimonials } from "@/lib/siteConfig";
+import BrandName from "@/components/BrandName";
+import { buildMetadata } from "@/lib/metadata";
+import { reviewFormUrl, testimonials } from "@/lib/siteConfig";
 
-export const metadata: Metadata = {
-  title: "Parent & Player Reviews | GBC Huskies Basketball",
+export const metadata: Metadata = buildMetadata({
+  title: "GBC Huskies Reviews | Parent & Player Testimonials",
   description:
-    "Read placeholder parent and player reviews for GBC Huskies and learn what information the review form will collect.",
-  alternates: {
-    canonical: "/reviews",
-  },
-  openGraph: {
-    title: "Parent & Player Reviews",
-    description: "Parent and player review area for GBC Huskies Basketball.",
-    url: `${siteUrl}/reviews`,
-  },
-};
+    "Read parent and player reviews about the GBC Huskies youth basketball program, training, player development, teamwork, and coaching experience.",
+  path: "/reviews",
+});
 
 const reviewQuestions = [
   "Parent/player name",
@@ -37,6 +32,11 @@ export default function ReviewsPage() {
           eyebrow="Program feedback"
           title="Parent & Player Reviews"
           description="A review area for families and players to share what the GBC Huskies program has meant for their development, confidence, and tournament experience."
+          note={
+            <>
+              <BrandName /> displays testimonials only when families give permission.
+            </>
+          }
         />
 
         <section className="bg-[#f4f6f8] py-16 md:py-24">
@@ -89,6 +89,8 @@ export default function ReviewsPage() {
                   href={reviewFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics-event="click_review_form"
+                  data-analytics-label="Reviews page leave a review"
                   className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
                 >
                   Leave a Review

@@ -2,12 +2,9 @@
 
 import { FormEvent, useState } from "react";
 import { FileText, Mail, Phone, Send } from "lucide-react";
+import { coachPhoneDisplay, coachPhoneHref, contactEmail, registrationFormUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
-const CONTACT_EMAIL = "gbchuskiesoc@gmail.com";
-const COACH_PHONE = "657-253-0078";
-const REGISTRATION_FORM =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 const interestTypes = [
   "Joining a team",
   "Skills development",
@@ -56,7 +53,7 @@ export default function ContactForm() {
         ];
         const subject = encodeURIComponent("GBC Huskies Website Inquiry");
         const body = encodeURIComponent(lines.join("\n"));
-        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
       }
 
       form.reset();
@@ -80,23 +77,29 @@ export default function ContactForm() {
           </p>
           <div className="mt-8 grid gap-3">
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={`mailto:${contactEmail}`}
+              data-analytics-event="click_email"
+              data-analytics-label="Contact section email"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/32 bg-white/8 px-5 font-extrabold text-white transition hover:bg-white/14"
             >
               <Mail size={19} aria-hidden />
-              {CONTACT_EMAIL}
+              {contactEmail}
             </a>
             <a
-              href="tel:+16572530078"
+              href={coachPhoneHref}
+              data-analytics-event="click_phone"
+              data-analytics-label="Contact section phone"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/32 bg-white/8 px-5 font-extrabold text-white transition hover:bg-white/14"
             >
               <Phone size={19} aria-hidden />
-              Call/Text Coach Jay: {COACH_PHONE}
+              Call/Text Coach Jay: {coachPhoneDisplay}
             </a>
             <a
-              href={REGISTRATION_FORM}
+              href={registrationFormUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="click_join_program"
+              data-analytics-label="Contact section registration form"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:bg-[#f02a31]"
             >
               <FileText size={19} aria-hidden />
@@ -153,6 +156,8 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "sending"}
+            data-analytics-event="click_contact"
+            data-analytics-label="Contact form send message"
             className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:bg-[#f02a31] disabled:cursor-not-allowed disabled:opacity-65 sm:w-auto"
           >
             <Send size={18} aria-hidden />
@@ -167,7 +172,7 @@ export default function ContactForm() {
           ) : null}
           {status === "error" ? (
             <p className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
-              Something went wrong. Please email {CONTACT_EMAIL} directly.
+              Something went wrong. Please email {contactEmail} directly.
             </p>
           ) : null}
         </form>

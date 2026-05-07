@@ -16,6 +16,8 @@ export default function Championship() {
             href={bestOfWestPost}
             target="_blank"
             rel="noopener noreferrer"
+            data-analytics-event="click_instagram"
+            data-analytics-label="Championship Instagram post"
             aria-label="View GBC Huskies Best of the West Instagram post"
             className="group relative overflow-hidden rounded-lg border border-white/12 bg-white/8 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.24)]"
           >

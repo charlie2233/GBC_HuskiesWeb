@@ -3,21 +3,11 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { mainRoutes } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
-const navItems = [
-  { label: "About", href: "/#about" },
-  { label: "Skills", href: "/#skills" },
-  { label: "Teams", href: "/#teams" },
-  { label: "Tournaments", href: "/#tournaments" },
-  { label: "Media", href: "/#media" },
-  { label: "Payments", href: "/payments" },
-  { label: "Team Store", href: "/store" },
-  { label: "Reviews", href: "/reviews" },
-  { label: "Support", href: "/#support" },
-  { label: "Contact", href: "/#contact" },
-];
+const navItems = mainRoutes.filter((route) => route.path !== "/privacy");
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,12 +22,14 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-4 text-sm font-semibold lg:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-white/82 transition hover:text-white">
+            <Link key={item.path} href={item.path} className="text-white/82 transition hover:text-white">
               {item.label}
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="/contact"
+            data-analytics-event="click_join_program"
+            data-analytics-label="Desktop nav join the Huskies"
             className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 text-sm font-extrabold text-white shadow-[0_14px_28px_rgba(215,25,32,0.28)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
           >
             Join the Huskies
@@ -60,8 +52,8 @@ export default function Navbar() {
           <div className="section-shell grid gap-2 py-4">
             {navItems.map((item) => (
               <Link
-                key={item.href}
-                href={item.href}
+                key={item.path}
+                href={item.path}
                 className="rounded-lg px-3 py-3 text-base font-semibold text-white/88"
                 onClick={() => setOpen(false)}
               >
@@ -69,7 +61,9 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/#contact"
+              href="/contact"
+              data-analytics-event="click_join_program"
+              data-analytics-label="Mobile nav join the Huskies"
               className="mt-2 inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white"
               onClick={() => setOpen(false)}
             >

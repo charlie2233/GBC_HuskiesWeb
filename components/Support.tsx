@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, BadgeDollarSign, HeartHandshake } from "lucide-react";
+import { goFundMeUrl } from "@/lib/siteConfig";
 
 const tiers = [
   { name: "Friend of the Huskies", amount: "$100+", recognition: "Website thank-you" },
@@ -44,16 +45,20 @@ export default function Support() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="https://gofund.me/192839eaa"
+              href={goFundMeUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="click_payment_donation"
+              data-analytics-label="Support section GoFundMe"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
             >
               Donate Through GoFundMe
               <ArrowRight size={18} aria-hidden />
             </a>
             <a
-              href="#contact"
+              href="/contact"
+              data-analytics-event="click_contact"
+              data-analytics-label="Support section become a sponsor"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#071827]/18 px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#071827]"
             >
               Become a Sponsor
@@ -88,7 +93,14 @@ export default function Support() {
             </div>
             <div className="mt-4 flex flex-col gap-3 text-sm font-bold text-white/74 sm:flex-row sm:items-center sm:justify-between">
               <span>{fundraiser.donations} donations so far</span>
-              <a href="https://gofund.me/192839eaa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white transition hover:text-[#b8d8ea]">
+              <a
+                href={goFundMeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics-event="click_payment_donation"
+                data-analytics-label="Support card Help the Huskies"
+                className="inline-flex items-center gap-2 text-white transition hover:text-[#b8d8ea]"
+              >
                 Help the Huskies
                 <ArrowRight size={16} aria-hidden />
               </a>

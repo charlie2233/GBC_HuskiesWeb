@@ -39,7 +39,9 @@ export default function Tournaments() {
               moments where the team standard has to travel too.
             </p>
             <a
-              href="#contact"
+              href="/contact"
+              data-analytics-event="click_contact"
+              data-analytics-label="Tournaments section contact"
               className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-6 font-extrabold text-white shadow-[0_18px_34px_rgba(215,25,32,0.22)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
             >
               Ask About Tournament Teams
@@ -52,6 +54,8 @@ export default function Tournaments() {
                 href={madeHoopsSchedulePost}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics-event="click_instagram"
+                data-analytics-label="Tournaments MADE Hoops schedule Instagram"
                 aria-label="View GBC Huskies MADE Hoops schedule Instagram post"
                 className="group overflow-hidden rounded-lg bg-white"
               >

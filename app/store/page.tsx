@@ -5,21 +5,16 @@ import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import PaymentLinkButton from "@/components/PaymentLinkButton";
-import { siteUrl, storeItems } from "@/lib/siteConfig";
+import BrandName from "@/components/BrandName";
+import { buildMetadata } from "@/lib/metadata";
+import { storeItems } from "@/lib/siteConfig";
 
-export const metadata: Metadata = {
-  title: "GBC Huskies Team Store | Merch & Gear",
+export const metadata: Metadata = buildMetadata({
+  title: "GBC Huskies Team Store | Basketball Merch & Team Gear",
   description:
-    "Browse placeholder GBC Huskies merch and gear items. Stripe Payment Links can be added later for direct online orders.",
-  alternates: {
-    canonical: "/store",
-  },
-  openGraph: {
-    title: "GBC Huskies Team Store",
-    description: "GBC Huskies merch and team gear payment-link store.",
-    url: `${siteUrl}/store`,
-  },
-};
+    "Shop GBC Huskies team gear, basketball merchandise, uniforms, hoodies, shirts, shorts, and player apparel.",
+  path: "/store",
+});
 
 export default function StorePage() {
   return (
@@ -30,6 +25,11 @@ export default function StorePage() {
           eyebrow="Team gear"
           title="Team Store"
           description="Order team merch, uniforms, and gear through payment links. Items are placeholders until the coach confirms products, prices, inventory, and Stripe links."
+          note={
+            <>
+              <BrandName /> team store orders use Stripe-hosted checkout when payment links are enabled.
+            </>
+          }
         />
 
         <section className="bg-white py-16 md:py-24">
@@ -60,7 +60,12 @@ export default function StorePage() {
                         Sizes: {item.sizes}
                       </p>
                     </div>
-                    <PaymentLinkButton href={item.url} className="mt-5 w-full">
+                    <PaymentLinkButton
+                      href={item.url}
+                      className="mt-5 w-full"
+                      analyticsEvent="click_store_item"
+                      analyticsLabel={item.name}
+                    >
                       Order / Pay
                     </PaymentLinkButton>
                   </div>

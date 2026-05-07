@@ -21,6 +21,8 @@ export default function ReviewsPreview() {
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/reviews"
+                data-analytics-event="click_reviews_page"
+                data-analytics-label="Homepage view reviews"
                 className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
               >
                 View Reviews
@@ -30,6 +32,8 @@ export default function ReviewsPreview() {
                   href={reviewFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics-event="click_review_form"
+                  data-analytics-label="Homepage leave a review"
                   className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
                 >
                   Leave a Review

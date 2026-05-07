@@ -1,15 +1,15 @@
 import Link from "next/link";
-import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
 type PageHeaderProps = {
   eyebrow: string;
   title: string;
   description: string;
+  note?: React.ReactNode;
   children?: React.ReactNode;
 };
 
-export default function PageHeader({ eyebrow, title, description, children }: PageHeaderProps) {
+export default function PageHeader({ eyebrow, title, description, note, children }: PageHeaderProps) {
   const hasGbcPrefix = title.toLowerCase().startsWith("gbc ");
 
   return (
@@ -33,18 +33,24 @@ export default function PageHeader({ eyebrow, title, description, children }: Pa
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/payments"
+              data-analytics-event="click_payment_page"
+              data-analytics-label="Page header make a payment"
               className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
             >
               Make a Payment
             </Link>
             <Link
               href="/store"
+              data-analytics-event="click_store_page"
+              data-analytics-label="Page header team store"
               className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#b8d8ea]/35 bg-white/8 px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/14"
             >
               Team Store
             </Link>
             <Link
               href="/reviews"
+              data-analytics-event="click_reviews_page"
+              data-analytics-label="Page header reviews"
               className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#b8d8ea]/35 bg-white/8 px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/14"
             >
               Reviews
@@ -58,9 +64,11 @@ export default function PageHeader({ eyebrow, title, description, children }: Pa
         </div>
       </div>
       {children}
-      <p className="section-shell relative z-10 mt-10 text-xs font-semibold uppercase tracking-[0.16em] text-white/42">
-        <BrandName /> secure payment links use Stripe-hosted checkout when enabled.
-      </p>
+      {note ? (
+        <p className="section-shell relative z-10 mt-10 text-xs font-semibold uppercase tracking-[0.16em] text-white/42">
+          {note}
+        </p>
+      ) : null}
     </section>
   );
 }

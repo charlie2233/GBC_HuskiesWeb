@@ -5,23 +5,26 @@ import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import PaymentLinkButton from "@/components/PaymentLinkButton";
-import { paymentItems, siteUrl } from "@/lib/siteConfig";
+import BrandName from "@/components/BrandName";
+import { buildMetadata } from "@/lib/metadata";
+import { paymentItems } from "@/lib/siteConfig";
 
-export const metadata: Metadata = {
-  title: "GBC Huskies Payments | Secure Team Payments",
+export const metadata: Metadata = buildMetadata({
+  title: "GBC Huskies Payments | Team Fees, Donations & Team Store",
   description:
-    "Pay GBC Huskies team fees, tournament fees, monthly payments, donations, merch, and custom payments through secure public payment links.",
-  alternates: {
-    canonical: "/payments",
-  },
-  openGraph: {
-    title: "GBC Huskies Payments",
-    description: "Secure public payment links for GBC Huskies families and supporters.",
-    url: `${siteUrl}/payments`,
-  },
-};
+    "Make secure online payments for GBC Huskies team fees, tournament fees, donations, merchandise, and monthly payments through official team payment links.",
+  path: "/payments",
+});
 
 const icons = [BadgeDollarSign, CalendarDays, Repeat2, HeartHandshake, ShoppingBag, CreditCard];
+const paymentEvents = [
+  "click_payment_team_fee",
+  "click_payment_tournament_fee",
+  "click_payment_monthly",
+  "click_payment_donation",
+  "click_payment_merch",
+  "click_payment_custom",
+];
 
 export default function PaymentsPage() {
   return (
@@ -32,6 +35,11 @@ export default function PaymentsPage() {
           eyebrow="Secure parent payments"
           title="GBC Huskies Payments"
           description="Parents and supporters can pay team fees, tournament fees, donations, merch, or monthly payments through secure payment links once the coach provides them."
+          note={
+            <>
+              <BrandName /> secure payment links use Stripe-hosted checkout when enabled.
+            </>
+          }
         />
 
         <section className="bg-[#f4f6f8] py-16 md:py-24">
@@ -57,7 +65,12 @@ export default function PaymentsPage() {
                       <h2 className="font-display text-4xl leading-none text-[#071827]">{item.title}</h2>
                       <p className="mt-3 text-sm font-semibold leading-6 text-[#1f2933]/72">{item.description}</p>
                     </div>
-                    <PaymentLinkButton href={item.url} className="mt-6 w-full">
+                    <PaymentLinkButton
+                      href={item.url}
+                      className="mt-6 w-full"
+                      analyticsEvent={paymentEvents[index]}
+                      analyticsLabel={item.title}
+                    >
                       {item.buttonText}
                     </PaymentLinkButton>
                   </article>

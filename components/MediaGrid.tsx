@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, AtSign, ExternalLink, Play, UserRound } from "lucide-react";
+import { coachInstagramUrl, instagramUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const media = [
@@ -75,18 +76,22 @@ export default function MediaGrid() {
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
               <a
-                href="https://www.instagram.com/gbc_huskies/"
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics-event="click_instagram"
+                data-analytics-label="Media section Instagram"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
               >
                 <AtSign size={19} aria-hidden />
                 Instagram @gbc_huskies
               </a>
               <a
-                href="https://www.instagram.com/coachjaygill/"
+                href={coachInstagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-analytics-event="click_instagram"
+                data-analytics-label="Media section Coach Jay"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/24 bg-white/[0.055] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:border-[#b8d8ea]/50"
               >
                 <UserRound size={19} aria-hidden />
@@ -103,6 +108,8 @@ export default function MediaGrid() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-analytics-event="click_instagram"
+                  data-analytics-label={item.label}
                   className={`media-tile group relative overflow-hidden rounded-lg ${item.bg} shadow-[0_18px_42px_rgba(0,0,0,0.22)]`}
                 >
                   <Image

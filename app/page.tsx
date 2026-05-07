@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import About from "@/components/About";
 import Championship from "@/components/Championship";
 import ContactForm from "@/components/ContactForm";
@@ -14,6 +15,14 @@ import StrengthConditioning from "@/components/StrengthConditioning";
 import Support from "@/components/Support";
 import Teams from "@/components/Teams";
 import Tournaments from "@/components/Tournaments";
+import { buildMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildMetadata({
+  title: "GBC Huskies | Youth Basketball Program & Player Development",
+  description:
+    "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.",
+  path: "/",
+});
 
 export default function Home() {
   return (

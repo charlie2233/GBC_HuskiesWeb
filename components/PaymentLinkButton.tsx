@@ -4,9 +4,17 @@ type PaymentLinkButtonProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
+  analyticsEvent?: string;
+  analyticsLabel?: string;
 };
 
-export default function PaymentLinkButton({ href, children, className = "" }: PaymentLinkButtonProps) {
+export default function PaymentLinkButton({
+  href,
+  children,
+  className = "",
+  analyticsEvent,
+  analyticsLabel,
+}: PaymentLinkButtonProps) {
   if (!href) {
     return (
       <button
@@ -25,6 +33,9 @@ export default function PaymentLinkButton({ href, children, className = "" }: Pa
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      data-analytics-event={analyticsEvent}
+      data-analytics-label={analyticsLabel}
+      data-analytics-category="payment"
       className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white shadow-[0_14px_28px_rgba(215,25,32,0.2)] transition hover:-translate-y-0.5 hover:bg-[#f02a31] ${className}`}
     >
       {children}

@@ -57,10 +57,25 @@ NEXT_PUBLIC_STRIPE_MONTHLY_PAYMENT_URL=
 NEXT_PUBLIC_STRIPE_DONATION_URL=
 NEXT_PUBLIC_STRIPE_MERCH_URL=
 NEXT_PUBLIC_REVIEW_FORM_URL=
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
 
 See `.env.example` for optional custom-payment and item-specific merch links.
 If a link is blank, the related button displays `Coming Soon`.
+
+## SEO and Analytics
+
+The site includes crawlable App Router pages for `/about`, `/training`,
+`/teams`, `/payments`, `/store`, `/reviews`, `/contact`, and `/privacy`, plus
+generated `/sitemap.xml` and `/robots.txt`.
+
+Google Analytics 4 is optional. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel
+to load the Google tag. If the value is blank, analytics scripts are not loaded.
+CTA clicks are tagged with safe event names only; the site does not track card
+numbers, bank info, tax info, SSNs, Stripe passwords, or private payment data.
+
+See `docs/seo-and-analytics-plan.md` for the Search Console, GA4, Google
+Business Profile, social linking, backlinks, and content checklist.
 
 ## Assets
 

@@ -1,4 +1,32 @@
 export const siteUrl = "https://gbchuskies.com";
+export const siteName = "GBC Huskies Basketball";
+export const organizationName = "GBC Huskies";
+export const siteDescription =
+  "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.";
+export const logoPath = "/brand/gbc-huskies-circle-logo.png";
+export const logoUrl = `${siteUrl}${logoPath}`;
+export const ogImageUrl = logoUrl;
+export const contactEmail = "gbchuskiesoc@gmail.com";
+export const coachPhoneDisplay = "657-253-0078";
+export const coachPhoneHref = "tel:+16572530078";
+export const areaServed = "Orange County, CA";
+export const instagramUrl = "https://www.instagram.com/gbc_huskies/";
+export const coachInstagramUrl = "https://www.instagram.com/coachjaygill/";
+export const goFundMeUrl = "https://gofund.me/192839eaa";
+export const registrationFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
+
+export const mainRoutes = [
+  { path: "/", label: "Home", priority: 1 },
+  { path: "/about", label: "About", priority: 0.88 },
+  { path: "/training", label: "Training", priority: 0.86 },
+  { path: "/teams", label: "Teams", priority: 0.84 },
+  { path: "/payments", label: "Payments", priority: 0.78 },
+  { path: "/store", label: "Team Store", priority: 0.72 },
+  { path: "/reviews", label: "Reviews", priority: 0.72 },
+  { path: "/contact", label: "Contact", priority: 0.82 },
+  { path: "/privacy", label: "Privacy", priority: 0.42 },
+];
 
 export const paymentItems = [
   {
@@ -84,6 +112,7 @@ export const storeItems = [
 ];
 
 export const reviewFormUrl = process.env.NEXT_PUBLIC_REVIEW_FORM_URL || "";
+export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 export const testimonials = [
   {
@@ -105,4 +134,3 @@ export const testimonials = [
       "The training environment is serious but supportive, with a real focus on habits that translate to games.",
   },
 ];
-

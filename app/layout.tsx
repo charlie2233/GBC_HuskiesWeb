@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import StructuredData from "@/components/StructuredData";
+import { buildMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,35 +21,12 @@ const bebas = Bebas_Neue({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gbchuskies.com"),
-  title: "GBC Huskies Basketball | Orange County AAU Basketball Program",
-  description:
-    "GBC Huskies is an Orange County AAU basketball program focused on skills development, strength & conditioning, and local/national tournament competition.",
-  keywords: [
-    "GBC Huskies",
-    "GBC Huskies Basketball",
-    "Gilliam Basketball Club",
-    "Orange County AAU basketball",
-    "AAU basketball Orange County",
-    "youth basketball training Orange County",
-    "basketball skills development Orange County",
-    "strength and conditioning basketball Orange County",
-    "MADE Hoops basketball",
-    "13U AAU basketball",
-    "14U AAU basketball",
-    "15U AAU basketball",
-    "Coca Cola Nationals 14U Champions",
-  ],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "GBC Huskies Basketball",
+  ...buildMetadata({
+    title: "GBC Huskies | Youth Basketball Program & Player Development",
     description:
-      "Developing players. Building teams. Competing nationally.",
-    type: "website",
-    url: "https://gbchuskies.com",
-    siteName: "GBC Huskies Basketball",
-  },
+      "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.",
+    path: "/",
+  }),
 };
 
 export const viewport: Viewport = {
@@ -59,7 +40,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
-      <body>{children}</body>
+      <body>
+        <StructuredData />
+        {children}
+        <GoogleAnalytics />
+        <AnalyticsEvents />
+      </body>
     </html>
   );
 }

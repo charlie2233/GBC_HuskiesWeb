@@ -9,7 +9,7 @@ export default function SiteMark({ compact = false, className = "" }: SiteMarkPr
   return (
     <Image
       src="/brand/gbc-huskies-circle-logo.png?v=20260506-road-season"
-      alt="Gilliam Basketball Club Huskies circular logo"
+      alt="GBC Huskies basketball program logo"
       width={compact ? 204 : 408}
       height={compact ? 204 : 408}
       className={`object-contain ${className}`}

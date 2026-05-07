@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin, Trophy } from "lucide-react";
+import { goFundMeUrl, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
-
-const registrationForm =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 
 const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
@@ -47,9 +45,11 @@ export default function Hero() {
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
             <a
-              href={registrationForm}
+              href={registrationFormUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="click_join_program"
+              data-analytics-label="Hero register for season"
               className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#d71920] px-6 text-base font-extrabold text-white shadow-[0_18px_38px_rgba(215,25,32,0.3)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
             >
               <span className="hero-ball-icon" aria-hidden />
@@ -58,6 +58,8 @@ export default function Hero() {
             </a>
             <a
               href="#tournaments"
+              data-analytics-event="click_join_program"
+              data-analytics-label="Hero view event run"
               className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-[#b8d8ea]/35 bg-[#06111d]/72 px-6 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/12"
             >
               <CalendarDays size={19} aria-hidden />
@@ -92,6 +94,8 @@ export default function Hero() {
             href={westManiaPost}
             target="_blank"
             rel="noopener noreferrer"
+            data-analytics-event="click_instagram"
+            data-analytics-label="Hero MADE Hoops Instagram post"
             aria-label="View GBC Huskies MADE Hoops West Mania Instagram post"
             className="hero-photo-card hero-photo-card-back group"
           >
@@ -114,6 +118,8 @@ export default function Hero() {
             href={bestOfWestPost}
             target="_blank"
             rel="noopener noreferrer"
+            data-analytics-event="click_instagram"
+            data-analytics-label="Hero championship Instagram post"
             aria-label="View GBC Huskies championship Instagram post"
             className="hero-photo-card hero-photo-card-front group"
           >
@@ -146,6 +152,8 @@ export default function Hero() {
                 <a
                   key={stop.event}
                   href="#tournaments"
+                  data-analytics-event="click_join_program"
+                  data-analytics-label={`Hero road stop ${stop.event}`}
                   className="road-stop-row grid grid-cols-[104px_1fr] items-center gap-4 rounded-lg border border-white/12 bg-white/[0.055] px-4 py-3 transition hover:border-[#b8d8ea]/38 hover:bg-white/[0.09]"
                 >
                   <span className="flex items-center gap-2 text-xs font-black uppercase text-[#b8d8ea]">
@@ -165,9 +173,11 @@ export default function Hero() {
           </div>
 
           <a
-            href="https://gofund.me/192839eaa"
+            href={goFundMeUrl}
             target="_blank"
             rel="noopener noreferrer"
+            data-analytics-event="click_payment_donation"
+            data-analytics-label="Hero support season"
             className="support-chip hidden min-h-12 items-center justify-center gap-2 rounded-lg border border-[#d71920]/48 bg-[#071827]/78 px-4 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_18px_38px_rgba(0,0,0,0.22)] transition hover:bg-[#d71920] lg:inline-flex"
           >
             <HeartHandshake size={18} aria-hidden />
