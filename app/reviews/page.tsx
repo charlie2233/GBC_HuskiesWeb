@@ -16,11 +16,14 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const reviewQuestions = [
-  "Parent/player name",
+  "Parent/guardian name",
+  "Parent email",
+  "Player name",
   "Player grade/team",
   "Rating",
   "Testimonial or review message",
   "Permission to display the review on the website",
+  "Display preference: full name, first name only, or anonymous",
 ];
 
 export default function ReviewsPage() {
@@ -34,7 +37,7 @@ export default function ReviewsPage() {
           description="A review area for families and players to share what the GBC Huskies program has meant for their development, confidence, and tournament experience."
           note={
             <>
-              <BrandName /> displays testimonials only when families give permission.
+              <BrandName /> displays testimonials only when families give permission and the coach approves them.
             </>
           }
         />
@@ -74,7 +77,9 @@ export default function ReviewsPage() {
                 <h2 className="font-display text-5xl leading-none">Leave a Review</h2>
                 <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-white/68">
                   The review form should collect the basics needed to safely publish
-                  testimonials only when permission is given.
+                  testimonials only when permission is given. Submissions should be
+                  reviewed manually before they appear on the website, and families
+                  can choose anonymous display.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {reviewQuestions.map((question) => (
@@ -89,7 +94,8 @@ export default function ReviewsPage() {
                   href={reviewFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-analytics-event="click_review_form"
+                  data-analytics-event="click_leave_review"
+                  data-analytics-events="click_review_form"
                   data-analytics-label="Reviews page leave a review"
                   className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
                 >

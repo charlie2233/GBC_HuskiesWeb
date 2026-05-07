@@ -52,18 +52,25 @@ export default function AnalyticsEvents() {
         return;
       }
 
-      const eventName = trackedElement.dataset.analyticsEvent;
+      const eventNames = [
+        trackedElement.dataset.analyticsEvent,
+        ...(trackedElement.dataset.analyticsEvents?.split(/[,\s]+/) ?? []),
+      ].filter((eventName): eventName is string => Boolean(eventName));
 
-      if (!eventName) {
+      if (!eventNames.length) {
         return;
       }
 
-      trackEvent(eventName, {
+      const params = {
         event_category: trackedElement.dataset.analyticsCategory || "cta",
         event_label:
           trackedElement.dataset.analyticsLabel ||
           trackedElement.textContent?.trim().replace(/\s+/g, " ").slice(0, 120),
         link_url: anchor?.href || trackedElement.dataset.analyticsHref,
+      };
+
+      Array.from(new Set(eventNames)).forEach((eventName) => {
+        trackEvent(eventName, params);
       });
     }
 

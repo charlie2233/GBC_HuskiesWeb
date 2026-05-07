@@ -16,7 +16,8 @@ export default function ReviewsPreview() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/76">
               Share the development, culture, and tournament experience families
-              feel inside the GBC Huskies program.
+              feel inside the GBC Huskies program. Reviews are displayed only
+              after permission and coach approval.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -32,7 +33,8 @@ export default function ReviewsPreview() {
                   href={reviewFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-analytics-event="click_review_form"
+                  data-analytics-event="click_leave_review"
+                  data-analytics-events="click_review_form"
                   data-analytics-label="Homepage leave a review"
                   className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
                 >

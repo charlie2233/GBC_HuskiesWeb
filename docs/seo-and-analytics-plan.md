@@ -41,6 +41,8 @@ Tracked click events include:
 - `click_payment_merch`
 - `click_store_item`
 - `click_review_form`
+- `click_reviews_page`
+- `click_leave_review`
 - `click_contact`
 - `click_email`
 - `click_phone`
@@ -75,6 +77,28 @@ https://gbchuskies.com/payments?utm_source=coach&utm_medium=dm&utm_campaign=paym
 - Add tryout announcements.
 - Add parent/player testimonials with permission.
 - Add team photos with accurate captions and approved public use.
+
+## Parent Reviews Manual Approval
+
+Use a form tool such as Google Forms, Jotform, or another approved intake tool.
+Set the public form URL in `NEXT_PUBLIC_REVIEW_FORM_URL`. Do not auto-publish
+submissions. The coach should review every testimonial before it appears on the
+website.
+
+Suggested review fields:
+
+- Parent/guardian name.
+- Parent email.
+- Player name.
+- Player grade/team.
+- Rating.
+- Review/testimonial message.
+- Permission to display review on website.
+- Display preference: full name, first name only, or anonymous.
+
+Only display player personal information when the family has clearly approved
+it. Anonymous display is supported by using labels such as `GBC Parent`,
+`Player Parent`, or `GBC Family`.
 
 ## Coach TODOs
 

@@ -63,6 +63,10 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 See `.env.example` for optional custom-payment and item-specific merch links.
 If a link is blank, the related button displays `Coming Soon`.
 
+Displayed testimonials live in `lib/siteConfig.ts` and are editable placeholders
+until real reviews are manually approved. Do not auto-publish review form
+submissions. Families can choose anonymous display.
+
 ## SEO and Analytics
 
 The site includes crawlable App Router pages for `/about`, `/training`,

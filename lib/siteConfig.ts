@@ -114,23 +114,25 @@ export const storeItems = [
 export const reviewFormUrl = process.env.NEXT_PUBLIC_REVIEW_FORM_URL || "";
 export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
+// Editable placeholder testimonials. Replace only after a parent/player submits
+// a review, grants display permission, and the coach manually approves it.
 export const testimonials = [
   {
-    name: "Huskies Parent",
-    detail: "14U family",
+    name: "GBC Parent",
+    detail: "Anonymous placeholder",
     quote:
-      "The program has helped our player grow in confidence, discipline, and understanding of the game.",
+      "GBC has helped my son grow in confidence, discipline, and understanding of the game.",
   },
   {
-    name: "Player Review",
-    detail: "Tournament team",
+    name: "Player Parent",
+    detail: "Anonymous placeholder",
     quote:
-      "Practices are competitive, the standards are clear, and every tournament feels like a chance to prove the work.",
+      "The program focuses on fundamentals, teamwork, and accountability.",
   },
   {
-    name: "Huskies Family",
-    detail: "Skills development",
+    name: "GBC Family",
+    detail: "Anonymous placeholder",
     quote:
-      "The training environment is serious but supportive, with a real focus on habits that translate to games.",
+      "The coaches care about player development on and off the court.",
   },
 ];
