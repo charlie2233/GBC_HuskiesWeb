@@ -2,7 +2,7 @@ export const siteUrl = "https://gbchuskies.com";
 export const siteName = "GBC Huskies Basketball";
 export const organizationName = "GBC Huskies";
 export const siteDescription =
-  "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.";
+  "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, work ethic, and helping athletes grow on and off the court.";
 export const logoPath = "/brand/gbc-huskies-circle-logo.png";
 export const logoUrl = `${siteUrl}${logoPath}`;
 export const ogImageUrl = logoUrl;
@@ -15,6 +15,19 @@ export const coachInstagramUrl = "https://www.instagram.com/coachjaygill/";
 export const goFundMeUrl = "https://gofund.me/192839eaa";
 export const registrationFormUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
+
+export const programStatements = {
+  mission:
+    "The goal of the program is to teach the fundamentals of basketball so each player can become efficient in all areas of the game. With structure and attention to detail, our focus is to maximize each player's potential while instilling work ethic, teamwork, and sportsmanship. Through basketball, we aspire to have a positive impact on youth by teaching life skills and the importance of serving the community.",
+  vision:
+    "To be recognized as a top youth basketball program by placing our athletes and their parents' experience at the forefront of our program goals. By combining a high-quality basketball experience with structure and organization, we want our athletes to grow as both players and people, inspiring them to do great things both on and off the basketball court.",
+  about:
+    "Our program is designed to emphasize fundamental basketball skills through gameplay and training tailored to each individual's needs and skill level. We take pride in studying the trends of today's game and implementing them into our training. Through attention to detail, our goal is to improve basketball skills for athletes who possess a passion for the game and a willingness to learn.",
+  values:
+    "We emphasize fundamental skill and work to ensure each player is given the best opportunity to grow their game. Through structure, we highlight each player's strengths and challenge them to excel in many different areas while teaching the importance of teamwork, discipline, work ethic, and sportsmanship.",
+  slogan: "DEFENSE",
+  sloganMeaning: "Demanding Excellence From Everyone No Selfish Exceptions",
+};
 
 export const mainRoutes = [
   { path: "/", label: "Home", priority: 1 },

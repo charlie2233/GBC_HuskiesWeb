@@ -90,6 +90,11 @@ The repo includes the GBC Huskies logo and selected public Instagram media under
 `public/media/instagram`. Use only approved player photos and videos on the
 public website.
 
+## Program Copy
+
+Mission, vision, about, values, and the `DEFENSE` slogan live in
+`lib/siteConfig.ts` as `programStatements`.
+
 ## License
 
 MIT

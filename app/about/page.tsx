@@ -1,35 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, HeartHandshake, ShieldCheck, UsersRound } from "lucide-react";
-import About from "@/components/About";
 import BrandName from "@/components/BrandName";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import { buildMetadata } from "@/lib/metadata";
+import { programStatements } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
   title: "About GBC Huskies | Mission, Vision & Youth Basketball Values",
   description:
-    "Learn about the GBC Huskies mission, vision, values, and player development approach. Our program teaches basketball fundamentals, discipline, teamwork, work ethic, and sportsmanship.",
+    "Learn about the GBC Huskies mission, vision, values, DEFENSE slogan, and player development approach built around fundamentals, discipline, teamwork, work ethic, sportsmanship, and life skills.",
   path: "/about",
 });
 
 const values = [
   {
     title: "Mission",
-    text: "Help young athletes grow through basketball fundamentals, athlete development, teamwork, discipline, sportsmanship, and consistent work ethic.",
+    text: programStatements.mission,
     icon: ShieldCheck,
   },
   {
     title: "Vision",
-    text: "Build a serious youth basketball program where players learn how to train, compete, and carry strong habits on and off the court.",
+    text: programStatements.vision,
     icon: HeartHandshake,
   },
   {
     title: "Values",
-    text: "Team-first effort, coachability, accountability, toughness, player confidence, and respect for every practice and tournament opportunity.",
+    text: programStatements.values,
     icon: UsersRound,
   },
 ];
@@ -52,15 +52,14 @@ export default function AboutPage() {
 
         <section className="bg-white py-16 md:py-24">
           <div className="section-shell">
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
               <h2 className="font-display text-6xl leading-none text-[#071827] md:text-7xl">
-                Youth Basketball With Real Standards
+                Mission, Vision, and Values
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#1f2933]/78">
-                <BrandName /> gives families a program focused on basketball
-                player development, team basketball training, competitive habits,
-                and the kind of athlete development that asks players to keep
-                growing after practice ends.
+                <BrandName /> is built around structure, attention to detail,
+                fundamental skill, player growth, and helping young athletes
+                become better players and people.
               </p>
             </div>
 
@@ -74,6 +73,23 @@ export default function AboutPage() {
                   <p className="mt-3 text-sm font-semibold leading-6 text-[#1f2933]/72">{text}</p>
                 </article>
               ))}
+            </div>
+
+            <div className="mt-8 grid gap-4 rounded-lg bg-[#071827] p-5 text-white md:grid-cols-[1fr_0.7fr] md:p-7">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-[#b8d8ea]">About the program</p>
+                <p className="mt-4 text-base font-semibold leading-7 text-white/78">
+                  {programStatements.about}
+                </p>
+              </div>
+              <div className="rounded-lg border border-[#b8d8ea]/18 bg-white/8 p-5">
+                <p className="font-display text-6xl leading-none text-[#d71920]">
+                  {programStatements.slogan}
+                </p>
+                <p className="mt-3 text-xl font-black leading-7 text-white">
+                  {programStatements.sloganMeaning}
+                </p>
+              </div>
             </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -95,8 +111,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        <About />
       </main>
       <Footer />
       <MobileStickyCTA />

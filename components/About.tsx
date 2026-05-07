@@ -1,20 +1,21 @@
 import { Brain, ShieldCheck, UsersRound } from "lucide-react";
+import { programStatements } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const pillars = [
   {
     title: "Development",
-    text: "Building fundamentals, confidence, basketball IQ, and game-ready skills.",
+    text: "Teaching fundamental basketball skills through game play, training, and attention to detail.",
     icon: Brain,
   },
   {
-    title: "Competition",
-    text: "Giving players real tournament experience against strong competition.",
+    title: "Structure",
+    text: "Maximizing each player's potential through organization, standards, and consistent habits.",
     icon: ShieldCheck,
   },
   {
-    title: "Culture",
-    text: "Creating a team-first environment based on effort, accountability, and growth.",
+    title: "Life Skills",
+    text: "Building work ethic, teamwork, sportsmanship, discipline, and service to the community.",
     icon: UsersRound,
   },
 ];
@@ -28,15 +29,21 @@ export default function About() {
             Built for Development and Competition
           </h2>
           <p className="mt-6 text-lg leading-8 text-[#1f2933]/80">
-            <BrandName /> is an Orange County-based AAU basketball program
-            focused on developing young athletes through skills training,
-            strength & conditioning, competitive team play, and local/national
-            tournament competition.
+            <BrandName /> is designed to emphasize fundamental basketball
+            skills through gameplay and training tailored to each athlete&apos;s
+            needs and skill level.
           </p>
           <p className="mt-4 text-lg leading-8 text-[#1f2933]/80">
-            The program is built around discipline, teamwork, player growth, and
-            preparing athletes to compete at higher levels.
+            {programStatements.mission}
           </p>
+          <div className="mt-6 rounded-lg border border-[#071827]/12 bg-white p-5">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#d71920]">
+              {programStatements.slogan}
+            </p>
+            <p className="mt-2 text-lg font-black leading-7 text-[#071827]">
+              {programStatements.sloganMeaning}
+            </p>
+          </div>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-1">
