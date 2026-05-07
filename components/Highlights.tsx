@@ -1,73 +1,50 @@
-import { CalendarDays, HeartHandshake, Medal, Shirt, Trophy, Users } from "lucide-react";
+import { CalendarDays, Dumbbell, Heart, Target, Trophy } from "lucide-react";
 
 const highlights = [
   {
-    title: "Roster Call",
-    stat: "13U-15U",
-    text: "Spring/summer MADE Hoops roster building is active.",
-    icon: Users,
+    title: "Skills Development",
+    text: "Fundamentals. IQ. Repetition.",
+    icon: Target,
   },
   {
-    title: "Road Events",
-    stat: "5 stops",
-    text: "Corona, Anaheim, and Las Vegas tournament weekends.",
+    title: "Strength & Conditioning",
+    text: "Train smart. Compete harder.",
+    icon: Dumbbell,
+  },
+  {
+    title: "MADE Hoops Events",
+    text: "Compete against the best.",
     icon: CalendarDays,
   },
   {
-    title: "Recent Result",
-    stat: "15U",
-    text: "3-1 in division play at MADE Hoops West Mania.",
-    icon: Medal,
+    title: "2025 Coca Cola Nationals",
+    text: "14U Champions.",
+    icon: Trophy,
   },
   {
-    title: "Team Standard",
-    stat: "All in",
-    text: "Effort, accountability, toughness, and togetherness.",
-    icon: Shirt,
-  },
-  {
-    title: "Support Run",
-    stat: "70%",
-    text: "GoFundMe support helps with fees, travel, and program needs.",
-    icon: HeartHandshake,
+    title: "Support Our Season",
+    text: "Help us get to every court.",
+    icon: Heart,
   },
 ];
 
 export default function Highlights() {
   return (
-    <section aria-label="GBC Huskies season pulse" className="relative overflow-hidden bg-[#06111d] py-10 text-white">
-      <div className="absolute inset-x-0 top-0 h-px bg-[#b8d8ea]/28" aria-hidden />
-      <div className="absolute left-0 top-0 h-full w-1/3 bg-[linear-gradient(110deg,rgba(215,25,32,0.18),transparent_66%)]" aria-hidden />
-      <div className="section-shell relative">
-        <div className="mb-4 flex items-end justify-between gap-5">
-          <div>
-            <h2 className="font-display text-4xl leading-none text-white md:text-5xl">
-              Season Pulse
-            </h2>
-            <p className="mt-2 text-sm font-semibold leading-6 text-white/64">
-              The quick read on where the Huskies are competing, building, and rallying support.
-            </p>
-          </div>
-          <div className="hidden items-center gap-2 rounded-lg border border-white/12 bg-white/8 px-4 py-3 text-sm font-black text-white md:flex">
-            <Trophy size={18} className="text-[#d71920]" aria-hidden />
-            2025 14U National Champions
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-        {highlights.map(({ title, stat, text, icon: Icon }) => (
-          <article
+    <section aria-label="GBC Huskies program highlights" className="hero-feature-strip relative overflow-hidden text-white">
+      <div className="section-shell relative grid gap-0 sm:grid-cols-2 lg:grid-cols-5">
+        {highlights.map(({ title, text, icon: Icon }) => (
+          <a
             key={title}
-            className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] p-4 shadow-[0_18px_36px_rgba(0,0,0,0.18)]"
+            href={title === "Support Our Season" ? "#support" : title === "MADE Hoops Events" ? "#tournaments" : "#contact"}
+            className="feature-strip-item group flex min-h-24 items-center gap-4 border-white/10 px-4 py-4 transition hover:bg-white/[0.06] sm:border-r"
           >
-            <div className="absolute inset-x-0 top-0 h-1 bg-[#d71920] transition group-hover:bg-[#b8d8ea]" aria-hidden />
-            <div className="absolute inset-y-0 right-0 w-10 bg-[linear-gradient(90deg,transparent,rgba(184,216,234,0.08))]" aria-hidden />
-            <Icon className="mb-5 h-7 w-7 text-[#d71920]" aria-hidden />
-            <p className="font-display text-4xl leading-none text-[#b8d8ea]">{stat}</p>
-            <h3 className="mt-2 text-base font-black text-white">{title}</h3>
-            <p className="mt-2 text-sm leading-6 text-white/64">{text}</p>
-          </article>
+            <Icon className="h-8 w-8 shrink-0 text-[#b8d8ea] transition group-hover:text-[#d71920]" aria-hidden />
+            <span>
+              <span className="block text-xs font-black uppercase tracking-[0.06em] text-white">{title}</span>
+              <span className="mt-1 block text-xs font-semibold leading-5 text-white/62">{text}</span>
+            </span>
+          </a>
         ))}
-        </div>
       </div>
     </section>
   );

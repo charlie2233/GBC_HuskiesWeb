@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AtSign, ExternalLink, Play, UserRound } from "lucide-react";
+import { ArrowRight, AtSign, ExternalLink, Play, UserRound } from "lucide-react";
 import BrandName from "./BrandName";
 
 const media = [
@@ -61,72 +61,75 @@ const media = [
 
 export default function MediaGrid() {
   return (
-    <section id="media" className="bg-[#f4f6f8] py-20 md:py-28">
+    <section id="media" className="latest-media-section py-16 text-white md:py-20">
       <div className="section-shell">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-6xl leading-none text-[#071827] md:text-7xl">
-              Follow the Huskies
+        <div className="grid gap-8 lg:grid-cols-[0.38fr_1fr] lg:items-start">
+          <div className="max-w-xl">
+            <h2 className="flex items-center gap-3 font-display text-6xl leading-none text-white md:text-7xl">
+              Latest Media
+              <ArrowRight className="h-10 w-10 text-[#d71920] md:h-12 md:w-12" aria-hidden />
             </h2>
-            <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
+            <p className="mt-5 text-base leading-7 text-white/68 md:text-lg md:leading-8">
               Stay connected with <BrandName /> for team updates, tournament
               schedules, highlights, photos, videos, and program announcements.
             </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <a
+                href="https://www.instagram.com/gbc_huskies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
+              >
+                <AtSign size={19} aria-hidden />
+                Instagram @gbc_huskies
+              </a>
+              <a
+                href="https://www.instagram.com/coachjaygill/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#b8d8ea]/24 bg-white/[0.055] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:border-[#b8d8ea]/50"
+              >
+                <UserRound size={19} aria-hidden />
+                Coach Jay
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
-            <a
-              href="https://www.instagram.com/gbc_huskies/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#071827] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#10243a]"
-            >
-              <AtSign size={19} aria-hidden />
-              Instagram @gbc_huskies
-            </a>
-            <a
-              href="https://www.instagram.com/coachjaygill/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#071827]/18 px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#071827]"
-            >
-              <UserRound size={19} aria-hidden />
-              Coach Jay
-            </a>
-          </div>
-        </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
-          {media.map((item, index) => (
-            <a
-              key={item.src}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative overflow-hidden rounded-lg ${item.bg} shadow-[0_18px_42px_rgba(7,24,39,0.12)]`}
-            >
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={720}
-                height={720}
-                className={`aspect-square h-full w-full ${item.fit === "contain" ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-105`}
-              />
-              <div className="absolute inset-x-0 bottom-0 flex min-h-16 items-center justify-between bg-gradient-to-t from-black/80 to-transparent px-4 pb-4 pt-8 text-white">
-                <span>
-                  <span className="block text-[11px] font-black uppercase tracking-wide text-[#b8d8ea]">
-                    {item.tag}
-                  </span>
-                  <span className="block text-sm font-black">{item.label}</span>
-                </span>
-                {index === 4 ? <Play size={18} aria-hidden /> : <ExternalLink size={17} aria-hidden />}
-              </div>
-            </a>
-          ))}
+          <div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
+              {media.map((item, index) => (
+                <a
+                  key={item.src}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`media-tile group relative overflow-hidden rounded-lg ${item.bg} shadow-[0_18px_42px_rgba(0,0,0,0.22)]`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={720}
+                    height={720}
+                    className={`aspect-square h-full w-full ${item.fit === "contain" ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-105`}
+                  />
+                  <div className="absolute inset-x-0 bottom-0 flex min-h-16 items-center justify-between bg-gradient-to-t from-black/84 to-transparent px-4 pb-4 pt-8 text-white">
+                    <span>
+                      <span className="block text-[11px] font-black uppercase tracking-wide text-[#b8d8ea]">
+                        {item.tag}
+                      </span>
+                      <span className="block text-sm font-black">{item.label}</span>
+                    </span>
+                    {index === 4 ? <Play size={18} aria-hidden /> : <ExternalLink size={17} aria-hidden />}
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="mt-5 text-sm leading-6 text-white/50">
+              Media sourced from public @gbc_huskies Instagram posts. Use only
+              approved player photos and videos on the public website.
+            </p>
+          </div>
         </div>
-        <p className="mt-5 text-sm leading-6 text-[#1f2933]/64">
-          Media sourced from public @gbc_huskies Instagram posts. Use only approved
-          player photos and videos on the public website.
-        </p>
       </div>
     </section>
   );

@@ -58,10 +58,10 @@ textarea {
 .court-texture,
 .home-arena {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    radial-gradient(circle at 20% 10%, rgba(184, 216, 234, 0.22), transparent 28%),
-    radial-gradient(circle at 80% 20%, rgba(215, 25, 32, 0.18), transparent 22%);
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 20% 12%, rgba(184, 216, 234, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(215, 25, 32, 0.13), transparent 26%);
   background-size:
     36px 36px,
     36px 36px,
@@ -70,16 +70,18 @@ textarea {
 }
 
 .home-arena {
-  background-color: #071827;
+  background-color: #020b12;
   background-image:
-    linear-gradient(105deg, rgba(215, 25, 32, 0.18) 0 1.5px, transparent 1.5px 15%),
-    linear-gradient(115deg, transparent 0 60%, rgba(184, 216, 234, 0.1) 60% 60.35%, transparent 60.35%),
+    linear-gradient(110deg, rgba(215, 25, 32, 0.22) 0 1.5px, transparent 1.5px 16%),
+    linear-gradient(126deg, transparent 0 57%, rgba(184, 216, 234, 0.13) 57% 57.35%, transparent 57.35%),
+    radial-gradient(circle at 20% 24%, rgba(184, 216, 234, 0.13), transparent 35%),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 112px),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.032) 0 1px, transparent 1px 46px),
-    linear-gradient(180deg, #0b2235 0%, #071827 45%, #06111d 100%);
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.032) 0 1px, transparent 1px 48px),
+    linear-gradient(180deg, #061421 0%, #03101b 55%, #02080d 100%);
   background-size:
     100% 100%,
     100% 100%,
+    auto,
     auto,
     auto,
     auto;
@@ -91,28 +93,31 @@ textarea {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(215, 25, 32, 0.24), transparent 34%),
-    linear-gradient(140deg, transparent 0 58%, rgba(215, 25, 32, 0.13) 58% 58.75%, transparent 58.75%),
-    repeating-linear-gradient(26deg, rgba(184, 216, 234, 0.075) 0 1px, transparent 1px 24px);
-  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.86) 72%, transparent 100%);
+    linear-gradient(90deg, rgba(215, 25, 32, 0.18), transparent 31%),
+    linear-gradient(140deg, transparent 0 60%, rgba(215, 25, 32, 0.15) 60% 60.7%, transparent 60.7%),
+    repeating-linear-gradient(26deg, rgba(184, 216, 234, 0.06) 0 1px, transparent 1px 20px),
+    radial-gradient(circle at 70% 72%, rgba(215, 25, 32, 0.16), transparent 28%);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.9) 78%, transparent 100%);
 }
 
 .home-arena::after {
   content: "";
   position: absolute;
-  right: max(16px, calc((100vw - 1120px) / 2));
-  bottom: -72px;
-  width: clamp(220px, 32vw, 460px);
+  left: max(-140px, calc((100vw - 1240px) / 2 - 210px));
+  top: 14px;
+  width: clamp(280px, 34vw, 560px);
   aspect-ratio: 1;
-  background-image: url("/brand/gbc-huskies-emblem.svg");
+  background-image: url("/brand/gbc-huskies-circle-logo.png?v=20260506-road-season");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.035;
+  filter: grayscale(1) contrast(1.2) brightness(0.82);
+  opacity: 0.12;
   pointer-events: none;
 }
 
-.court-lines {
+.court-lines,
+.road-map-lines {
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -120,84 +125,384 @@ textarea {
 }
 
 .court-lines::before,
-.court-lines::after {
+.court-lines::after,
+.road-map-lines::before,
+.road-map-lines::after {
   content: "";
   position: absolute;
-  border: 2px solid rgba(184, 216, 234, 0.14);
 }
 
 .court-lines::before {
-  width: 420px;
-  height: 420px;
-  right: -110px;
-  top: 120px;
+  left: -255px;
+  top: 86px;
+  width: 620px;
+  height: 620px;
+  border: 3px solid rgba(184, 216, 234, 0.16);
   border-radius: 999px;
 }
 
 .court-lines::after {
-  width: 280px;
-  height: 180px;
-  left: -70px;
-  bottom: 110px;
-  border-radius: 0 0 140px 140px;
-  border-top: 0;
+  left: -66px;
+  bottom: -85px;
+  width: 210px;
+  height: 620px;
+  background: rgba(215, 25, 32, 0.72);
+  opacity: 0.74;
+  transform: rotate(-22deg);
 }
 
-.route-line {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.route-line::before {
-  content: "";
-  position: absolute;
-  right: 13%;
+.road-map-lines::before {
+  right: 7%;
   top: 8%;
-  width: min(54vw, 640px);
-  height: min(52vw, 560px);
-  border: 2px solid rgba(184, 216, 234, 0.16);
+  width: min(54vw, 690px);
+  height: min(52vw, 590px);
+  border: 2px solid rgba(184, 216, 234, 0.11);
   border-left-color: transparent;
-  border-bottom-color: rgba(215, 25, 32, 0.24);
+  border-bottom-color: rgba(215, 25, 32, 0.2);
   border-radius: 50%;
   transform: rotate(-12deg);
 }
 
-.route-line::after {
-  content: "";
-  position: absolute;
-  left: 10%;
-  bottom: 6%;
-  width: 38%;
+.road-map-lines::after {
+  right: 0;
+  bottom: 9%;
+  width: 42%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184, 216, 234, 0.42), transparent);
+  background: linear-gradient(90deg, transparent, rgba(184, 216, 234, 0.38), transparent);
   transform: rotate(-28deg);
 }
 
-.event-board {
+.hero-preview-shell::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 216, 234, 0.24), transparent);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(5.4rem, 9vw, 8.6rem);
+  text-shadow: 0 12px 24px rgba(0, 0, 0, 0.34);
+}
+
+.hero-red-swipe {
+  width: clamp(170px, 24vw, 300px);
+  height: 7px;
+  background: #d71920;
+  clip-path: polygon(0 0, 100% 17%, 94% 100%, 0 100%);
+  box-shadow: 110px 9px 0 rgba(215, 25, 32, 0.32);
+}
+
+.hero-ball-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.hero-ball-icon::before,
+.hero-ball-icon::after {
+  content: "";
+  position: absolute;
+  inset: 3px 7px;
+  width: 2px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.hero-ball-icon::after {
+  inset: 7px 3px;
+  width: auto;
+  height: 2px;
+}
+
+.hero-collage {
+  isolation: isolate;
+}
+
+.made-stamp,
+.ms-stamp,
+.road-season-mark {
+  position: absolute;
+  z-index: 0;
+  font-family: var(--font-bebas), Impact, sans-serif;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.made-stamp {
+  left: 30%;
+  top: 0;
+  color: rgba(184, 216, 234, 0.24);
+  line-height: 0.78;
+  transform: rotate(-0.5deg);
+}
+
+.made-stamp span {
+  display: block;
+  font-size: clamp(6.2rem, 11vw, 10.8rem);
+}
+
+.made-stamp small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
+  line-height: 0.8;
+}
+
+.ms-stamp {
+  right: 5%;
+  top: 0;
+  color: rgba(255, 255, 255, 0.15);
+  font-size: clamp(10rem, 16vw, 15.2rem);
+  line-height: 0.64;
+  letter-spacing: 0;
+}
+
+.ms-stamp span {
+  display: block;
+}
+
+.road-season-mark {
+  right: 0;
+  top: 3%;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 3.35rem;
+  line-height: 0.72;
+  transform: rotate(-5deg);
+}
+
+.road-season-mark span {
+  display: block;
+  margin-top: 0.65rem;
+  color: #d71920;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.travel-route {
+  position: absolute;
+  right: -2%;
+  top: 25%;
+  z-index: 1;
+  width: 150px;
+  height: 420px;
+  pointer-events: none;
+}
+
+.travel-route span {
+  position: absolute;
+  left: 54px;
+  top: 72px;
+  width: 92px;
+  height: 260px;
+  border-left: 8px dotted rgba(184, 216, 234, 0.92);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+}
+
+.route-pin {
+  position: absolute;
+  color: #b8d8ea;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.35));
+}
+
+.route-pin-top {
+  right: 36px;
+  top: 0;
+}
+
+.route-pin-bottom {
+  right: 0;
+  bottom: 0;
+}
+
+.hero-photo-card {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  overflow: hidden;
+  color: #071827;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.44);
+}
+
+.hero-photo-card-back {
+  left: 22%;
+  top: 24%;
+  width: 53%;
+  height: 44%;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.76);
+  background: #071827;
+  transform: rotate(4deg);
+}
+
+.card-meta-top {
+  position: absolute;
+  inset: 8px 16px auto;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.74);
+}
+
+.card-year {
+  position: absolute;
+  left: 12px;
+  top: 72px;
+  color: #d71920;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  writing-mode: vertical-rl;
+}
+
+.hero-photo-card-front {
+  left: 13%;
+  top: 47%;
+  width: 44%;
+  height: 43%;
+  padding: 10px 10px 68px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: #f1efe7;
+  transform: rotate(-5deg);
+}
+
+.hero-photo-card-front > img {
+  height: calc(100% - 2px);
+}
+
+.polaroid-caption {
+  position: absolute;
+  inset: auto 16px 13px;
+  color: #071827;
+  font-size: 1.12rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+}
+
+.polaroid-caption span,
+.polaroid-caption strong {
+  display: block;
+}
+
+.polaroid-caption strong {
+  margin-top: 0.42rem;
+  color: #d71920;
+  font-size: 1.22rem;
+}
+
+.hero-crown-sketch {
+  position: absolute;
+  left: 5%;
+  top: 45%;
+  z-index: 4;
+  color: #d71920;
+  fill: none;
+  stroke-width: 1.8;
+  transform: rotate(-14deg);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
+}
+
+.next-road-card {
+  position: absolute;
+  right: 5%;
+  bottom: 13%;
+  z-index: 5;
+  width: 45%;
+  min-width: 330px;
+  border: 1px solid rgba(184, 216, 234, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(184, 216, 234, 0.08), transparent 42%),
+    rgba(6, 17, 29, 0.9);
+  padding: 22px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(12px);
+}
+
+.red-marker {
+  display: block;
+  width: 150px;
+  height: 5px;
+  margin-top: 0.4rem;
+  background: #d71920;
+  clip-path: polygon(0 34%, 100% 0, 94% 100%, 0 86%);
+}
+
+.road-stop-row {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.support-chip {
+  position: absolute;
+  right: 6%;
+  bottom: 1%;
+  z-index: 6;
+}
+
+.collage-logo-watermark {
+  position: absolute;
+  left: 2%;
+  bottom: 5%;
+  z-index: 1;
+  width: 92px;
+  height: 92px;
+  opacity: 0.12;
+  filter: grayscale(1);
+}
+
+.hero-feature-strip {
+  border-top: 1px solid rgba(184, 216, 234, 0.18);
+  border-bottom: 1px solid rgba(184, 216, 234, 0.14);
+  background:
+    linear-gradient(90deg, rgba(184, 216, 234, 0.08), transparent 28%, rgba(215, 25, 32, 0.12) 75%, transparent),
+    #06111d;
+}
+
+.feature-strip-item {
   position: relative;
 }
 
-.event-board::before {
+.feature-strip-item::after {
   content: "";
   position: absolute;
-  inset: -14px;
-  border: 1px solid rgba(184, 216, 234, 0.16);
-  border-radius: 16px;
-  pointer-events: none;
-  transform: rotate(-1.5deg);
+  right: 0;
+  top: 22%;
+  width: 1px;
+  height: 56%;
+  background: rgba(184, 216, 234, 0.24);
 }
 
-.event-board::after {
+.feature-strip-item:last-child::before {
   content: "";
-  position: absolute;
-  inset: 12px -10px auto auto;
-  width: 46%;
-  height: 4px;
+  width: 3px;
+  height: 46px;
+  margin-right: 14px;
   background: #d71920;
-  pointer-events: none;
-  transform: rotate(5deg);
-  box-shadow: 0 12px 0 rgba(184, 216, 234, 0.42);
+}
+
+.latest-media-section {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(184, 216, 234, 0.12), transparent 27%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.032) 0 1px, transparent 1px 92px),
+    #020b12;
+}
+
+.media-tile {
+  border: 1px solid rgba(184, 216, 234, 0.18);
 }
 
 .paper-grain {
@@ -207,12 +512,170 @@ textarea {
 }
 
 .section-shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1240px, calc(100% - 32px));
   margin-inline: auto;
 }
 
 .reveal {
   animation: rise-in 720ms ease both;
+}
+
+@media (max-width: 1023px) {
+  .hero-title {
+    font-size: clamp(5.2rem, 16vw, 8rem);
+  }
+
+  .hero-collage {
+    height: 620px;
+    max-width: 680px;
+  }
+
+  .made-stamp {
+    left: 20%;
+  }
+
+  .next-road-card {
+    right: 2%;
+    min-width: 310px;
+  }
+
+  .travel-route {
+    right: -6%;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-arena::after {
+    left: 50%;
+    top: 12px;
+    width: 300px;
+    transform: translateX(-50%);
+    opacity: 0.08;
+  }
+
+  .court-lines::before {
+    left: -235px;
+    top: 74px;
+    width: 420px;
+    height: 420px;
+  }
+
+  .court-lines::after {
+    left: -112px;
+    bottom: 18%;
+    width: 118px;
+    height: 420px;
+  }
+
+  .hero-preview-shell {
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(4.85rem, 20vw, 6.2rem);
+  }
+
+  .hero-collage {
+    height: 630px;
+    max-width: 410px;
+  }
+
+  .made-stamp {
+    left: 7%;
+    top: 4%;
+    opacity: 0.62;
+  }
+
+  .made-stamp span {
+    font-size: 5.4rem;
+  }
+
+  .made-stamp small {
+    font-size: 1.7rem;
+  }
+
+  .ms-stamp {
+    right: 5%;
+    top: 4%;
+    font-size: 8rem;
+    opacity: 0.72;
+  }
+
+  .road-season-mark {
+    right: 4%;
+    top: 3%;
+    font-size: 2.55rem;
+  }
+
+  .travel-route {
+    display: none;
+  }
+
+  .hero-photo-card-back {
+    left: 10%;
+    top: 20%;
+    width: 82%;
+    height: 214px;
+  }
+
+  .hero-photo-card-front {
+    left: 3%;
+    top: 40%;
+    width: 72%;
+    height: 270px;
+    padding-bottom: 58px;
+  }
+
+  .polaroid-caption {
+    bottom: 11px;
+    font-size: 0.95rem;
+  }
+
+  .polaroid-caption strong {
+    font-size: 1.06rem;
+  }
+
+  .hero-crown-sketch {
+    left: 0;
+    top: 38%;
+    width: 58px;
+    height: 58px;
+  }
+
+  .next-road-card {
+    left: 8%;
+    right: auto;
+    bottom: 0;
+    width: 88%;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .road-stop-row {
+    grid-template-columns: 88px 1fr;
+    gap: 12px;
+    padding: 0.75rem;
+  }
+
+  .collage-logo-watermark {
+    display: none;
+  }
+
+  .hero-feature-strip .section-shell {
+    width: 100%;
+  }
+
+  .feature-strip-item {
+    border-bottom: 1px solid rgba(184, 216, 234, 0.12);
+  }
+
+  .feature-strip-item::after {
+    display: none;
+  }
+
+  .feature-strip-item:last-child::before {
+    height: 36px;
+  }
 }
 
 @keyframes rise-in {

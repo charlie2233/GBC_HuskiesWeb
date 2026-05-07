@@ -20,13 +20,13 @@ export default function Home() {
       <main className="overflow-hidden pb-24 md:pb-0">
         <Hero />
         <Highlights />
+        <MediaGrid />
         <About />
         <Skills />
         <StrengthConditioning />
         <Teams />
         <Tournaments />
         <Championship />
-        <MediaGrid />
         <Support />
         <ContactForm />
       </main>
