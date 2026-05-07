@@ -16,6 +16,18 @@ export const goFundMeUrl = "https://gofund.me/192839eaa";
 export const registrationFormUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 
+export const coachProfile = {
+  name: "Jayson Gilliam",
+  displayName: "Coach Jay",
+  title: "Head Coach",
+  image: "/media/instagram/aau-club-team.jpg",
+  imageAlt:
+    "GBC Huskies Instagram program graphic with Coach J contact information and Orange County club team details",
+  bio:
+    "Coach Jay leads GBC Huskies with a development-first standard built around fundamentals, structure, attention to detail, work ethic, teamwork, and sportsmanship.",
+  instagramHandle: "@coachjaygill",
+};
+
 export const programStatements = {
   mission:
     "The goal of the program is to teach the fundamentals of basketball so each player can become efficient in all areas of the game. With structure and attention to detail, our focus is to maximize each player's potential while instilling work ethic, teamwork, and sportsmanship. Through basketball, we aspire to have a positive impact on youth by teaching life skills and the importance of serving the community.",

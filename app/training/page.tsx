@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Dumbbell, Target } from "lucide-react";
 import BrandName from "@/components/BrandName";
+import Coaches from "@/components/Coaches";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
@@ -13,7 +14,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies Basketball Training | Player Development & Fundamentals",
   description:
-    "GBC Huskies basketball training focuses on fundamentals, skill development, discipline, teamwork, and helping athletes grow on and off the court.",
+    "GBC Huskies basketball training led by Coach Jay focuses on fundamentals, skill development, discipline, teamwork, and helping athletes grow on and off the court.",
   path: "/training",
 });
 
@@ -57,6 +58,7 @@ export default function TrainingPage() {
 
         <Skills />
         <StrengthConditioning />
+        <Coaches />
 
         <section className="bg-[#f4f6f8] py-16">
           <div className="section-shell flex flex-col gap-4 rounded-lg border border-[#071827]/12 bg-white p-6 shadow-[0_16px_36px_rgba(7,24,39,0.08)] md:flex-row md:items-center md:justify-between">
