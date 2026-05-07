@@ -4,9 +4,10 @@ import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
+import ReviewForm from "@/components/ReviewForm";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
-import { reviewFormUrl, testimonials } from "@/lib/siteConfig";
+import { testimonials } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies Reviews | Parent & Player Testimonials",
@@ -69,7 +70,7 @@ export default function ReviewsPage() {
               ))}
             </div>
 
-            <div className="mt-8 grid gap-6 rounded-lg border border-[#071827]/12 bg-[#071827] p-5 text-white md:grid-cols-[1fr_auto] md:items-center md:p-7">
+            <div className="mt-8 rounded-lg border border-[#071827]/12 bg-[#071827] p-5 text-white md:p-7">
               <div>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-[#d71920] text-white">
                   <MessageSquareHeart size={27} aria-hidden />
@@ -81,6 +82,15 @@ export default function ReviewsPage() {
                   reviewed manually before they appear on the website, and families
                   can choose anonymous display.
                 </p>
+                <a
+                  href="#leave-review"
+                  data-analytics-event="click_leave_review"
+                  data-analytics-events="click_review_form"
+                  data-analytics-label="Reviews page jump to onsite review form"
+                  className="mt-5 inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
+                >
+                  Leave a Review
+                </a>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {reviewQuestions.map((question) => (
                     <span key={question} className="rounded-lg bg-white/10 px-3 py-2 text-xs font-black text-[#b8d8ea]">
@@ -89,26 +99,10 @@ export default function ReviewsPage() {
                   ))}
                 </div>
               </div>
-              {reviewFormUrl ? (
-                <a
-                  href={reviewFormUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics-event="click_leave_review"
-                  data-analytics-events="click_review_form"
-                  data-analytics-label="Reviews page leave a review"
-                  className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
-                >
-                  Leave a Review
-                </a>
-              ) : (
-                <p className="rounded-lg border border-[#b8d8ea]/24 bg-white/8 px-5 py-4 text-center text-sm font-black text-[#b8d8ea]">
-                  Review form coming soon
-                </p>
-              )}
             </div>
           </div>
         </section>
+        <ReviewForm />
       </main>
       <Footer />
       <MobileStickyCTA />

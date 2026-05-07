@@ -112,6 +112,10 @@ export const storeItems = [
 ];
 
 export const reviewFormUrl = process.env.NEXT_PUBLIC_REVIEW_FORM_URL || "";
+export const reviewFormEndpoint =
+  process.env.NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT ||
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ||
+  "";
 export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Editable placeholder testimonials. Replace only after a parent/player submits

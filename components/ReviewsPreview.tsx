@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MessageSquareHeart, Star } from "lucide-react";
-import { reviewFormUrl, testimonials } from "@/lib/siteConfig";
+import { testimonials } from "@/lib/siteConfig";
 
 export default function ReviewsPreview() {
   return (
@@ -28,23 +28,15 @@ export default function ReviewsPreview() {
               >
                 View Reviews
               </Link>
-              {reviewFormUrl ? (
-                <a
-                  href={reviewFormUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-analytics-event="click_leave_review"
-                  data-analytics-events="click_review_form"
-                  data-analytics-label="Homepage leave a review"
-                  className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
-                >
-                  Leave a Review
-                </a>
-              ) : (
-                <span className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#071827]/14 bg-white px-5 text-sm font-black text-[#071827]/58">
-                  Review form coming soon
-                </span>
-              )}
+              <Link
+                href="/reviews#leave-review"
+                data-analytics-event="click_leave_review"
+                data-analytics-events="click_review_form"
+                data-analytics-label="Homepage leave a review"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
+              >
+                Leave a Review
+              </Link>
             </div>
           </div>
 

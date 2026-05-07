@@ -80,10 +80,11 @@ https://gbchuskies.com/payments?utm_source=coach&utm_medium=dm&utm_campaign=paym
 
 ## Parent Reviews Manual Approval
 
-Use a form tool such as Google Forms, Jotform, or another approved intake tool.
-Set the public form URL in `NEXT_PUBLIC_REVIEW_FORM_URL`. Do not auto-publish
-submissions. The coach should review every testimonial before it appears on the
-website.
+The website includes an on-site review form at `/reviews#leave-review`. Set
+`NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT` if the team wants direct form delivery
+through a public Formspree endpoint. If that value is blank, the form opens a
+prefilled email to the team inbox. Do not auto-publish submissions. The coach
+should review every testimonial before it appears on the website.
 
 Suggested review fields:
 
@@ -109,6 +110,7 @@ it. Anonymous display is supported by using labels such as `GBC Parent`,
 - Instagram and any other official social links.
 - Stripe Payment Links.
 - Review form URL.
+- Optional on-site review form endpoint.
 - GA4 Measurement ID.
 - Google Search Console access.
 - Google Business Profile access or permission to create/claim it.

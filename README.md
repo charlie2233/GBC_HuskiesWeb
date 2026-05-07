@@ -45,7 +45,7 @@ Routes:
 
 - `/payments` - team fees, tournament fees, monthly payments, donations, merch, and custom payments
 - `/store` - placeholder merch and gear items
-- `/reviews` - parent/player review cards and review form CTA
+- `/reviews` - parent/player review cards and an on-site review form
 
 Set these optional public environment variables in Vercel when the coach
 provides real links:
@@ -57,6 +57,7 @@ NEXT_PUBLIC_STRIPE_MONTHLY_PAYMENT_URL=
 NEXT_PUBLIC_STRIPE_DONATION_URL=
 NEXT_PUBLIC_STRIPE_MERCH_URL=
 NEXT_PUBLIC_REVIEW_FORM_URL=
+NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT=
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
 
@@ -65,7 +66,9 @@ If a link is blank, the related button displays `Coming Soon`.
 
 Displayed testimonials live in `lib/siteConfig.ts` and are editable placeholders
 until real reviews are manually approved. Do not auto-publish review form
-submissions. Families can choose anonymous display.
+submissions. Families can choose anonymous display. The on-site review form uses
+`NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT` when configured; otherwise it opens a
+prefilled email to the team inbox for manual review.
 
 ## SEO and Analytics
 
