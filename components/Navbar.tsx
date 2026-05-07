@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { mainRoutes } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
@@ -11,6 +12,7 @@ const navItems = mainRoutes.filter((route) => route.path !== "/privacy");
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071827]/95 text-white shadow-[0_10px_36px_rgba(0,0,0,0.18)] backdrop-blur">
@@ -21,11 +23,20 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-4 text-sm font-semibold lg:flex">
-          {navItems.map((item) => (
-            <Link key={item.path} href={item.path} className="text-white/82 transition hover:text-white">
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const active = item.path === "/" ? pathname === "/" : pathname.startsWith(item.path);
+
+            return (
+              <Link
+                key={item.path}
+                href={item.path}
+                aria-current={active ? "page" : undefined}
+                className={`nav-link ${active ? "is-active" : ""}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href="/contact"
             data-analytics-event="click_join_program"
@@ -50,16 +61,23 @@ export default function Navbar() {
       {open ? (
         <div className="border-t border-white/10 bg-[#071827] lg:hidden">
           <div className="section-shell grid gap-2 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className="rounded-lg px-3 py-3 text-base font-semibold text-white/88"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const active = item.path === "/" ? pathname === "/" : pathname.startsWith(item.path);
+
+              return (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-lg px-3 py-3 text-base font-semibold transition ${
+                    active ? "bg-white/10 text-white" : "text-white/88 hover:bg-white/[0.06]"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
               data-analytics-event="click_join_program"

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import AnalyticsEvents from "@/components/AnalyticsEvents";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import RouteTransitions from "@/components/RouteTransitions";
 import StructuredData from "@/components/StructuredData";
 import { buildMetadata } from "@/lib/metadata";
 import "./globals.css";
@@ -42,7 +43,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
       <body>
         <StructuredData />
-        {children}
+        <RouteTransitions>{children}</RouteTransitions>
         <GoogleAnalytics />
         <AnalyticsEvents />
       </body>
