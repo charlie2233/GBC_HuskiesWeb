@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
@@ -17,6 +18,15 @@ export default function Footer() {
           </div>
         </div>
         <div className="grid gap-2 text-sm text-white/72 md:text-right">
+          <Link href="/payments" className="text-[#ffffff]/72 hover:text-[#ffffff]">
+            Payments
+          </Link>
+          <Link href="/store" className="text-[#ffffff]/72 hover:text-[#ffffff]">
+            Team Store
+          </Link>
+          <Link href="/reviews" className="text-[#ffffff]/72 hover:text-[#ffffff]">
+            Reviews
+          </Link>
           <a href="mailto:gbchuskiesoc@gmail.com" className="text-[#ffffff]/72 hover:text-[#ffffff]">
             gbchuskiesoc@gmail.com
           </a>

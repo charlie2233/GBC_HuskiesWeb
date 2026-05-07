@@ -35,6 +35,33 @@ The form supports two modes:
 - Set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` to send through Formspree.
 - If no endpoint is configured, the form opens a prefilled email to `gbchuskiesoc@gmail.com`.
 
+## Payments, Store, and Reviews
+
+The MVP payments and store setup uses public Stripe Payment Links only. The
+website does not collect or store bank info, tax info, SSNs, card numbers, or
+Stripe passwords.
+
+Routes:
+
+- `/payments` - team fees, tournament fees, monthly payments, donations, merch, and custom payments
+- `/store` - placeholder merch and gear items
+- `/reviews` - parent/player review cards and review form CTA
+
+Set these optional public environment variables in Vercel when the coach
+provides real links:
+
+```bash
+NEXT_PUBLIC_STRIPE_TEAM_FEE_URL=
+NEXT_PUBLIC_STRIPE_TOURNAMENT_FEE_URL=
+NEXT_PUBLIC_STRIPE_MONTHLY_PAYMENT_URL=
+NEXT_PUBLIC_STRIPE_DONATION_URL=
+NEXT_PUBLIC_STRIPE_MERCH_URL=
+NEXT_PUBLIC_REVIEW_FORM_URL=
+```
+
+See `.env.example` for optional custom-payment and item-specific merch links.
+If a link is blank, the related button displays `Coming Soon`.
+
 ## Assets
 
 The repo includes the GBC Huskies logo and selected public Instagram media under

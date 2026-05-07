@@ -16,6 +16,7 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gbchuskies.com"),
   title: "GBC Huskies Basketball | Orange County AAU Basketball Program",
   description:
     "GBC Huskies is an Orange County AAU basketball program focused on skills development, strength & conditioning, and local/national tournament competition.",
@@ -34,11 +35,16 @@ export const metadata: Metadata = {
     "15U AAU basketball",
     "Coca Cola Nationals 14U Champions",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "GBC Huskies Basketball",
     description:
       "Developing players. Building teams. Competing nationally.",
     type: "website",
+    url: "https://gbchuskies.com",
+    siteName: "GBC Huskies Basketball",
   },
 };
 

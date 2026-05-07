@@ -30,10 +30,8 @@ Current nameservers are Porkbun:
 
 Current status:
 
-- `http://gbchuskies.com` serves the Vercel deployment
-- `https://gbchuskies.com` and `https://www.gbchuskies.com` are still waiting on working TLS/certificate issuance
-
-Current public traffic may still reach the older Porkbun link host at `https://gbchuskies-com.l.ink/` while HTTPS finishes settling.
+- `https://gbchuskies.com` serves the Vercel deployment
+- `https://www.gbchuskies.com` serves the Vercel deployment
 
 ## DNS Records
 
@@ -44,4 +42,5 @@ A     @      76.76.21.21
 A     www    76.76.21.21
 ```
 
-After Vercel finishes domain verification and certificate issuance, `https://gbchuskies.com` and `https://www.gbchuskies.com` should serve the deployed site directly.
+After every production deployment, verify `https://gbchuskies.com` and update
+`docs/deployment-status.md` with the active Vercel deployment.
