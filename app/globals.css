@@ -592,12 +592,8 @@ textarea {
   opacity: 0.72;
 }
 
-.route-transition-overlay.is-leaving {
+.route-transition-overlay.is-transitioning {
   animation: route-sweep-leave 720ms cubic-bezier(0.76, 0, 0.24, 1) both;
-}
-
-.route-transition-overlay.is-entering {
-  animation: route-sweep-enter 700ms cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
 .route-transition-mark {
@@ -811,17 +807,6 @@ textarea {
   }
   100% {
     opacity: 1;
-    transform: translateX(115%) skewX(-8deg);
-  }
-}
-
-@keyframes route-sweep-enter {
-  0% {
-    opacity: 1;
-    transform: translateX(-8%) skewX(-8deg);
-  }
-  100% {
-    opacity: 0;
     transform: translateX(115%) skewX(-8deg);
   }
 }
