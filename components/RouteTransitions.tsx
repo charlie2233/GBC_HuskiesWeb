@@ -2,39 +2,84 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-const transitionStorageKey = "gbc-route-transition-pathname";
+function isModifiedClick(event: MouseEvent) {
+  return event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+}
 
-function shouldAnimatePathname(pathname: string) {
-  if (typeof window === "undefined") {
+function shouldAnimateNavigation(anchor: HTMLAnchorElement) {
+  const rawHref = anchor.getAttribute("href");
+
+  if (
+    !rawHref ||
+    rawHref.startsWith("#") ||
+    rawHref.startsWith("mailto:") ||
+    rawHref.startsWith("tel:") ||
+    anchor.target === "_blank" ||
+    anchor.hasAttribute("download")
+  ) {
     return false;
   }
 
-  try {
-    const previousPathname = window.sessionStorage.getItem(transitionStorageKey);
-    window.sessionStorage.setItem(transitionStorageKey, pathname);
-    return Boolean(previousPathname && previousPathname !== pathname);
-  } catch {
+  const targetUrl = new URL(rawHref, window.location.href);
+
+  if (targetUrl.origin !== window.location.origin) {
     return false;
   }
+
+  return targetUrl.pathname !== window.location.pathname || targetUrl.search !== window.location.search;
 }
 
 export default function RouteTransitions({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [transitionState, setTransitionState] = useState({ active: false, id: 0 });
+  const navigationTimeoutRef = useRef<number | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (shouldAnimatePathname(pathname)) {
-      window.setTimeout(() => {
-        setTransitionState((current) => ({
-          active: true,
-          id: current.id + 1,
-        }));
-      }, 0);
+    function handleClick(event: MouseEvent) {
+      if (event.defaultPrevented || isModifiedClick(event)) {
+        return;
+      }
+
+      const target = event.target instanceof Element ? event.target : null;
+      const anchor = target?.closest<HTMLAnchorElement>("a") ?? null;
+
+      if (!anchor || !shouldAnimateNavigation(anchor)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const targetUrl = new URL(anchor.getAttribute("href") ?? "", window.location.href);
+      const targetHref = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+
+      setTransitionState((current) => ({
+        active: true,
+        id: current.id + 1,
+      }));
+
+      if (navigationTimeoutRef.current) {
+        window.clearTimeout(navigationTimeoutRef.current);
+      }
+
+      navigationTimeoutRef.current = window.setTimeout(() => {
+        router.push(targetHref);
+      }, 320);
     }
-  }, [pathname]);
+
+    document.addEventListener("click", handleClick, true);
+
+    return () => {
+      document.removeEventListener("click", handleClick, true);
+
+      if (navigationTimeoutRef.current) {
+        window.clearTimeout(navigationTimeoutRef.current);
+      }
+    };
+  }, [router]);
 
   useEffect(() => {
     if (!transitionState.active) {
