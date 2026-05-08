@@ -64,6 +64,7 @@ export default function Tournaments() {
                   alt="GBC Huskies MADE Hoops summer schedule"
                   width={750}
                   height={750}
+                  sizes="(min-width: 1024px) 28vw, (min-width: 640px) 40vw, 88vw"
                   className="aspect-[4/5] h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105"
                 />
               </a>

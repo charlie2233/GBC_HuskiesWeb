@@ -35,6 +35,13 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
+@supports (content-visibility: auto) {
+  main > section:not(#home):not(.hero-feature-strip) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 820px;
+  }
+}
+
 a:not([class]) {
   color: inherit;
 }

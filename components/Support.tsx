@@ -74,6 +74,7 @@ export default function Support() {
                 alt="GBC Huskies Help the Huskies fundraiser graphic"
                 width={720}
                 height={720}
+                sizes="(min-width: 1024px) 48vw, 92vw"
                 className="aspect-[16/9] w-full object-cover object-bottom"
               />
             </div>

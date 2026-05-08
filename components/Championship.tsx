@@ -26,6 +26,7 @@ export default function Championship() {
               alt="GBC Huskies championship team moment"
               width={750}
               height={750}
+              sizes="(min-width: 1024px) 38vw, 92vw"
               className="aspect-[4/3] w-full rounded-md object-cover transition duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-x-3 bottom-3 rounded-md bg-[#071827]/88 p-4 backdrop-blur">

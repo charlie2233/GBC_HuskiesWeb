@@ -109,6 +109,7 @@ export default function Hero() {
               width={850}
               height={850}
               priority
+              sizes="(min-width: 1280px) 34vw, (min-width: 768px) 46vw, 82vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
             <span className="card-year">2025</span>
@@ -129,6 +130,7 @@ export default function Hero() {
               width={850}
               height={850}
               priority
+              sizes="(min-width: 1280px) 26vw, (min-width: 768px) 36vw, 78vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
             <div className="polaroid-caption">

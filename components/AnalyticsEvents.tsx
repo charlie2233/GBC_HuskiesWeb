@@ -30,20 +30,9 @@ export default function AnalyticsEvents() {
     function handleClick(event: MouseEvent) {
       const target = event.target instanceof Element ? event.target : null;
       const anchor = target?.closest<HTMLAnchorElement>("a") ?? null;
-      const shouldPreserveUtm = anchor ? updateInternalHref(anchor) : false;
 
-      if (
-        anchor &&
-        shouldPreserveUtm &&
-        event.button === 0 &&
-        !event.metaKey &&
-        !event.ctrlKey &&
-        !event.shiftKey &&
-        !event.altKey &&
-        anchor.target !== "_blank"
-      ) {
-        event.preventDefault();
-        window.location.assign(anchor.href);
+      if (anchor) {
+        updateInternalHref(anchor);
       }
 
       const trackedElement = target?.closest<HTMLElement>("[data-analytics-event]");

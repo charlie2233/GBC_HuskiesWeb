@@ -3,6 +3,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { appendCurrentUtmParams } from "@/lib/analytics";
 
 const QUICK_NAVIGATION_DELAY_MS = 320;
 const QUICK_TRANSITION_DURATION_MS = 760;
@@ -94,7 +95,7 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
 
       event.preventDefault();
 
-      const targetUrl = new URL(anchor.getAttribute("href") ?? "", window.location.href);
+      const targetUrl = appendCurrentUtmParams(new URL(anchor.getAttribute("href") ?? "", window.location.href));
       const targetHref = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
       const timing = getTransitionTiming();
 

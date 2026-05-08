@@ -117,6 +117,7 @@ export default function MediaGrid() {
                     alt={item.alt}
                     width={720}
                     height={720}
+                    sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 46vw"
                     className={`aspect-square h-full w-full ${item.fit === "contain" ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-105`}
                   />
                   <div className="absolute inset-x-0 bottom-0 flex min-h-16 items-center justify-between bg-gradient-to-t from-black/84 to-transparent px-4 pb-4 pt-8 text-white">
