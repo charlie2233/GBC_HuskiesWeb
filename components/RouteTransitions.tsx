@@ -1,11 +1,47 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
+const QUICK_NAVIGATION_DELAY_MS = 320;
+const QUICK_TRANSITION_DURATION_MS = 760;
+const INTENTIONAL_LOAD_CHANCE = 0.24;
+const INTENTIONAL_LOAD_MIN_DELAY_MS = 560;
+const INTENTIONAL_LOAD_EXTRA_DELAY_MS = 180;
+const INTENTIONAL_LOAD_DURATION_BUFFER_MS = 560;
+const TRANSITION_EXIT_BUFFER_MS = 120;
+
+type TransitionVariant = "quick" | "intentional";
+
+type TransitionState = {
+  active: boolean;
+  id: number;
+  durationMs: number;
+  variant: TransitionVariant;
+};
+
 function isModifiedClick(event: MouseEvent) {
   return event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+}
+
+function getTransitionTiming() {
+  if (Math.random() >= INTENTIONAL_LOAD_CHANCE) {
+    return {
+      durationMs: QUICK_TRANSITION_DURATION_MS,
+      navigationDelayMs: QUICK_NAVIGATION_DELAY_MS,
+      variant: "quick" as const,
+    };
+  }
+
+  const navigationDelayMs =
+    INTENTIONAL_LOAD_MIN_DELAY_MS + Math.round(Math.random() * INTENTIONAL_LOAD_EXTRA_DELAY_MS);
+
+  return {
+    durationMs: navigationDelayMs + INTENTIONAL_LOAD_DURATION_BUFFER_MS,
+    navigationDelayMs,
+    variant: "intentional" as const,
+  };
 }
 
 function shouldAnimateNavigation(anchor: HTMLAnchorElement) {
@@ -34,7 +70,12 @@ function shouldAnimateNavigation(anchor: HTMLAnchorElement) {
 export default function RouteTransitions({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [transitionState, setTransitionState] = useState({ active: false, id: 0 });
+  const [transitionState, setTransitionState] = useState<TransitionState>({
+    active: false,
+    id: 0,
+    durationMs: QUICK_TRANSITION_DURATION_MS,
+    variant: "quick",
+  });
   const navigationTimeoutRef = useRef<number | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
 
@@ -55,10 +96,13 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
 
       const targetUrl = new URL(anchor.getAttribute("href") ?? "", window.location.href);
       const targetHref = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+      const timing = getTransitionTiming();
 
       setTransitionState((current) => ({
         active: true,
+        durationMs: timing.durationMs,
         id: current.id + 1,
+        variant: timing.variant,
       }));
 
       if (navigationTimeoutRef.current) {
@@ -67,7 +111,7 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
 
       navigationTimeoutRef.current = window.setTimeout(() => {
         router.push(targetHref);
-      }, 320);
+      }, timing.navigationDelayMs);
     }
 
     document.addEventListener("click", handleClick, true);
@@ -95,14 +139,18 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
         ...current,
         active: false,
       }));
-    }, 760);
+    }, transitionState.durationMs + TRANSITION_EXIT_BUFFER_MS);
 
     return () => {
       if (transitionTimeoutRef.current) {
         window.clearTimeout(transitionTimeoutRef.current);
       }
     };
-  }, [transitionState.active, transitionState.id]);
+  }, [transitionState.active, transitionState.durationMs, transitionState.id]);
+
+  const transitionStyle = {
+    "--route-transition-duration": `${transitionState.durationMs}ms`,
+  } as CSSProperties;
 
   return (
     <>
@@ -110,9 +158,19 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
         {children}
       </div>
       {transitionState.active ? (
-        <div key={transitionState.id} className="route-transition-overlay is-transitioning" aria-hidden="true">
+        <div
+          key={transitionState.id}
+          className={`route-transition-overlay is-transitioning${
+            transitionState.variant === "intentional" ? " is-intentional" : ""
+          }`}
+          style={transitionStyle}
+          aria-hidden="true"
+        >
           <div className="route-transition-mark">
             <span>GBC</span> Huskies
+            {transitionState.variant === "intentional" ? (
+              <div className="route-transition-submark">Defense</div>
+            ) : null}
           </div>
         </div>
       ) : null}
