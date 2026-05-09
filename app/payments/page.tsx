@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import PaymentLinkButton from "@/components/PaymentLinkButton";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 import { paymentItems } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
@@ -40,6 +41,7 @@ export default function PaymentsPage() {
               <BrandName /> secure payment links use Stripe-hosted checkout when enabled.
             </>
           }
+          topics={getSeoTopicsForPath("/payments")}
         />
 
         <section className="bg-[#f4f6f8] py-16 md:py-24">

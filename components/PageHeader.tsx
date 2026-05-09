@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { SeoTopic } from "@/lib/seoTopics";
+import SearchTopicTags from "./SearchTopicTags";
 import SiteMark from "./SiteMark";
 
 type PageHeaderProps = {
@@ -7,9 +9,10 @@ type PageHeaderProps = {
   description: string;
   note?: React.ReactNode;
   children?: React.ReactNode;
+  topics?: SeoTopic[];
 };
 
-export default function PageHeader({ eyebrow, title, description, note, children }: PageHeaderProps) {
+export default function PageHeader({ eyebrow, title, description, note, children, topics = [] }: PageHeaderProps) {
   const hasGbcPrefix = title.toLowerCase().startsWith("gbc ");
 
   return (
@@ -56,6 +59,7 @@ export default function PageHeader({ eyebrow, title, description, note, children
               Reviews
             </Link>
           </div>
+          {topics.length ? <SearchTopicTags topics={topics} compact theme="dark" /> : null}
         </div>
         <div className="hidden justify-end lg:flex">
           <div className="rounded-lg border border-[#b8d8ea]/16 bg-white/8 p-5 shadow-[0_28px_70px_rgba(0,0,0,0.28)]">

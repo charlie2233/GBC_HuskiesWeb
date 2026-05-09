@@ -7,6 +7,7 @@ import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 import { programStatements } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
@@ -48,6 +49,7 @@ export default function AboutPage() {
               <BrandName /> is listed as an Orange County AAU basketball program based on existing site content.
             </>
           }
+          topics={getSeoTopicsForPath("/about")}
         />
 
         <section className="bg-white py-16 md:py-24">

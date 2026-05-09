@@ -6,6 +6,7 @@ import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact GBC Huskies | Youth Basketball Program",
@@ -28,6 +29,7 @@ export default function ContactPage() {
               <BrandName /> uses contact information already published on the current site.
             </>
           }
+          topics={getSeoTopicsForPath("/contact")}
         />
         <ContactForm />
       </main>

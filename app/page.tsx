@@ -10,12 +10,14 @@ import MediaGrid from "@/components/MediaGrid";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import ReviewsPreview from "@/components/ReviewsPreview";
+import SearchTopicTags from "@/components/SearchTopicTags";
 import Skills from "@/components/Skills";
 import StrengthConditioning from "@/components/StrengthConditioning";
 import Support from "@/components/Support";
 import Teams from "@/components/Teams";
 import Tournaments from "@/components/Tournaments";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies | Youth Basketball Program & Player Development",
@@ -31,6 +33,7 @@ export default function Home() {
       <main className="overflow-hidden pb-24 md:pb-0">
         <Hero />
         <Highlights />
+        <SearchTopicTags topics={getSeoTopicsForPath("/")} theme="dark" />
         <HomeActions />
         <MediaGrid />
         <About />

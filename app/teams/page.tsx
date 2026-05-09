@@ -9,6 +9,7 @@ import PageHeader from "@/components/PageHeader";
 import Teams from "@/components/Teams";
 import Tournaments from "@/components/Tournaments";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies Teams | Youth Basketball Program",
@@ -31,6 +32,7 @@ export default function TeamsPage() {
               <BrandName /> does not publish full rosters unless families and the program approve.
             </>
           }
+          topics={getSeoTopicsForPath("/teams")}
         />
 
         <section className="bg-white py-16 md:py-24">

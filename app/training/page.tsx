@@ -10,6 +10,7 @@ import PageHeader from "@/components/PageHeader";
 import Skills from "@/components/Skills";
 import StrengthConditioning from "@/components/StrengthConditioning";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies Basketball Training | Player Development & Fundamentals",
@@ -32,6 +33,7 @@ export default function TrainingPage() {
               <BrandName /> training content is based on existing program focus areas.
             </>
           }
+          topics={getSeoTopicsForPath("/training")}
         />
 
         <section className="bg-white py-16 md:py-24">

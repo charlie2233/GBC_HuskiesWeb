@@ -7,6 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import PaymentLinkButton from "@/components/PaymentLinkButton";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 import { storeItems } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
@@ -30,6 +31,7 @@ export default function StorePage() {
               <BrandName /> team store orders use Stripe-hosted checkout when payment links are enabled.
             </>
           }
+          topics={getSeoTopicsForPath("/store")}
         />
 
         <section className="bg-white py-16 md:py-24">

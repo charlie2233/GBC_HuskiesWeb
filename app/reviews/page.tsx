@@ -8,6 +8,7 @@ import ReviewCards from "@/components/ReviewCards";
 import ReviewForm from "@/components/ReviewForm";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
+import { getSeoTopicsForPath } from "@/lib/seoTopics";
 import { testimonials } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
@@ -42,6 +43,7 @@ export default function ReviewsPage() {
               <BrandName /> displays testimonials only when families give permission and choose a public display preference.
             </>
           }
+          topics={getSeoTopicsForPath("/reviews")}
         />
 
         <section className="bg-[#f4f6f8] py-16 md:py-24">

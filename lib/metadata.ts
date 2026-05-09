@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSeoKeywordsForPath } from "./seoTopics";
 import { ogImageUrl, siteName, siteUrl } from "./siteConfig";
 
 type BuildMetadataOptions = {
@@ -20,6 +21,7 @@ export function buildMetadata({
   return {
     title,
     description,
+    keywords: getSeoKeywordsForPath(path),
     alternates: {
       canonical,
     },

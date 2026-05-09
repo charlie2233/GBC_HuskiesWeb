@@ -10,6 +10,9 @@ import {
   siteName,
   siteUrl,
 } from "@/lib/siteConfig";
+import { baseSeoTopics } from "@/lib/seoTopics";
+
+const topicNames = baseSeoTopics.map((topic) => topic.label);
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -23,6 +26,7 @@ const structuredData = {
       image: logoUrl,
       description: siteDescription,
       sport: "Basketball",
+      knowsAbout: topicNames,
       email: contactEmail,
       telephone: coachPhoneDisplay,
       areaServed: {
@@ -40,6 +44,11 @@ const structuredData = {
         "@id": `${siteUrl}/#organization`,
       },
       inLanguage: "en-US",
+      keywords: topicNames.join(", "),
+      about: topicNames.map((topic) => ({
+        "@type": "Thing",
+        name: topic,
+      })),
     },
   ],
 };
