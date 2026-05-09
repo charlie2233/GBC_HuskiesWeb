@@ -78,13 +78,19 @@ https://gbchuskies.com/payments?utm_source=coach&utm_medium=dm&utm_campaign=paym
 - Add parent/player testimonials with permission.
 - Add team photos with accurate captions and approved public use.
 
-## Parent Reviews Manual Approval
+## Parent Reviews Auto Display MVP
 
 The website includes an on-site review form at `/reviews#leave-review`. Set
 `NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT` if the team wants direct form delivery
-through a public Formspree endpoint. If that value is blank, the form opens a
-prefilled email to the team inbox. Do not auto-publish submissions. The coach
-should review every testimonial before it appears on the website.
+through a public Formspree endpoint. If that value is blank, the form still
+displays reviews locally in the visitor's site view, but it does not deliver
+submissions to the coach.
+
+Reviews with display permission are added immediately to the review cards in
+the visitor's browser using local storage. This MVP does not create a public
+cross-device review database. For sitewide auto-display across all visitors,
+connect a real storage provider or approved reviews feed and keep moderation
+controls in place.
 
 Suggested review fields:
 
@@ -97,9 +103,9 @@ Suggested review fields:
 - Permission to display review on website.
 - Display preference: full name, first name only, or anonymous.
 
-Only display player personal information when the family has clearly approved
-it. Anonymous display is supported by using labels such as `GBC Parent`,
-`Player Parent`, or `GBC Family`.
+The public card should never show parent email or player name. Anonymous
+display is supported by using labels such as `GBC Parent`, `Player Parent`, or
+`GBC Family`.
 
 ## Coach TODOs
 

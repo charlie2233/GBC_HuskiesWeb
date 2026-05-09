@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Send, ShieldCheck, Star } from "lucide-react";
+import { buildPublicReview, saveDisplayedReview } from "@/lib/reviews";
 import { contactEmail, reviewFormEndpoint } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
@@ -22,26 +23,37 @@ const gradeOptions = [
 const ratingOptions = ["5", "4", "3", "2", "1"];
 const displayOptions = ["Anonymous", "First name only", "Full name"];
 
-function textValue(formData: FormData, key: string) {
-  const value = formData.get(key);
-  return typeof value === "string" ? value : "";
+function scrollToReviewCards() {
+  window.setTimeout(() => {
+    document.getElementById("review-cards")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 80);
 }
 
 export default function ReviewForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "email" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "displayed" | "error">("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const publicReview = buildPublicReview(formData);
 
     formData.set("formType", "GBC Huskies Review");
-    formData.set("manualApprovalRequired", "true");
+    formData.set("autoDisplayRequested", "true");
+    formData.set("publicDisplayName", publicReview?.name || "");
+    formData.set("publicDisplayDetail", publicReview?.detail || "");
 
     setStatus("sending");
 
     try {
+      if (publicReview) {
+        saveDisplayedReview(publicReview);
+      }
+
       if (reviewFormEndpoint) {
         const response = await fetch(reviewFormEndpoint, {
           method: "POST",
@@ -54,33 +66,14 @@ export default function ReviewForm() {
         }
 
         form.reset();
-        setStatus("sent");
+        setStatus("displayed");
+        scrollToReviewCards();
         return;
       }
 
-      const lines = [
-        "GBC Huskies Review Submission",
-        "",
-        `Parent/Guardian Name: ${textValue(formData, "guardianName")}`,
-        `Parent Email: ${textValue(formData, "email")}`,
-        `Player Name: ${textValue(formData, "playerName")}`,
-        `Player Grade/Team: ${textValue(formData, "playerGradeTeam")}`,
-        `Rating: ${textValue(formData, "rating")}`,
-        `Display Preference: ${textValue(formData, "displayPreference")}`,
-        `Permission to Display: ${textValue(formData, "displayPermission") ? "Yes" : "No"}`,
-        "",
-        "Review/Testimonial:",
-        textValue(formData, "message"),
-        "",
-        "Manual approval required before publishing on the website.",
-      ];
-
-      const subject = encodeURIComponent("GBC Huskies Review Submission");
-      const body = encodeURIComponent(lines.join("\n"));
-      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-
       form.reset();
-      setStatus("email");
+      setStatus("displayed");
+      scrollToReviewCards();
     } catch {
       setStatus("error");
     }
@@ -96,16 +89,16 @@ export default function ReviewForm() {
           <h2 className="font-display text-6xl leading-none md:text-7xl">Leave a Review</h2>
           <p className="mt-5 text-lg leading-8 text-white/76">
             Families can share their experience with <BrandName /> directly on
-            this page. Submissions are sent for coach review and are never
-            published automatically.
+            this page. Reviews with display permission appear immediately in
+            the on-site review cards using only safe public display fields.
           </p>
           <div className="mt-6 rounded-lg border border-[#b8d8ea]/18 bg-white/8 p-5">
             <div className="flex items-start gap-3">
               <ShieldCheck className="mt-1 h-5 w-5 flex-none text-[#b8d8ea]" aria-hidden />
               <p className="text-sm font-semibold leading-6 text-white/72">
-                Do not include sensitive private details. Player personal
-                information is displayed only with family permission, and
-                anonymous display is supported.
+                Do not include sensitive private details. Email, player name,
+                and private contact fields are never shown in the public review
+                cards. Anonymous display is supported.
               </p>
             </div>
           </div>
@@ -229,21 +222,16 @@ export default function ReviewForm() {
             {status === "sending" ? "Submitting..." : "Submit Review"}
           </button>
 
-          {status === "sent" ? (
+          {status === "displayed" ? (
             <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
-              Thanks for sharing your review. It has been submitted for coach
-              approval before anything appears on the website.
-            </p>
-          ) : null}
-          {status === "email" ? (
-            <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
-              Your email app should now have a review draft ready. Please send
-              it so the coach can manually review it.
+              Thanks for sharing your review. It is now displayed in the review
+              cards on this site view.
             </p>
           ) : null}
           {status === "error" ? (
             <p className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
-              Something went wrong. Please email your review to {contactEmail}.
+              The review displayed locally, but delivery failed. Please email
+              the coach at {contactEmail} if you want to send a copy.
             </p>
           ) : null}
         </form>

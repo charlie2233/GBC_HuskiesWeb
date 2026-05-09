@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { MessageSquareHeart, Star, UserCheck } from "lucide-react";
+import { MessageSquareHeart } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
+import ReviewCards from "@/components/ReviewCards";
 import ReviewForm from "@/components/ReviewForm";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
@@ -38,37 +39,14 @@ export default function ReviewsPage() {
           description="A review area for families and players to share what the GBC Huskies program has meant for their development, confidence, and tournament experience."
           note={
             <>
-              <BrandName /> displays testimonials only when families give permission and the coach approves them.
+              <BrandName /> displays testimonials only when families give permission and choose a public display preference.
             </>
           }
         />
 
         <section className="bg-[#f4f6f8] py-16 md:py-24">
-          <div className="section-shell">
-            <div className="grid gap-4 lg:grid-cols-3">
-              {testimonials.map((review) => (
-                <article
-                  key={review.name}
-                  className="rounded-lg border border-[var(--line)] bg-white p-5 shadow-[0_16px_36px_rgba(7,24,39,0.08)]"
-                >
-                  <div className="mb-5 flex items-center gap-1 text-[#d71920]" aria-label="Five star placeholder review">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star key={index} size={18} fill="currentColor" aria-hidden />
-                    ))}
-                  </div>
-                  <p className="text-base font-bold leading-7 text-[#1f2933]/78">&ldquo;{review.quote}&rdquo;</p>
-                  <div className="mt-6 flex items-center gap-3 border-t border-[#071827]/10 pt-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#071827] text-[#b8d8ea]">
-                      <UserCheck size={21} aria-hidden />
-                    </div>
-                    <div>
-                      <h2 className="text-base font-black text-[#071827]">{review.name}</h2>
-                      <p className="text-sm font-semibold text-[#1f2933]/56">{review.detail}</p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <div id="review-cards" className="section-shell scroll-mt-28">
+            <ReviewCards initialReviews={testimonials} />
 
             <div className="mt-8 rounded-lg border border-[#071827]/12 bg-[#071827] p-5 text-white md:p-7">
               <div>
@@ -78,9 +56,9 @@ export default function ReviewsPage() {
                 <h2 className="font-display text-5xl leading-none">Leave a Review</h2>
                 <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-white/68">
                   The review form should collect the basics needed to safely publish
-                  testimonials only when permission is given. Submissions should be
-                  reviewed manually before they appear on the website, and families
-                  can choose anonymous display.
+                  testimonials only when permission is given. Public cards show
+                  the selected display name, rating, review message, and grade/team
+                  context only. Families can choose anonymous display.
                 </p>
                 <a
                   href="#leave-review"

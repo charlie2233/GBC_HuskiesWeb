@@ -18,6 +18,8 @@ const policyItems = [
   "Payments are handled by third-party payment processors such as Stripe when public payment links are enabled.",
   "The website does not collect or store bank information, card details, tax information, SSNs, or Stripe passwords.",
   "Contact and review forms may collect submitted names, emails, phone numbers, player/team context, and messages.",
+  "Reviews with display permission may be shown immediately in local website review cards using the selected public display preference.",
+  "Public review cards do not show parent email, phone number, or player name.",
   "Visitor data is used to improve the website, understand program interest, and make the site easier for families to use.",
   "The program should avoid collecting unnecessary personal information from or about youth players.",
 ];

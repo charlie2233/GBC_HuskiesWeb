@@ -1,3 +1,5 @@
+import type { DisplayedReview } from "./reviews";
+
 export const siteUrl = "https://gbchuskies.com";
 export const siteName = "GBC Huskies Basketball";
 export const organizationName = "GBC Huskies";
@@ -143,25 +145,32 @@ export const reviewFormEndpoint =
   "";
 export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
-// Editable placeholder testimonials. Replace only after a parent/player submits
-// a review, grants display permission, and the coach manually approves it.
 export const testimonials = [
   {
+    id: "placeholder-gbc-parent",
     name: "GBC Parent",
     detail: "Anonymous placeholder",
     quote:
       "GBC has helped my son grow in confidence, discipline, and understanding of the game.",
+    rating: 5,
+    source: "placeholder",
   },
   {
+    id: "placeholder-player-parent",
     name: "Player Parent",
     detail: "Anonymous placeholder",
     quote:
       "The program focuses on fundamentals, teamwork, and accountability.",
+    rating: 5,
+    source: "placeholder",
   },
   {
+    id: "placeholder-gbc-family",
     name: "GBC Family",
     detail: "Anonymous placeholder",
     quote:
       "The coaches care about player development on and off the court.",
+    rating: 5,
+    source: "placeholder",
   },
-];
+] satisfies DisplayedReview[];

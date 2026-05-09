@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { MessageSquareHeart, Star } from "lucide-react";
+import { MessageSquareHeart } from "lucide-react";
 import { testimonials } from "@/lib/siteConfig";
+import ReviewCards from "./ReviewCards";
 
 export default function ReviewsPreview() {
   return (
@@ -16,8 +17,8 @@ export default function ReviewsPreview() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/76">
               Share the development, culture, and tournament experience families
-              feel inside the GBC Huskies program. Reviews are displayed only
-              after permission and coach approval.
+              feel inside the GBC Huskies program. Reviews with display
+              permission can appear immediately on the site view.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -40,20 +41,7 @@ export default function ReviewsPreview() {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            {testimonials.map((review) => (
-              <article key={review.name} className="rounded-lg border border-[var(--line)] bg-white p-5 shadow-[0_16px_36px_rgba(7,24,39,0.08)]">
-                <div className="mb-4 flex gap-1 text-[#d71920]" aria-label="Five star placeholder review">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star key={index} size={15} fill="currentColor" aria-hidden />
-                  ))}
-                </div>
-                <p className="text-sm font-bold leading-6 text-[#1f2933]/76">&ldquo;{review.quote}&rdquo;</p>
-                <p className="mt-4 text-sm font-black text-[#071827]">{review.name}</p>
-                <p className="text-xs font-semibold text-[#1f2933]/56">{review.detail}</p>
-              </article>
-            ))}
-          </div>
+          <ReviewCards initialReviews={testimonials} limit={3} compact />
         </div>
       </div>
     </section>
