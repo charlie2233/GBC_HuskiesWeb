@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, FileText, Phone, Users } from "lucide-react";
 import { coachPhoneHref, registrationFormUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
@@ -73,7 +74,7 @@ export default function Teams() {
               </div>
               <h3 className="font-display text-5xl leading-none text-[#071827]">{team.name}</h3>
               <p className="mt-4 text-base leading-7 text-[#1f2933]/78">{team.text}</p>
-              <a
+              <Link
                 href="/contact"
                 data-analytics-event="click_contact"
                 data-analytics-label={`Ask about ${team.name}`}
@@ -81,7 +82,7 @@ export default function Teams() {
               >
                 Ask About This Team
                 <ArrowRight size={18} aria-hidden />
-              </a>
+              </Link>
             </article>
           ))}
         </div>

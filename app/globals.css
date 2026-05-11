@@ -24,6 +24,7 @@
 }
 
 html {
+  scroll-padding-top: 96px;
   scroll-behavior: smooth;
 }
 
@@ -51,6 +52,11 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid rgba(184, 216, 234, 0.9);
+  outline-offset: 3px;
 }
 
 ::selection {
@@ -568,7 +574,6 @@ textarea {
 
 .route-transition-content {
   min-height: 100vh;
-  animation: page-route-in 580ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .route-transition-overlay {
@@ -804,19 +809,6 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes page-route-in {
-  from {
-    opacity: 0.34;
-    transform: translateY(16px) scale(0.996);
-    filter: saturate(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: saturate(1);
   }
 }
 

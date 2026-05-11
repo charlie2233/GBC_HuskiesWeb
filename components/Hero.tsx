@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="road-map-lines" aria-hidden />
       <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#d71920_0_38%,#b8d8ea_38%_70%,#ffffff_70%_73%,transparent_73%)]" aria-hidden />
 
-      <div className="section-shell hero-preview-shell relative grid min-h-[calc(86svh-80px)] items-center gap-9 pb-0 pt-8 md:grid-cols-[0.84fr_1.16fr] md:pt-8 lg:gap-12">
+      <div className="section-shell hero-preview-shell relative grid min-h-[calc(86svh-80px)] items-center gap-9 pb-28 pt-8 md:grid-cols-[0.84fr_1.16fr] md:pb-0 md:pt-8 lg:gap-12">
         <div className="reveal relative z-20 text-center md:text-left">
           <h1 className="hero-title font-display uppercase leading-[0.86]">
             <span className="block text-[#d71920]">GBC</span>
@@ -60,7 +60,7 @@ export default function Hero() {
               href="#tournaments"
               data-analytics-event="click_join_program"
               data-analytics-label="Hero view event run"
-              className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg border border-[#b8d8ea]/35 bg-[#06111d]/72 px-6 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/12"
+              className="hidden min-h-12 items-center justify-center gap-3 rounded-lg border border-[#b8d8ea]/35 bg-[#06111d]/72 px-6 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/12 sm:inline-flex"
             >
               <CalendarDays size={19} aria-hidden />
               View Event Run
@@ -108,7 +108,8 @@ export default function Hero() {
               alt="GBC Huskies team photo at MADE Hoops West Mania"
               width={850}
               height={850}
-              priority
+              loading="eager"
+              fetchPriority="high"
               sizes="(min-width: 1280px) 34vw, (min-width: 768px) 46vw, 82vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
@@ -129,7 +130,7 @@ export default function Hero() {
               alt="GBC Huskies players holding trophies after a championship win"
               width={850}
               height={850}
-              priority
+              preload
               sizes="(min-width: 1280px) 26vw, (min-width: 768px) 36vw, 78vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />

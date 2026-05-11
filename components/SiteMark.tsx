@@ -3,10 +3,10 @@ import Image from "next/image";
 type SiteMarkProps = {
   compact?: boolean;
   className?: string;
-  priority?: boolean;
+  eager?: boolean;
 };
 
-export default function SiteMark({ compact = false, className = "", priority = false }: SiteMarkProps) {
+export default function SiteMark({ compact = false, className = "", eager = false }: SiteMarkProps) {
   return (
     <Image
       src="/brand/gbc-huskies-circle-logo.png"
@@ -16,7 +16,8 @@ export default function SiteMark({ compact = false, className = "", priority = f
       sizes={compact ? "48px" : "(min-width: 1024px) 288px, 42vw"}
       className={`object-contain ${className}`}
       draggable={false}
-      priority={priority}
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : "auto"}
     />
   );
 }

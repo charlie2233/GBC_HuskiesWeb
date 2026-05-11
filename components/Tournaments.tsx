@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, CalendarDays, MapPin, Trophy } from "lucide-react";
 import BrandName from "./BrandName";
 
@@ -38,7 +39,7 @@ export default function Tournaments() {
               tournament weekends: local tests, MADE Hoops exposure, and travel
               moments where the team standard has to travel too.
             </p>
-            <a
+            <Link
               href="/contact"
               data-analytics-event="click_contact"
               data-analytics-label="Tournaments section contact"
@@ -46,7 +47,7 @@ export default function Tournaments() {
             >
               Ask About Tournament Teams
               <ArrowRight size={18} aria-hidden />
-            </a>
+            </Link>
           </div>
           <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-[#071827] p-3 shadow-[0_24px_68px_rgba(7,24,39,0.16)]">
             <div className="grid gap-3 sm:grid-cols-[0.7fr_1.3fr]">

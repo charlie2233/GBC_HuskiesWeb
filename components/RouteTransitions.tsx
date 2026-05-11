@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { appendCurrentUtmParams } from "@/lib/analytics";
 
-const QUICK_NAVIGATION_DELAY_MS = 320;
-const QUICK_TRANSITION_DURATION_MS = 760;
-const INTENTIONAL_LOAD_CHANCE = 0.24;
-const INTENTIONAL_LOAD_MIN_DELAY_MS = 560;
-const INTENTIONAL_LOAD_EXTRA_DELAY_MS = 180;
-const INTENTIONAL_LOAD_DURATION_BUFFER_MS = 560;
+const QUICK_NAVIGATION_DELAY_MS = 240;
+const QUICK_TRANSITION_DURATION_MS = 620;
+const INTENTIONAL_LOAD_CHANCE = 0.16;
+const INTENTIONAL_LOAD_MIN_DELAY_MS = 440;
+const INTENTIONAL_LOAD_EXTRA_DELAY_MS = 140;
+const INTENTIONAL_LOAD_DURATION_BUFFER_MS = 500;
 const TRANSITION_EXIT_BUFFER_MS = 120;
 
 type TransitionVariant = "quick" | "intentional";
@@ -77,27 +77,79 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
     durationMs: QUICK_TRANSITION_DURATION_MS,
     variant: "quick",
   });
+  const activeNavigationRef = useRef<string | null>(null);
   const navigationTimeoutRef = useRef<number | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
+  const reducedMotionRef = useRef(false);
+  const prefetchedHrefsRef = useRef<Set<string>>(new Set());
 
   useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateReducedMotion = () => {
+      reducedMotionRef.current = motionQuery.matches;
+    };
+
+    updateReducedMotion();
+    motionQuery.addEventListener("change", updateReducedMotion);
+
+    return () => {
+      motionQuery.removeEventListener("change", updateReducedMotion);
+    };
+  }, []);
+
+  useEffect(() => {
+    function getInternalTarget(event: Event) {
+      const target = event.target instanceof Element ? event.target : null;
+      const anchor = target?.closest<HTMLAnchorElement>("a") ?? null;
+
+      if (!anchor || !shouldAnimateNavigation(anchor)) {
+        return null;
+      }
+
+      const targetUrl = appendCurrentUtmParams(new URL(anchor.getAttribute("href") ?? "", window.location.href));
+      const targetHref = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+
+      return { anchor, targetHref };
+    }
+
+    function prefetchTarget(event: Event) {
+      if (reducedMotionRef.current) {
+        return;
+      }
+
+      const target = getInternalTarget(event);
+
+      if (!target || prefetchedHrefsRef.current.has(target.targetHref)) {
+        return;
+      }
+
+      prefetchedHrefsRef.current.add(target.targetHref);
+      router.prefetch(target.targetHref);
+    }
+
     function handleClick(event: MouseEvent) {
       if (event.defaultPrevented || isModifiedClick(event)) {
         return;
       }
 
-      const target = event.target instanceof Element ? event.target : null;
-      const anchor = target?.closest<HTMLAnchorElement>("a") ?? null;
+      if (reducedMotionRef.current) {
+        return;
+      }
 
-      if (!anchor || !shouldAnimateNavigation(anchor)) {
+      const target = getInternalTarget(event);
+
+      if (!target) {
         return;
       }
 
       event.preventDefault();
 
-      const targetUrl = appendCurrentUtmParams(new URL(anchor.getAttribute("href") ?? "", window.location.href));
-      const targetHref = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+      if (activeNavigationRef.current) {
+        return;
+      }
+
       const timing = getTransitionTiming();
+      activeNavigationRef.current = target.targetHref;
 
       setTransitionState((current) => ({
         active: true,
@@ -111,13 +163,18 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
       }
 
       navigationTimeoutRef.current = window.setTimeout(() => {
-        router.push(targetHref);
+        router.push(target.targetHref);
+        navigationTimeoutRef.current = null;
       }, timing.navigationDelayMs);
     }
 
+    document.addEventListener("pointerover", prefetchTarget, { capture: true, passive: true });
+    document.addEventListener("focusin", prefetchTarget, true);
     document.addEventListener("click", handleClick, true);
 
     return () => {
+      document.removeEventListener("pointerover", prefetchTarget, true);
+      document.removeEventListener("focusin", prefetchTarget, true);
       document.removeEventListener("click", handleClick, true);
 
       if (navigationTimeoutRef.current) {
@@ -140,6 +197,7 @@ export default function RouteTransitions({ children }: { children: ReactNode }) 
         ...current,
         active: false,
       }));
+      activeNavigationRef.current = null;
     }, transitionState.durationMs + TRANSITION_EXIT_BUFFER_MS);
 
     return () => {

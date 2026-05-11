@@ -18,7 +18,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071827]/95 text-white shadow-[0_10px_36px_rgba(0,0,0,0.18)] backdrop-blur">
       <nav className="section-shell flex min-h-20 items-center justify-between gap-5">
         <Link href="/" className="flex items-center gap-3" aria-label="GBC Huskies home">
-          <SiteMark compact priority className="h-12 w-12" />
+          <SiteMark compact eager className="h-12 w-12" />
           <BrandName className="font-display text-3xl leading-none" />
         </Link>
 
