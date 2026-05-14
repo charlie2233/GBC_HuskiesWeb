@@ -85,6 +85,10 @@ const pageSeoTopics: Record<string, SeoTopic[]> = {
 };
 
 export function getSeoTopicsForPath(path: string) {
+  if (path.startsWith("/store/")) {
+    return pageSeoTopics["/store"];
+  }
+
   return pageSeoTopics[path] ?? baseSeoTopics;
 }
 

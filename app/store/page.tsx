@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Ruler, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { CalendarClock, Ruler, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
@@ -9,7 +10,7 @@ import PaymentLinkButton from "@/components/PaymentLinkButton";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
 import { getSeoTopicsForPath } from "@/lib/seoTopics";
-import { storeItems } from "@/lib/siteConfig";
+import { storeArrivalNotice, storeItems } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies Team Store | Basketball Merch & Team Gear",
@@ -69,15 +70,29 @@ export default function StorePage() {
                         <Ruler className="mt-0.5 h-4 w-4 flex-none text-[#d71920]" aria-hidden />
                         Sizes: {item.sizes}
                       </p>
+                      <p className="mt-3 flex items-start gap-2 rounded-lg border border-[#b8d8ea]/70 bg-[#eaf4fa] p-3 text-xs font-bold leading-5 text-[#071827]/78">
+                        <CalendarClock className="mt-0.5 h-4 w-4 flex-none text-[#d71920]" aria-hidden />
+                        {storeArrivalNotice}
+                      </p>
                     </div>
-                    <PaymentLinkButton
-                      href={item.url}
-                      className="mt-5 w-full"
-                      analyticsEvent="click_store_item"
-                      analyticsLabel={item.name}
-                    >
-                      Order / Pay
-                    </PaymentLinkButton>
+                    <div className="mt-5 grid gap-3">
+                      <Link
+                        href={`/store/${item.slug}`}
+                        data-analytics-event="click_store_product_detail"
+                        data-analytics-label={item.name}
+                        className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#071827]/14 bg-white px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#d71920]/40 hover:text-[#d71920]"
+                      >
+                        View Details
+                      </Link>
+                      <PaymentLinkButton
+                        href={item.url}
+                        className="w-full"
+                        analyticsEvent="click_store_item"
+                        analyticsLabel={item.name}
+                      >
+                        Order / Pay
+                      </PaymentLinkButton>
+                    </div>
                   </div>
                 </article>
               ))}

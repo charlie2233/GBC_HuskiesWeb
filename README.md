@@ -45,6 +45,7 @@ Routes:
 
 - `/payments` - team fees, tournament fees, monthly payments, donations, merch, and custom payments
 - `/store` - placeholder merch and gear items
+- `/store/[slug]` - product detail pages with images, sizes, order buttons, and arrival timing notes
 - `/reviews` - parent/player review cards and an on-site review form
 
 Set these optional public environment variables in Vercel when the coach
@@ -63,6 +64,10 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 
 See `.env.example` for optional custom-payment and item-specific merch links.
 If a link is blank, the related button displays `Coming Soon`.
+
+Team store item data, product detail copy, images, sizes, prices, and the
+arrival notice live in `lib/siteConfig.ts`. Store items currently tell families
+to allow up to 3 weeks for arrival.
 
 Displayed testimonials live in `lib/siteConfig.ts` and are editable placeholders
 until real reviews are manually approved. Do not auto-publish review form
