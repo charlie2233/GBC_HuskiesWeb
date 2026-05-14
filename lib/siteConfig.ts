@@ -106,6 +106,8 @@ export const storeItems = [
     description: "Heavyweight team hoodie for players, parents, and supporters.",
     price: "$55",
     sizes: "Youth S-XL, Adult S-XXL",
+    image: "/media/store/gbc-hoodie.jpg",
+    imageAlt: "GBC Huskies navy team hoodie with the circular husky basketball logo on the chest",
     url: process.env.NEXT_PUBLIC_STRIPE_GBC_HOODIE_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
@@ -113,6 +115,8 @@ export const storeItems = [
     description: "Soft everyday team tee with GBC Huskies branding.",
     price: "$25",
     sizes: "Youth S-XL, Adult S-XXL",
+    image: "/media/store/gbc-tshirt.jpg",
+    imageAlt: "GBC Huskies white team T-shirt with the circular husky basketball logo on the chest",
     url: process.env.NEXT_PUBLIC_STRIPE_GBC_TSHIRT_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
@@ -120,6 +124,8 @@ export const storeItems = [
     description: "Basketball shorts for training, travel days, and team events.",
     price: "$35",
     sizes: "Youth S-XL, Adult S-XXL",
+    image: "/media/store/gbc-shorts.jpg",
+    imageAlt: "GBC Huskies navy basketball shorts with the circular husky basketball logo on the leg",
     url: process.env.NEXT_PUBLIC_STRIPE_GBC_SHORTS_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
@@ -127,6 +133,8 @@ export const storeItems = [
     description: "Lightweight warmup shirt for practices and tournament weekends.",
     price: "$40",
     sizes: "Youth S-XL, Adult S-XXL",
+    image: "/media/store/gbc-shooting-shirt.jpg",
+    imageAlt: "GBC Huskies navy long sleeve shooting shirt with red sleeves and the circular husky basketball logo on the chest",
     url: process.env.NEXT_PUBLIC_STRIPE_GBC_SHOOTING_SHIRT_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
@@ -134,6 +142,8 @@ export const storeItems = [
     description: "Team backpack for shoes, gear, water bottles, and road-season essentials.",
     price: "$60",
     sizes: "One size",
+    image: "/media/store/gbc-backpack.jpg",
+    imageAlt: "GBC Huskies navy athletic backpack with the circular husky basketball logo on the front pocket",
     url: process.env.NEXT_PUBLIC_STRIPE_GBC_BACKPACK_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
 ];

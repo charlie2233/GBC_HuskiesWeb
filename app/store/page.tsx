@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Ruler, ShieldCheck, ShoppingBag } from "lucide-react";
+import Image from "next/image";
+import { Ruler, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
@@ -42,9 +43,16 @@ export default function StorePage() {
                   key={item.name}
                   className="group flex min-h-80 flex-col justify-between overflow-hidden rounded-lg border border-[var(--line)] bg-[#f4f6f8] shadow-[0_16px_36px_rgba(7,24,39,0.08)]"
                 >
-                  <div className="store-item-art relative min-h-36 border-b border-[#071827]/10 bg-[#071827] p-5 text-white">
-                    <ShoppingBag className="h-10 w-10 text-[#b8d8ea]" aria-hidden />
-                    <p className="absolute bottom-4 right-5 font-display text-6xl leading-none text-white/12">
+                  <div className="relative overflow-hidden border-b border-[#071827]/10 bg-[#071827]">
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      width={1200}
+                      height={1200}
+                      sizes="(min-width: 1280px) 28vw, (min-width: 768px) 46vw, 92vw"
+                      className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                    />
+                    <p className="absolute bottom-4 right-5 rounded-lg bg-[#071827]/82 px-3 py-2 font-display text-3xl leading-none text-white shadow-[0_14px_28px_rgba(0,0,0,0.2)]">
                       GBC
                     </p>
                   </div>
