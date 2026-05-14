@@ -1,5 +1,5 @@
 import { Brain, ShieldCheck, UsersRound } from "lucide-react";
-import { programStatements } from "@/lib/siteConfig";
+import { programFullName, programStatements } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const pillars = [
@@ -29,9 +29,9 @@ export default function About() {
             Built for Development and Competition
           </h2>
           <p className="mt-6 text-lg leading-8 text-[#1f2933]/80">
-            <BrandName /> is designed to emphasize fundamental basketball
-            skills through gameplay and training tailored to each athlete&apos;s
-            needs and skill level.
+            {programFullName}, home of <BrandName />, is designed to emphasize
+            fundamental basketball skills through gameplay and training tailored
+            to each athlete&apos;s needs and skill level.
           </p>
           <p className="mt-4 text-lg leading-8 text-[#1f2933]/80">
             {programStatements.mission}

@@ -1,6 +1,6 @@
 # GBC Huskies Basketball
 
-Official one-page website for GBC Huskies Basketball, an Orange County AAU basketball program focused on skills development, strength and conditioning, and local/national tournament competition.
+Official website for GBC Huskies Basketball, the team identity for Gilliam Basketball Club, an Orange County AAU basketball program focused on skills development, strength and conditioning, and local/national tournament competition.
 
 ## Tech Stack
 
@@ -93,6 +93,11 @@ public website.
 
 Mission, vision, about, values, and the `DEFENSE` slogan live in
 `lib/siteConfig.ts` as `programStatements`.
+
+The central program identity also lives in `lib/siteConfig.ts`: `GBC` expands
+to Gilliam Basketball Club, and the Coach Jay influence note keeps the UConn
+basketball reference factual without using official marks or implying
+affiliation.
 
 ## License
 

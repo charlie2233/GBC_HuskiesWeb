@@ -8,12 +8,12 @@ import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import { buildMetadata } from "@/lib/metadata";
 import { getSeoTopicsForPath } from "@/lib/seoTopics";
-import { programStatements } from "@/lib/siteConfig";
+import { programFullName, programStatements } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About GBC Huskies | Mission, Vision & Youth Basketball Values",
+  title: "About GBC Huskies | Gilliam Basketball Club Mission & Values",
   description:
-    "Learn about the GBC Huskies mission, vision, values, DEFENSE slogan, and player development approach built around fundamentals, discipline, teamwork, work ethic, sportsmanship, and life skills.",
+    "Learn about Gilliam Basketball Club, home of GBC Huskies, including the mission, vision, DEFENSE slogan, and player development approach built around fundamentals, discipline, teamwork, work ethic, sportsmanship, and life skills.",
   path: "/about",
 });
 
@@ -43,10 +43,10 @@ export default function AboutPage() {
         <PageHeader
           eyebrow="Mission and values"
           title="About GBC Huskies"
-          description="GBC Huskies basketball is built for player development, fundamentals, teamwork, discipline, sportsmanship, work ethic, and competitive youth basketball growth."
+          description="GBC Huskies basketball is the team identity for Gilliam Basketball Club, built for player development, fundamentals, teamwork, discipline, sportsmanship, work ethic, and competitive youth basketball growth."
           note={
             <>
-              <BrandName /> is listed as an Orange County AAU basketball program based on existing site content.
+              GBC stands for {programFullName}; <BrandName /> is listed as an Orange County AAU basketball program based on existing site content.
             </>
           }
           topics={getSeoTopicsForPath("/about")}
@@ -85,6 +85,13 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="rounded-lg border border-[#b8d8ea]/18 bg-white/8 p-5">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#b8d8ea]">
+                  GBC stands for
+                </p>
+                <p className="mt-2 text-2xl font-black leading-7 text-white">
+                  {programFullName}
+                </p>
+                <div className="my-5 h-px bg-white/12" aria-hidden />
                 <p className="font-display text-6xl leading-none text-[#d71920]">
                   {programStatements.slogan}
                 </p>

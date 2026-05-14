@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { coachInstagramUrl, contactEmail, goFundMeUrl, instagramUrl, mainRoutes } from "@/lib/siteConfig";
+import {
+  coachInstagramUrl,
+  contactEmail,
+  goFundMeUrl,
+  instagramUrl,
+  mainRoutes,
+  programFullName,
+} from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
@@ -14,7 +21,7 @@ export default function Footer() {
               <p className="font-display text-3xl leading-none">
                 <BrandName suffix="Basketball" />
               </p>
-              <p className="mt-1 text-sm text-white/62">AAU Basketball Program • Orange County, CA</p>
+              <p className="mt-1 text-sm text-white/62">{programFullName} • Orange County, CA</p>
             </div>
           </div>
         </div>

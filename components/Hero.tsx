@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin, Trophy } from "lucide-react";
-import { goFundMeUrl, registrationFormUrl } from "@/lib/siteConfig";
+import { goFundMeUrl, programFullName, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
 
 const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
@@ -21,6 +21,9 @@ export default function Hero() {
 
       <div className="section-shell hero-preview-shell relative grid min-h-[calc(86svh-80px)] items-center gap-9 pb-28 pt-8 md:grid-cols-[0.84fr_1.16fr] md:pb-0 md:pt-8 lg:gap-12">
         <div className="reveal relative z-20 text-center md:text-left">
+          <p className="mb-4 inline-flex rounded-lg border border-[#b8d8ea]/26 bg-[#06111d]/72 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#b8d8ea]">
+            {programFullName}
+          </p>
           <h1 className="hero-title font-display uppercase leading-[0.86]">
             <span className="block text-[#d71920]">GBC</span>
             <span className="block text-white">Huskies</span>
@@ -37,10 +40,10 @@ export default function Hero() {
             13U-15U &bull; MADE Hoops &bull; 2025 14U Champions
           </p>
           <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/74 md:mx-0">
-            Orange County AAU basketball program building athletes for skills
-            sessions, strength and conditioning, road events, MADE Hoops
-            competition, and moments that ask every player to bring energy for
-            the team.
+            Gilliam Basketball Club is an Orange County AAU basketball program
+            building athletes for skills sessions, strength and conditioning,
+            road events, MADE Hoops competition, and moments that ask every
+            player to bring energy for the team.
           </p>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">

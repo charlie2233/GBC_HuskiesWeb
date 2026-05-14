@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, AtSign, ClipboardCheck, Phone, ShieldCheck, UsersRound } from "lucide-react";
+import { ArrowRight, AtSign, ClipboardCheck, Phone, ShieldCheck, Trophy, UsersRound } from "lucide-react";
 import {
   areaServed,
+  coachInfluence,
   coachInstagramUrl,
   coachPhoneDisplay,
   coachPhoneHref,
   coachProfile,
+  programFullName,
   programStatements,
 } from "@/lib/siteConfig";
-import BrandName from "./BrandName";
 
 const coachStandards = [
   {
@@ -43,9 +44,9 @@ export default function Coaches() {
             Training Led With Standards
           </h2>
           <p className="mt-5 text-lg leading-8 text-white/74">
-            <BrandName /> training is guided by coaches who care about the full
-            player: fundamentals, discipline, teamwork, sportsmanship, and growth
-            on and off the basketball court.
+            {programFullName} training is guided by coaches who care about the
+            full player: fundamentals, discipline, teamwork, sportsmanship, and
+            growth on and off the basketball court.
           </p>
         </div>
 
@@ -87,6 +88,26 @@ export default function Coaches() {
             <p className="mt-4 border-l-4 border-[#d71920] pl-4 text-base font-semibold leading-7 text-white/70">
               {programStatements.values}
             </p>
+
+            <div className="mt-6 rounded-lg border border-[#b8d8ea]/18 bg-[#06111d]/74 p-5">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#d71920] text-white">
+                  <Trophy size={24} aria-hidden />
+                </div>
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.18em] text-[#b8d8ea]">
+                    {coachInfluence.title}
+                  </p>
+                  <h4 className="mt-2 text-xl font-black text-white">{coachInfluence.label}</h4>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-white/68">
+                    {coachInfluence.text}
+                  </p>
+                  <p className="mt-3 text-xs font-semibold leading-5 text-white/46">
+                    {coachInfluence.note}
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {coachStandards.map(({ title, text, icon: Icon }) => (

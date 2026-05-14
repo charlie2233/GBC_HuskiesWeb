@@ -10,6 +10,8 @@ area, private account details, or payment processor credentials.
 - Submit `https://gbchuskies.com/sitemap.xml` after production deploys.
 - Confirm `https://gbchuskies.com/robots.txt` references the sitemap.
 - Keep page titles and descriptions natural. Do not rely on meta keywords.
+- Use Gilliam Basketball Club as the official long-form meaning of GBC where
+  it helps families and search engines understand the program identity.
 - Use real image alt text only, such as team logo, team photo, tournament graphic, or training image descriptions.
 - Keep every important page reachable from header, footer, or homepage links.
 

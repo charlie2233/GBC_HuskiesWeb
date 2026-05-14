@@ -4,6 +4,8 @@ export type SeoTopic = {
 };
 
 export const baseSeoTopics = [
+  { label: "Gilliam Basketball Club", href: "/about" },
+  { label: "Gilliam basketball training", href: "/training" },
   { label: "GBC Huskies basketball", href: "/" },
   { label: "Orange County youth basketball", href: "/about" },
   { label: "AAU basketball program", href: "/teams" },
@@ -25,6 +27,7 @@ export const baseSeoTopics = [
 const pageSeoTopics: Record<string, SeoTopic[]> = {
   "/": baseSeoTopics,
   "/about": [
+    { label: "Gilliam Basketball Club mission", href: "/about" },
     { label: "GBC Huskies mission", href: "/about" },
     { label: "youth basketball values", href: "/about" },
     { label: "teamwork and discipline", href: "/about" },
@@ -33,12 +36,14 @@ const pageSeoTopics: Record<string, SeoTopic[]> = {
     { label: "Orange County AAU basketball", href: "/about" },
   ],
   "/training": [
+    { label: "Coach Jay basketball training", href: "/training" },
     { label: "basketball training", href: "/training" },
     { label: "basketball fundamentals", href: "/training" },
     { label: "basketball skills training", href: "/training" },
     { label: "ball handling training", href: "/training" },
     { label: "shooting development", href: "/training" },
     { label: "defensive habits", href: "/training" },
+    { label: "college basketball standards", href: "/training" },
     { label: "athlete development", href: "/training" },
     { label: "strength and conditioning basketball", href: "/training" },
   ],

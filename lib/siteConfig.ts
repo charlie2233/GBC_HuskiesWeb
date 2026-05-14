@@ -2,9 +2,10 @@ import type { DisplayedReview } from "./reviews";
 
 export const siteUrl = "https://gbchuskies.com";
 export const siteName = "GBC Huskies Basketball";
-export const organizationName = "GBC Huskies";
+export const programFullName = "Gilliam Basketball Club";
+export const organizationName = "Gilliam Basketball Club";
 export const siteDescription =
-  "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, work ethic, and helping athletes grow on and off the court.";
+  "Gilliam Basketball Club, home of GBC Huskies, is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, work ethic, and helping athletes grow on and off the court.";
 export const logoPath = "/brand/gbc-huskies-circle-logo.png";
 export const logoUrl = `${siteUrl}${logoPath}`;
 export const ogImageUrl = logoUrl;
@@ -28,8 +29,16 @@ export const coachProfile = {
   imageAlt:
     "GBC Huskies Instagram program graphic with Coach J contact information and Orange County club team details",
   bio:
-    "Coach Jay leads GBC Huskies with a development-first standard built around fundamentals, structure, attention to detail, work ethic, teamwork, and sportsmanship.",
+    "Coach Jay leads Gilliam Basketball Club with a development-first standard built around fundamentals, structure, attention to detail, work ethic, teamwork, and sportsmanship.",
   instagramHandle: "@coachjaygill",
+};
+
+export const coachInfluence = {
+  title: "Coach Jay's College Hoops Influence",
+  label: "UConn basketball fan, GBC standards",
+  text:
+    "Coach Jay loves UConn basketball, and that influence shows up as a clean college-hoops standard: disciplined defense, spacing, toughness, ball movement, and team-first habits.",
+  note: "GBC is not affiliated with UConn. This is a coaching influence note only.",
 };
 
 export const programStatements = {

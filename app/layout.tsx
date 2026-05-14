@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ...buildMetadata({
     title: "GBC Huskies | Youth Basketball Program & Player Development",
     description:
-      "GBC Huskies is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.",
+      "Gilliam Basketball Club, home of GBC Huskies, is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.",
     path: "/",
   }),
 };
