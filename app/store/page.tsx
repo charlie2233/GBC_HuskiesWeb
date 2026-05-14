@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
-import PaymentLinkButton from "@/components/PaymentLinkButton";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
 import { getSeoTopicsForPath } from "@/lib/seoTopics";
@@ -27,10 +26,10 @@ export default function StorePage() {
         <PageHeader
           eyebrow="Team gear"
           title="Team Store"
-          description="Order team merch, uniforms, and gear through payment links. Items are placeholders until the coach confirms products, prices, inventory, and Stripe links."
+          description="Browse team merch, uniforms, and gear. Families can use Zelle or cash after the coach confirms products, prices, sizing, and pickup or delivery details."
           note={
             <>
-              <BrandName /> team store orders use Stripe-hosted checkout when payment links are enabled.
+              <BrandName /> team store payments route through the Zelle/cash payment hub.
             </>
           }
           topics={getSeoTopicsForPath("/store")}
@@ -84,14 +83,14 @@ export default function StorePage() {
                       >
                         View Details
                       </Link>
-                      <PaymentLinkButton
-                        href={item.url}
-                        className="w-full"
-                        analyticsEvent="click_store_item"
-                        analyticsLabel={item.name}
+                      <Link
+                        href={`/payments?item=${item.slug}`}
+                        data-analytics-event="click_store_item"
+                        data-analytics-label={`${item.name} payment`}
+                        className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white shadow-[0_14px_28px_rgba(215,25,32,0.2)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
                       >
-                        Order / Pay
-                      </PaymentLinkButton>
+                        Pay With Zelle / Cash
+                      </Link>
                     </div>
                   </div>
                 </article>
@@ -103,9 +102,9 @@ export default function StorePage() {
               <div>
                 <h2 className="text-xl font-black text-[#071827]">MVP store model</h2>
                 <p className="mt-2 text-sm font-semibold leading-6 text-[#1f2933]/72">
-                  This is intentionally not a full shopping cart. Each item can point
-                  to a Stripe Payment Link once products, pricing, sizing, and pickup
-                  or delivery details are confirmed.
+                  This is intentionally not a full shopping cart. Families can review
+                  product details, then use the payment page for Zelle or cash once
+                  products, pricing, sizing, and pickup or delivery details are confirmed.
                 </p>
               </div>
             </div>

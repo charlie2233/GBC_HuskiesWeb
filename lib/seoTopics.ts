@@ -58,7 +58,8 @@ const pageSeoTopics: Record<string, SeoTopic[]> = {
     { label: "tournament fees", href: "/payments" },
     { label: "monthly basketball payments", href: "/payments" },
     { label: "basketball donations", href: "/payments" },
-    { label: "secure payment links", href: "/payments" },
+    { label: "Zelle basketball payments", href: "/payments" },
+    { label: "cash team payments", href: "/payments" },
   ],
   "/store": [
     { label: "GBC Huskies team store", href: "/store" },

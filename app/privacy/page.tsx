@@ -9,14 +9,14 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy | GBC Huskies Basketball",
   description:
-    "Read how the GBC Huskies website uses analytics, contact forms, review forms, and third-party payment links while avoiding private payment data collection.",
+    "Read how the GBC Huskies website uses analytics, contact forms, review forms, and Zelle/cash payment guidance while avoiding private payment data collection.",
   path: "/privacy",
 });
 
 const policyItems = [
   "The site may use analytics to understand website traffic, popular pages, and button clicks.",
-  "Payments are handled by third-party payment processors such as Stripe when public payment links are enabled.",
-  "The website does not collect or store bank information, card details, tax information, SSNs, or Stripe passwords.",
+  "Payments can be made through the family's own Zelle app or by cash after confirming the amount with the coach.",
+  "The website does not collect or store bank information, card details, tax information, SSNs, Zelle login details, or passwords.",
   "Contact and review forms may collect submitted names, emails, phone numbers, player/team context, and messages.",
   "Reviews with display permission may be shown immediately in local website review cards using the selected public display preference.",
   "Public review cards do not show parent email, phone number, or player name.",

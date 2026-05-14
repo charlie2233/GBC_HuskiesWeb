@@ -11,7 +11,7 @@ const actions = [
   },
   {
     title: "Visit Team Store",
-    text: "Placeholder merch and team gear pages ready for Stripe Payment Links.",
+    text: "Team merch and gear pages with Zelle or cash payment guidance.",
     href: "/store",
     event: "click_store_page",
     icon: ShoppingBag,

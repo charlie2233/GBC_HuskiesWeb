@@ -2,7 +2,7 @@
 
 This checklist keeps the website, Google setup, and social/off-site work aligned.
 Use real program details only. Do not invent city, address, phone number, service
-area, payment links, or private account details.
+area, private account details, or payment processor credentials.
 
 ## Code-Side SEO
 
@@ -34,11 +34,10 @@ area, payment links, or private account details.
 
 Tracked click events include:
 
-- `click_payment_team_fee`
-- `click_payment_tournament_fee`
-- `click_payment_monthly`
 - `click_payment_donation`
-- `click_payment_merch`
+- `click_payment_zelle_copy`
+- `click_payment_zelle_phone`
+- `click_payment_page`
 - `click_store_item`
 - `click_review_form`
 - `click_reviews_page`
@@ -114,7 +113,7 @@ display is supported by using labels such as `GBC Parent`, `Player Parent`, or
 - Practice location or general area, if public.
 - Current logo and approved team photos.
 - Instagram and any other official social links.
-- Stripe Payment Links.
+- Confirmed Zelle/cash payment instructions and any future approved payment links.
 - Review form URL.
 - Optional on-site review form endpoint.
 - GA4 Measurement ID.

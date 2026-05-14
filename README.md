@@ -37,33 +37,26 @@ The form supports two modes:
 
 ## Payments, Store, and Reviews
 
-The MVP payments and store setup uses public Stripe Payment Links only. The
-website does not collect or store bank info, tax info, SSNs, card numbers, or
-Stripe passwords.
+The payments page is a Zelle/cash payment hub. Payments can be made via Zelle
+to `657-253-0078` or by cash after confirming the amount with the coach. The
+website does not collect or store bank info, tax info, SSNs, card numbers, Zelle
+login details, or passwords.
 
 Routes:
 
-- `/payments` - team fees, tournament fees, monthly payments, donations, merch, and custom payments
-- `/store` - placeholder merch and gear items
+- `/payments` - Zelle/cash hub for team fees, tournament fees, monthly payments, donations, merch, and custom payments
+- `/store` - placeholder merch and gear items with payment CTAs routed to `/payments`
 - `/store/[slug]` - product detail pages with images, sizes, order buttons, and arrival timing notes
 - `/reviews` - parent/player review cards and an on-site review form
 
 Set these optional public environment variables in Vercel when the coach
-provides real links:
+provides real form and analytics settings:
 
 ```bash
-NEXT_PUBLIC_STRIPE_TEAM_FEE_URL=
-NEXT_PUBLIC_STRIPE_TOURNAMENT_FEE_URL=
-NEXT_PUBLIC_STRIPE_MONTHLY_PAYMENT_URL=
-NEXT_PUBLIC_STRIPE_DONATION_URL=
-NEXT_PUBLIC_STRIPE_MERCH_URL=
 NEXT_PUBLIC_REVIEW_FORM_URL=
 NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT=
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
-
-See `.env.example` for optional custom-payment and item-specific merch links.
-If a link is blank, the related button displays `Coming Soon`.
 
 Team store item data, product detail copy, images, sizes, prices, and the
 arrival notice live in `lib/siteConfig.ts`. Store items currently tell families
@@ -84,7 +77,8 @@ generated `/sitemap.xml` and `/robots.txt`.
 Google Analytics 4 is optional. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel
 to load the Google tag. If the value is blank, analytics scripts are not loaded.
 CTA clicks are tagged with safe event names only; the site does not track card
-numbers, bank info, tax info, SSNs, Stripe passwords, or private payment data.
+numbers, bank info, tax info, SSNs, Zelle login details, passwords, or private
+payment data.
 
 See `docs/seo-and-analytics-plan.md` for the Search Console, GA4, Google
 Business Profile, social linking, backlinks, and content checklist.

@@ -6,7 +6,6 @@ import { ArrowLeft, CalendarClock, PackageCheck, ShieldCheck } from "lucide-reac
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
-import PaymentLinkButton from "@/components/PaymentLinkButton";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
 import { getStoreItemBySlug, siteUrl, storeArrivalNotice, storeItems } from "@/lib/siteConfig";
@@ -102,13 +101,14 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
                 </p>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-                  <PaymentLinkButton
-                    href={item.url}
-                    analyticsEvent="click_store_item"
-                    analyticsLabel={`${item.name} product page`}
+                  <Link
+                    href={`/payments?item=${item.slug}`}
+                    data-analytics-event="click_store_item"
+                    data-analytics-label={`${item.name} product page payment`}
+                    className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white shadow-[0_16px_28px_rgba(215,25,32,0.22)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
                   >
-                    Order / Pay
-                  </PaymentLinkButton>
+                    Pay With Zelle / Cash
+                  </Link>
                   <Link
                     href="/payments"
                     className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/16 px-5 font-extrabold text-white/82 transition hover:-translate-y-0.5 hover:border-white/36 hover:text-white"
@@ -145,11 +145,11 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
               <ShieldCheck className="h-8 w-8 text-[#b8d8ea]" aria-hidden />
               <h2 className="mt-4 text-2xl font-black">Order Notes</h2>
               <div className="mt-4 grid gap-3 text-sm font-semibold leading-6 text-white/72">
-                <p>Payment buttons use Stripe-hosted checkout once the real team links are added.</p>
+                <p>Team store payments can be made through Zelle or cash once the item, size, and amount are confirmed.</p>
                 <p>Products, prices, inventory, pickup, and delivery details should be confirmed by the coach.</p>
                 <p>
-                  <BrandName /> does not collect or store card numbers, bank details, tax info, or Stripe passwords on
-                  this website.
+                  <BrandName /> does not collect or store card numbers, bank details, tax info, Zelle login details, or
+                  passwords on this website.
                 </p>
               </div>
             </aside>

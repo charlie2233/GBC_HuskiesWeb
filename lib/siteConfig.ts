@@ -11,6 +11,8 @@ export const ogImageUrl = logoUrl;
 export const contactEmail = "gbchuskiesoc@gmail.com";
 export const coachPhoneDisplay = "657-253-0078";
 export const coachPhoneHref = "tel:+16572530078";
+export const zellePhoneDisplay = coachPhoneDisplay;
+export const zellePhoneValue = "6572530078";
 export const areaServed = "Orange County, CA";
 export const instagramUrl = "https://www.instagram.com/gbc_huskies/";
 export const coachInstagramUrl = "https://www.instagram.com/coachjaygill/";
@@ -58,44 +60,32 @@ export const mainRoutes = [
 export const paymentItems = [
   {
     title: "Team Fees",
-    description: "Pay team or season fees securely online.",
-    buttonText: "Pay Team Fee",
-    url: process.env.NEXT_PUBLIC_STRIPE_TEAM_FEE_URL || "",
-    type: "one-time",
+    description: "Season, roster, or team participation payments.",
+    type: "team",
   },
   {
     title: "Tournament Fees",
-    description: "Pay tournament or event fees.",
-    buttonText: "Pay Tournament Fee",
-    url: process.env.NEXT_PUBLIC_STRIPE_TOURNAMENT_FEE_URL || "",
-    type: "one-time",
+    description: "Event fees, tournament weekends, and road-season costs.",
+    type: "events",
   },
   {
     title: "Monthly Payments",
-    description: "Set up recurring monthly team payments.",
-    buttonText: "Set Up Monthly Payment",
-    url: process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PAYMENT_URL || "",
-    type: "recurring",
+    description: "Monthly program payments when arranged with the coach.",
+    type: "monthly",
   },
   {
     title: "Donations",
-    description: "Support the GBC Huskies program.",
-    buttonText: "Donate",
-    url: process.env.NEXT_PUBLIC_STRIPE_DONATION_URL || "",
+    description: "Program support, travel help, and family contributions.",
     type: "donation",
   },
   {
-    title: "Uniform / Merch Payments",
-    description: "Pay for team gear, uniforms, and merchandise.",
-    buttonText: "Pay for Merch",
-    url: process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
-    type: "store",
+    title: "Uniforms & Merch",
+    description: "Team gear, uniforms, shooting shirts, and store items.",
+    type: "gear",
   },
   {
     title: "Custom Payments",
-    description: "Use this option when the coach gives you a custom amount or payment purpose.",
-    buttonText: "Make Custom Payment",
-    url: process.env.NEXT_PUBLIC_STRIPE_CUSTOM_PAYMENT_URL || "",
+    description: "Any coach-approved custom amount or payment purpose.",
     type: "custom",
   },
 ];
@@ -114,7 +104,6 @@ export const storeItems = [
     image: "/media/store/gbc-hoodie.jpg",
     imageAlt: "GBC Huskies navy team hoodie with the circular husky basketball logo on the chest",
     features: ["Heavyweight pullover feel", "Team logo chest graphic", "Player and parent sizing"],
-    url: process.env.NEXT_PUBLIC_STRIPE_GBC_HOODIE_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
     slug: "gbc-t-shirt",
@@ -127,7 +116,6 @@ export const storeItems = [
     image: "/media/store/gbc-tshirt.jpg",
     imageAlt: "GBC Huskies white team T-shirt with the circular husky basketball logo on the chest",
     features: ["Soft daily-wear fit", "Team logo chest graphic", "Youth and adult sizing"],
-    url: process.env.NEXT_PUBLIC_STRIPE_GBC_TSHIRT_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
     slug: "gbc-shorts",
@@ -140,7 +128,6 @@ export const storeItems = [
     image: "/media/store/gbc-shorts.jpg",
     imageAlt: "GBC Huskies navy basketball shorts with the circular husky basketball logo on the leg",
     features: ["Basketball-ready length", "Logo detail on leg", "Training and travel use"],
-    url: process.env.NEXT_PUBLIC_STRIPE_GBC_SHORTS_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
     slug: "gbc-shooting-shirt",
@@ -153,7 +140,6 @@ export const storeItems = [
     image: "/media/store/gbc-shooting-shirt.jpg",
     imageAlt: "GBC Huskies navy long sleeve shooting shirt with red sleeves and the circular husky basketball logo on the chest",
     features: ["Lightweight warmup layer", "Red sleeve accent", "Tournament-weekend look"],
-    url: process.env.NEXT_PUBLIC_STRIPE_GBC_SHOOTING_SHIRT_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
   {
     slug: "gbc-backpack",
@@ -166,7 +152,6 @@ export const storeItems = [
     image: "/media/store/gbc-backpack.jpg",
     imageAlt: "GBC Huskies navy athletic backpack with the circular husky basketball logo on the front pocket",
     features: ["Team travel gear", "Logo front pocket", "Room for basketball essentials"],
-    url: process.env.NEXT_PUBLIC_STRIPE_GBC_BACKPACK_URL || process.env.NEXT_PUBLIC_STRIPE_MERCH_URL || "",
   },
 ];
 
