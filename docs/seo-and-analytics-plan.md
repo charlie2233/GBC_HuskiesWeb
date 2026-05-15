@@ -6,7 +6,7 @@ area, private account details, or payment processor credentials.
 
 ## Code-Side SEO
 
-- Pages now covered: `/`, `/about`, `/training`, `/teams`, `/payments`, `/store`, `/reviews`, `/contact`, `/privacy`.
+- Pages now covered: `/`, `/about`, `/training`, `/teams`, `/payments`, `/store`, `/reviews`, `/faq`, `/contact`, `/privacy`.
 - Submit `https://gbchuskies.com/sitemap.xml` after production deploys.
 - Confirm `https://gbchuskies.com/robots.txt` references the sitemap.
 - Keep page titles and descriptions natural. Do not rely on meta keywords.
@@ -20,7 +20,7 @@ area, private account details, or payment processor credentials.
 - Verify `gbchuskies.com`.
 - Submit `https://gbchuskies.com/sitemap.xml`.
 - Inspect the homepage.
-- Inspect `/about`, `/training`, `/teams`, `/payments`, `/store`, `/reviews`, and `/contact`.
+- Inspect `/about`, `/training`, `/teams`, `/payments`, `/store`, `/reviews`, `/faq`, and `/contact`.
 - Monitor indexing errors.
 - Monitor search queries and clicks.
 - Request indexing after major page updates.
@@ -41,6 +41,7 @@ Tracked click events include:
 - `click_payment_zelle_phone`
 - `click_payment_page`
 - `click_store_item`
+- `click_faq_page`
 - `click_review_form`
 - `click_reviews_page`
 - `click_leave_review`
@@ -79,19 +80,17 @@ https://gbchuskies.com/payments?utm_source=coach&utm_medium=dm&utm_campaign=paym
 - Add parent/player testimonials with permission.
 - Add team photos with accurate captions and approved public use.
 
-## Parent Reviews Auto Display MVP
+## Parent Reviews Manual Display MVP
 
 The website includes an on-site review form at `/reviews#leave-review`. Set
 `NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT` if the team wants direct form delivery
-through a public Formspree endpoint. If that value is blank, the form still
-displays reviews locally in the visitor's site view, but it does not deliver
-submissions to the coach.
+through a public Formspree endpoint. If that value is blank, the form opens a
+prefilled email to the team inbox for manual review.
 
-Reviews with display permission are added immediately to the review cards in
-the visitor's browser using local storage. This MVP does not create a public
-cross-device review database. For sitewide auto-display across all visitors,
-connect a real storage provider or approved reviews feed and keep moderation
-controls in place.
+Reviews are not auto-published. Only approved public review text should be
+copied into `lib/siteConfig.ts` after the coach approves it. This keeps the MVP
+simple: no login, no database, no public review feed, and no private parent or
+player information displayed.
 
 Suggested review fields:
 

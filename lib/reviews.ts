@@ -7,10 +7,6 @@ export type DisplayedReview = {
   source?: "placeholder" | "submitted";
 };
 
-const reviewStorageKey = "gbc-huskies-public-reviews-v1";
-const reviewSubmittedEvent = "gbc-review-submitted";
-const maxStoredReviews = 24;
-
 function cleanText(value: string, maxLength: number) {
   return value.replace(/\s+/g, " ").trim().slice(0, maxLength);
 }
@@ -49,61 +45,5 @@ export function buildPublicReview(formData: FormData): DisplayedReview | null {
     quote,
     rating,
     source: "submitted",
-  };
-}
-
-export function getStoredReviews() {
-  if (typeof window === "undefined") {
-    return [];
-  }
-
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(reviewStorageKey) || "[]");
-
-    if (!Array.isArray(parsed)) {
-      return [];
-    }
-
-    return parsed.filter((review): review is DisplayedReview => {
-      return (
-        typeof review?.id === "string" &&
-        typeof review.name === "string" &&
-        typeof review.detail === "string" &&
-        typeof review.quote === "string" &&
-        typeof review.rating === "number"
-      );
-    });
-  } catch {
-    return [];
-  }
-}
-
-export function saveDisplayedReview(review: DisplayedReview) {
-  if (typeof window === "undefined") {
-    return;
-  }
-
-  const reviews = [review, ...getStoredReviews().filter((item) => item.id !== review.id)].slice(0, maxStoredReviews);
-  window.localStorage.setItem(reviewStorageKey, JSON.stringify(reviews));
-  window.dispatchEvent(new CustomEvent(reviewSubmittedEvent, { detail: review }));
-}
-
-export function subscribeToDisplayedReviews(callback: () => void) {
-  if (typeof window === "undefined") {
-    return () => {};
-  }
-
-  function handleStorage(event: StorageEvent) {
-    if (event.key === reviewStorageKey) {
-      callback();
-    }
-  }
-
-  window.addEventListener(reviewSubmittedEvent, callback);
-  window.addEventListener("storage", handleStorage);
-
-  return () => {
-    window.removeEventListener(reviewSubmittedEvent, callback);
-    window.removeEventListener("storage", handleStorage);
   };
 }

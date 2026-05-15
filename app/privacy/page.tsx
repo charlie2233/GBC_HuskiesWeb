@@ -18,7 +18,7 @@ const policyItems = [
   "Payments can be made through the family's own Zelle app or by cash after confirming the amount with the coach.",
   "The website does not collect or store bank information, card details, tax information, SSNs, Zelle login details, or passwords.",
   "Contact and review forms may collect submitted names, emails, phone numbers, player/team context, and messages.",
-  "Reviews with display permission may be shown immediately in local website review cards using the selected public display preference.",
+  "Reviews with display permission are reviewed before public display and only approved public text is added to website content.",
   "Public review cards do not show parent email, phone number, or player name.",
   "Visitor data is used to improve the website, understand program interest, and make the site easier for families to use.",
   "The program should avoid collecting unnecessary personal information from or about youth players.",

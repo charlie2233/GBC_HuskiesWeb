@@ -48,6 +48,7 @@ Routes:
 - `/store` - preview-only merch and gear page while ordering is paused
 - `/store/[slug]` - product detail pages with images, sizes, paused-order messaging, and arrival timing notes
 - `/reviews` - parent/player review cards and an on-site review form
+- `/faq` - parent quick answers for joining, training, payments, store timing, reviews, privacy, and contact expectations
 
 Set these optional public environment variables in Vercel when the coach
 provides real form and analytics settings:
@@ -70,11 +71,14 @@ submissions. Families can choose anonymous display. The on-site review form uses
 `NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT` when configured; otherwise it opens a
 prefilled email to the team inbox for manual review.
 
+FAQ content and homepage parent quick answers live in `lib/faq.ts`. See
+`docs/admin-content-guide.md` for the manual owner update process.
+
 ## SEO and Analytics
 
 The site includes crawlable App Router pages for `/about`, `/training`,
-`/teams`, `/payments`, `/store`, `/reviews`, `/contact`, and `/privacy`, plus
-generated `/sitemap.xml` and `/robots.txt`.
+`/teams`, `/payments`, `/store`, `/reviews`, `/faq`, `/contact`, and
+`/privacy`, plus generated `/sitemap.xml` and `/robots.txt`.
 
 Google Analytics 4 is optional. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel
 to load the Google tag. If the value is blank, analytics scripts are not loaded.

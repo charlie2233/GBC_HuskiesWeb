@@ -9,6 +9,7 @@ import HomeActions from "@/components/HomeActions";
 import MediaGrid from "@/components/MediaGrid";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
+import ParentQuickAnswers from "@/components/ParentQuickAnswers";
 import ReviewsPreview from "@/components/ReviewsPreview";
 import SearchTopicTags from "@/components/SearchTopicTags";
 import Skills from "@/components/Skills";
@@ -35,6 +36,7 @@ export default function Home() {
         <Highlights />
         <SearchTopicTags topics={getSeoTopicsForPath("/")} theme="dark" />
         <HomeActions />
+        <ParentQuickAnswers />
         <MediaGrid />
         <About />
         <Skills />

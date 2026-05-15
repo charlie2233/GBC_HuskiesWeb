@@ -18,7 +18,7 @@ export default function ReviewsPreview() {
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/76">
               Share the development, culture, and tournament experience families
               feel inside the GBC Huskies program. Reviews with display
-              permission can appear immediately on the site view.
+              permission are reviewed before public display.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link

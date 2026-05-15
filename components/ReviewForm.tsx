@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Send, ShieldCheck, Star } from "lucide-react";
-import { buildPublicReview, saveDisplayedReview } from "@/lib/reviews";
+import { buildPublicReview } from "@/lib/reviews";
 import { contactEmail, reviewFormEndpoint } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
@@ -23,17 +23,8 @@ const gradeOptions = [
 const ratingOptions = ["5", "4", "3", "2", "1"];
 const displayOptions = ["Anonymous", "First name only", "Full name"];
 
-function scrollToReviewCards() {
-  window.setTimeout(() => {
-    document.getElementById("review-cards")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }, 80);
-}
-
 export default function ReviewForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "displayed" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "submitted" | "error">("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -43,17 +34,14 @@ export default function ReviewForm() {
     const publicReview = buildPublicReview(formData);
 
     formData.set("formType", "GBC Huskies Review");
-    formData.set("autoDisplayRequested", "true");
+    formData.set("autoDisplayRequested", "false");
+    formData.set("moderationRequired", "true");
     formData.set("publicDisplayName", publicReview?.name || "");
     formData.set("publicDisplayDetail", publicReview?.detail || "");
 
     setStatus("sending");
 
     try {
-      if (publicReview) {
-        saveDisplayedReview(publicReview);
-      }
-
       if (reviewFormEndpoint) {
         const response = await fetch(reviewFormEndpoint, {
           method: "POST",
@@ -66,14 +54,32 @@ export default function ReviewForm() {
         }
 
         form.reset();
-        setStatus("displayed");
-        scrollToReviewCards();
+        setStatus("submitted");
         return;
       }
 
+      const lines = [
+        "GBC Huskies Review Submission",
+        "",
+        `Parent/Guardian Name: ${formData.get("guardianName") ?? ""}`,
+        `Parent Email: ${formData.get("email") ?? ""}`,
+        `Player Name: ${formData.get("playerName") ?? ""}`,
+        `Player Grade/Team: ${formData.get("playerGradeTeam") ?? ""}`,
+        `Rating: ${formData.get("rating") ?? ""}`,
+        `Display Preference: ${formData.get("displayPreference") ?? ""}`,
+        `Permission to Display: ${formData.get("displayPermission") ?? ""}`,
+        "",
+        "Review/Testimonial Message:",
+        `${formData.get("message") ?? ""}`,
+        "",
+        "Manual approval note: Do not publish this review until the coach approves the public display text.",
+      ];
+      const subject = encodeURIComponent("GBC Huskies Review Submission");
+      const body = encodeURIComponent(lines.join("\n"));
+      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+
       form.reset();
-      setStatus("displayed");
-      scrollToReviewCards();
+      setStatus("submitted");
     } catch {
       setStatus("error");
     }
@@ -89,8 +95,8 @@ export default function ReviewForm() {
           <h2 className="font-display text-6xl leading-none md:text-7xl">Leave a Review</h2>
           <p className="mt-5 text-lg leading-8 text-white/76">
             Families can share their experience with <BrandName /> directly on
-            this page. Reviews with display permission appear immediately in
-            the on-site review cards using only safe public display fields.
+            this page. Reviews are checked before public display, and only
+            approved testimonial text is added to the website.
           </p>
           <div className="mt-6 rounded-lg border border-[#b8d8ea]/18 bg-white/8 p-5">
             <div className="flex items-start gap-3">
@@ -222,16 +228,16 @@ export default function ReviewForm() {
             {status === "sending" ? "Submitting..." : "Submit Review"}
           </button>
 
-          {status === "displayed" ? (
+          {status === "submitted" ? (
             <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
-              Thanks for sharing your review. It is now displayed in the review
-              cards on this site view.
+              Thanks for sharing your review. It has been prepared for manual
+              review and will not appear publicly until approved.
             </p>
           ) : null}
           {status === "error" ? (
             <p className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
-              The review displayed locally, but delivery failed. Please email
-              the coach at {contactEmail} if you want to send a copy.
+              Something went wrong. Please email the coach at {contactEmail} if
+              you want to send your review.
             </p>
           ) : null}
         </form>

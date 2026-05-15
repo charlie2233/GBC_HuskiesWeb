@@ -8,7 +8,7 @@ import { mainRoutes } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 import SiteMark from "./SiteMark";
 
-const navItems = mainRoutes.filter((route) => route.path !== "/privacy");
+const navItems = mainRoutes.filter((route) => route.path !== "/privacy" && route.path !== "/faq");
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

@@ -1,9 +1,5 @@
-"use client";
-
-import { useEffect, useMemo, useState } from "react";
 import { Star, UserCheck } from "lucide-react";
 import type { DisplayedReview } from "@/lib/reviews";
-import { getStoredReviews, subscribeToDisplayedReviews } from "@/lib/reviews";
 
 type ReviewCardsProps = {
   initialReviews: DisplayedReview[];
@@ -16,22 +12,7 @@ function starLabel(rating: number) {
 }
 
 export default function ReviewCards({ initialReviews, limit, compact = false }: ReviewCardsProps) {
-  const [submittedReviews, setSubmittedReviews] = useState<DisplayedReview[]>([]);
-
-  useEffect(() => {
-    function refreshReviews() {
-      setSubmittedReviews(getStoredReviews());
-    }
-
-    refreshReviews();
-
-    return subscribeToDisplayedReviews(refreshReviews);
-  }, []);
-
-  const reviews = useMemo(() => {
-    const merged = [...submittedReviews, ...initialReviews];
-    return typeof limit === "number" ? merged.slice(0, limit) : merged;
-  }, [initialReviews, limit, submittedReviews]);
+  const reviews = typeof limit === "number" ? initialReviews.slice(0, limit) : initialReviews;
 
   return (
     <div className={compact ? "grid gap-4 md:grid-cols-3" : "grid gap-4 lg:grid-cols-3"}>

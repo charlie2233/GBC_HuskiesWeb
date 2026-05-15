@@ -58,9 +58,10 @@ export default function ReviewsPage() {
                 <h2 className="font-display text-5xl leading-none">Leave a Review</h2>
                 <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-white/68">
                   The review form should collect the basics needed to safely publish
-                  testimonials only when permission is given. Public cards show
-                  the selected display name, rating, review message, and grade/team
-                  context only. Families can choose anonymous display.
+                  testimonials only when permission is given and the coach approves
+                  the public display text. Public cards show the selected display
+                  name, rating, review message, and grade/team context only.
+                  Families can choose anonymous display.
                 </p>
                 <a
                   href="#leave-review"

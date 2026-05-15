@@ -63,6 +63,7 @@ export const mainRoutes = [
   { path: "/store", label: "Team Store", priority: 0.72 },
   { path: "/reviews", label: "Reviews", priority: 0.72 },
   { path: "/contact", label: "Contact", priority: 0.82 },
+  { path: "/faq", label: "FAQ", priority: 0.66 },
   { path: "/privacy", label: "Privacy", priority: 0.42 },
 ];
 

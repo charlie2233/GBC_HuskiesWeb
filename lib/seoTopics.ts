@@ -22,6 +22,8 @@ export const baseSeoTopics = [
   { label: "basketball team store", href: "/store" },
   { label: "GBC Huskies reviews", href: "/reviews" },
   { label: "parent testimonials", href: "/reviews" },
+  { label: "GBC Huskies FAQ", href: "/faq" },
+  { label: "youth basketball parent questions", href: "/faq" },
 ] satisfies SeoTopic[];
 
 const pageSeoTopics: Record<string, SeoTopic[]> = {
@@ -80,6 +82,15 @@ const pageSeoTopics: Record<string, SeoTopic[]> = {
     { label: "player testimonials", href: "/reviews" },
     { label: "basketball program testimonials", href: "/reviews" },
     { label: "player development feedback", href: "/reviews" },
+  ],
+  "/faq": [
+    { label: "GBC Huskies FAQ", href: "/faq" },
+    { label: "basketball parent questions", href: "/faq" },
+    { label: "youth basketball payment questions", href: "/payments" },
+    { label: "basketball team store timing", href: "/store" },
+    { label: "player photo privacy", href: "/privacy" },
+    { label: "team review approval", href: "/reviews" },
+    { label: "contact basketball coach", href: "/contact" },
   ],
   "/contact": [
     { label: "contact GBC Huskies", href: "/contact" },
