@@ -45,8 +45,8 @@ login details, or passwords.
 Routes:
 
 - `/payments` - Zelle/cash hub for team fees, tournament fees, monthly payments, donations, merch, and custom payments
-- `/store` - placeholder merch and gear items with payment CTAs routed to `/payments`
-- `/store/[slug]` - product detail pages with images, sizes, order buttons, and arrival timing notes
+- `/store` - preview-only merch and gear page while ordering is paused
+- `/store/[slug]` - product detail pages with images, sizes, paused-order messaging, and arrival timing notes
 - `/reviews` - parent/player review cards and an on-site review form
 
 Set these optional public environment variables in Vercel when the coach
@@ -60,7 +60,9 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 
 Team store item data, product detail copy, images, sizes, prices, and the
 arrival notice live in `lib/siteConfig.ts`. Store items currently tell families
-to allow up to 3 weeks for arrival.
+to allow up to 3 weeks for arrival. `teamStoreStatus.locked` keeps the store in
+preview-only mode until official Stripe/order links are ready. Do not re-enable
+store payment CTAs until the coach confirms the order and payment flow.
 
 Displayed testimonials live in `lib/siteConfig.ts` and are editable placeholders
 until real reviews are manually approved. Do not auto-publish review form

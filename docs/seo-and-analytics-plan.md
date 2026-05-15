@@ -116,6 +116,7 @@ display is supported by using labels such as `GBC Parent`, `Player Parent`, or
 - Current logo and approved team photos.
 - Instagram and any other official social links.
 - Confirmed Zelle/cash payment instructions and any future approved payment links.
+- Official team store order/payment links before unlocking merch or uniform payments.
 - Review form URL.
 - Optional on-site review form endpoint.
 - GA4 Measurement ID.

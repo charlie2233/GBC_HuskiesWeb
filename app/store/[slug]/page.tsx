@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarClock, PackageCheck, ShieldCheck } from "lucide-react";
+import { ArrowLeft, CalendarClock, LockKeyhole, PackageCheck, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
-import { getStoreItemBySlug, siteUrl, storeArrivalNotice, storeItems } from "@/lib/siteConfig";
+import { getStoreItemBySlug, siteUrl, storeArrivalNotice, storeItems, teamStoreStatus } from "@/lib/siteConfig";
 
 type StoreProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: StoreProductPageProps): Promi
 
   return buildMetadata({
     title: `${item.name} | GBC Huskies Team Store`,
-    description: `${item.description} ${storeArrivalNotice}`,
+    description: `${item.description} ${teamStoreStatus.description}`,
     path: `/store/${item.slug}`,
     image: `${siteUrl}${item.image}`,
   });
@@ -99,21 +99,26 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
                   <CalendarClock className="mt-0.5 h-5 w-5 flex-none text-[#b8d8ea]" aria-hidden />
                   {storeArrivalNotice}
                 </p>
+                <p className="mt-4 flex items-start gap-3 rounded-lg border border-[#d71920]/32 bg-[#d71920]/12 p-4 text-sm font-bold leading-6 text-white">
+                  <LockKeyhole className="mt-0.5 h-5 w-5 flex-none text-[#d71920]" aria-hidden />
+                  {teamStoreStatus.description}
+                </p>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-                  <Link
-                    href={`/payments?item=${item.slug}`}
-                    data-analytics-event="click_store_item"
-                    data-analytics-label={`${item.name} product page payment`}
-                    className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white shadow-[0_16px_28px_rgba(215,25,32,0.22)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex min-h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-white/14 bg-white/10 px-5 font-extrabold text-white/54"
                   >
-                    Pay With Zelle / Cash
-                  </Link>
+                    <LockKeyhole size={18} aria-hidden />
+                    {teamStoreStatus.cta}
+                  </span>
                   <Link
-                    href="/payments"
+                    href="/contact"
+                    data-analytics-event="click_contact"
+                    data-analytics-label={`${item.name} locked store contact`}
                     className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/16 px-5 font-extrabold text-white/82 transition hover:-translate-y-0.5 hover:border-white/36 hover:text-white"
                   >
-                    Payment Options
+                    Ask Coach
                   </Link>
                 </div>
               </div>
@@ -145,8 +150,9 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
               <ShieldCheck className="h-8 w-8 text-[#b8d8ea]" aria-hidden />
               <h2 className="mt-4 text-2xl font-black">Order Notes</h2>
               <div className="mt-4 grid gap-3 text-sm font-semibold leading-6 text-white/72">
-                <p>Team store payments can be made through Zelle or cash once the item, size, and amount are confirmed.</p>
-                <p>Products, prices, inventory, pickup, and delivery details should be confirmed by the coach.</p>
+                <p>Team store ordering is paused until official Stripe/order links are ready.</p>
+                <p>Please do not send merch or uniform payments until the coach confirms the store has reopened.</p>
+                <p>Products, prices, inventory, pickup, and delivery details should be confirmed before ordering opens.</p>
                 <p>
                   <BrandName /> does not collect or store card numbers, bank details, tax info, Zelle login details, or
                   passwords on this website.

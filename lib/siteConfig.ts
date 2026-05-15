@@ -106,10 +106,10 @@ export const paymentItems = [
   {
     title: "Uniforms & Merch",
     description: "Team gear, uniforms, shooting shirts, hoodies, shirts, shorts, and store items.",
-    purpose: "Use this after item, size, quantity, price, and arrival timing are confirmed.",
-    examples: ["Hoodie order", "Uniform balance", "Shooting shirt payment"],
+    purpose: "Store payments are paused until official order/payment links are ready.",
+    examples: ["Store paused", "Wait for coach confirmation", "Do not send merch payment yet"],
     memo: "Player Name - Item - Size",
-    confirm: "Confirm product, size, quantity, price, pickup/delivery, and the up-to-3-week arrival window.",
+    confirm: "Do not send merch or uniform payments until the coach confirms the store has reopened.",
     type: "gear",
   },
   {
@@ -124,6 +124,16 @@ export const paymentItems = [
 ];
 
 export const storeArrivalNotice = "Please allow up to 3 weeks for team store items to arrive.";
+export const teamStoreStatus = {
+  locked: true,
+  label: "Store paused",
+  title: "Team Store Locked For Now",
+  description:
+    "Ordering is paused while official Stripe/order links are being set up. Please do not send merch or uniform payments until the coach confirms the store is open.",
+  note:
+    "Items are shown as a preview only. Products, prices, sizes, inventory, pickup, delivery, and arrival timing may change before ordering opens.",
+  cta: "Ordering Paused",
+};
 
 export const storeItems = [
   {

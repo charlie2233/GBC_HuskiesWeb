@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarClock, Ruler, ShieldCheck } from "lucide-react";
+import { CalendarClock, LockKeyhole, Ruler, ShieldCheck } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
@@ -9,12 +9,12 @@ import PageHeader from "@/components/PageHeader";
 import BrandName from "@/components/BrandName";
 import { buildMetadata } from "@/lib/metadata";
 import { getSeoTopicsForPath } from "@/lib/seoTopics";
-import { storeArrivalNotice, storeItems } from "@/lib/siteConfig";
+import { storeArrivalNotice, storeItems, teamStoreStatus } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
-  title: "GBC Huskies Team Store | Basketball Merch & Team Gear",
+  title: "GBC Huskies Team Store | Store Paused",
   description:
-    "Shop GBC Huskies team gear, basketball merchandise, uniforms, hoodies, shirts, shorts, and player apparel.",
+    "Preview GBC Huskies team gear while the team store is paused until official Stripe or order payment links are ready.",
   path: "/store",
 });
 
@@ -26,10 +26,10 @@ export default function StorePage() {
         <PageHeader
           eyebrow="Team gear"
           title="Team Store"
-          description="Browse team merch, uniforms, and gear. Families can use Zelle or cash after the coach confirms products, prices, sizing, and pickup or delivery details."
+          description={teamStoreStatus.description}
           note={
             <>
-              <BrandName /> team store payments route through the Zelle/cash payment hub.
+              <BrandName /> team store items are preview-only until ordering reopens.
             </>
           }
           topics={getSeoTopicsForPath("/store")}
@@ -37,6 +37,29 @@ export default function StorePage() {
 
         <section className="bg-white py-16 md:py-24">
           <div className="section-shell">
+            <div className="mb-8 grid gap-4 rounded-lg border border-[#d71920]/24 bg-[#071827] p-5 text-white shadow-[0_20px_48px_rgba(7,24,39,0.18)] md:grid-cols-[auto_1fr_auto] md:items-center md:p-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#d71920]">
+                <LockKeyhole size={27} aria-hidden />
+              </div>
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#b8d8ea]">
+                  {teamStoreStatus.label}
+                </p>
+                <h2 className="mt-2 font-display text-5xl leading-none">{teamStoreStatus.title}</h2>
+                <p className="mt-3 text-sm font-semibold leading-6 text-white/68">
+                  {teamStoreStatus.note}
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                data-analytics-event="click_contact"
+                data-analytics-label="Store locked contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#b8d8ea]/28 px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:border-[#b8d8ea]/60"
+              >
+                Ask Coach
+              </Link>
+            </div>
+
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {storeItems.map((item) => (
                 <article
@@ -83,14 +106,13 @@ export default function StorePage() {
                       >
                         View Details
                       </Link>
-                      <Link
-                        href={`/payments?item=${item.slug}`}
-                        data-analytics-event="click_store_item"
-                        data-analytics-label={`${item.name} payment`}
-                        className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white shadow-[0_14px_28px_rgba(215,25,32,0.2)] transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex min-h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-[#071827]/12 bg-[#071827]/8 px-5 font-extrabold text-[#071827]/46"
                       >
-                        Pay With Zelle / Cash
-                      </Link>
+                        <LockKeyhole size={18} aria-hidden />
+                        {teamStoreStatus.cta}
+                      </span>
                     </div>
                   </div>
                 </article>
@@ -102,9 +124,8 @@ export default function StorePage() {
               <div>
                 <h2 className="text-xl font-black text-[#071827]">MVP store model</h2>
                 <p className="mt-2 text-sm font-semibold leading-6 text-[#1f2933]/72">
-                  This is intentionally not a full shopping cart. Families can review
-                  product details, then use the payment page for Zelle or cash once
-                  products, pricing, sizing, and pickup or delivery details are confirmed.
+                  This is intentionally not a full shopping cart. Families can preview product details, but ordering is
+                  locked until the official payment/order links are ready and the coach confirms the store has reopened.
                 </p>
               </div>
             </div>
