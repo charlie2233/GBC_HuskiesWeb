@@ -5,16 +5,40 @@ import BrandName from "./BrandName";
 
 const teams = [
   {
-    name: "13U",
-    text: "Development-focused AAU team experience for athletes building skills, confidence, and competitive habits.",
+    name: "9U / 3rd Grade",
+    text: "Introductory team experience focused on fundamentals, effort, listening habits, and learning how to compete.",
   },
   {
-    name: "14U",
-    text: "Competitive AAU team focused on tournament play, player growth, and preparing athletes for higher-level competition.",
+    name: "10U / 4th Grade",
+    text: "Development-first basketball environment built around skill growth, teamwork, and confidence.",
   },
   {
-    name: "15U",
-    text: "Tournament-ready team experience for players looking to compete in regional and national settings.",
+    name: "11U / 5th Grade",
+    text: "Fundamental team basketball with an emphasis on spacing, defense, ball movement, and accountability.",
+  },
+  {
+    name: "12U / 6th Grade",
+    text: "Competitive habits, skill work, and team concepts for athletes preparing for stronger tournament play.",
+  },
+  {
+    name: "13U / 7th Grade",
+    text: "AAU team development for athletes ready to train consistently and compete with a higher team standard.",
+  },
+  {
+    name: "14U / 8th Grade",
+    text: "Tournament-focused team experience built around development, discipline, and preparation for high school basketball.",
+  },
+  {
+    name: "15U / 9th Grade",
+    text: "High school transition team experience for players building confidence, role clarity, and competitive toughness.",
+  },
+  {
+    name: "16U / 10th Grade",
+    text: "Upper-level team experience with recruiting awareness and program resources designed to help players prepare for college opportunities.",
+  },
+  {
+    name: "17U / 11th Grade",
+    text: "Recruiting-minded team experience that uses program resources, exposure events, and player development to support athletes working toward college basketball.",
   },
 ];
 
@@ -28,13 +52,14 @@ export default function Teams() {
               Huskies Teams
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
-              <BrandName /> currently provides 13U-15U team opportunities for
-              athletes ready to train, compete, and represent the program in
-              tournament play.
+              <BrandName /> provides team opportunities from 9U/3rd grade
+              through 17U/11th grade for athletes ready to train, compete, and
+              represent the program in tournament play.
             </p>
             <p className="mt-4 text-base leading-7 text-[#1f2933]/72">
-              The program is actively building MADE Hoops spring/summer rosters.
-              Families can contact Coach Jay by DM, call/text, or registration form.
+              We currently compete in MADE Hoops events and look forward to
+              participating in the Jr. Nike EYBL in the near future. Families
+              can contact Coach Jay by DM, call/text, or registration form.
             </p>
           </div>
           <p className="max-w-sm rounded-lg border border-[#071827]/12 bg-white p-4 text-sm leading-6 text-[#1f2933]/72">
@@ -66,7 +91,7 @@ export default function Teams() {
           </a>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {teams.map((team) => (
             <article key={team.name} className="rounded-lg bg-white p-6 shadow-[0_18px_42px_rgba(7,24,39,0.08)]">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-lg bg-[#071827] text-[#b8d8ea]">

@@ -34,7 +34,8 @@ Local copies were saved under `public/media/instagram/` so the website does not 
 
 - `made-hoops-rosters.jpg` from https://www.instagram.com/p/DXhlRQRjSLh/
 - `aau-club-team.jpg` from https://www.instagram.com/p/DV6webKEna1/
-- `support-fundraiser.jpg` from https://www.instagram.com/p/DPwwqI2EoaC/
+- `support-fundraiser.jpg` from https://www.instagram.com/p/DPwwqI2EoaC/ (archived only; do not use on the homepage because the fundraiser goal changed)
+- `championship-shirts-crop.jpg` from a coach-supplied iMessage screenshot crop on 2026-06-03. Replace with the original team photo when available.
 - `made-hoops-west-mania.jpg` from https://www.instagram.com/p/DXVzpu5lc5m/
 - `huskies-high-school.jpg` from https://www.instagram.com/p/DRc1xDykmnn/
 - `best-of-west-champs.jpg` from https://www.instagram.com/p/DPu_Y6mjq6f/
@@ -44,8 +45,9 @@ Local copies were saved under `public/media/instagram/` so the website does not 
 - Fundraiser: https://www.gofundme.com/f/sd6zec-help-the-huskies
 - Organizer: Jayson Gilliam, Fullerton, CA.
 - Public status at source pass: $350 raised of $500 goal, 3 donations.
+- Coach-provided update on 2026-06-03: goal changed to $4,500.
 - Story says support helps with tournament entry fees, uniforms, travel, and player development.
-- GoFundMe note: tournament entry fees are typically $350-$600 for one team; the program often has two teams competing twice per month; MADE Hoops circuit cost is $2,500 for one team.
+- Do not quote exact tournament or circuit costs in public site copy unless the coach re-approves them.
 
 ## Use Notes
 

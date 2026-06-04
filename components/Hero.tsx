@@ -1,15 +1,14 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin, Trophy } from "lucide-react";
-import { goFundMeUrl, programFullName, registrationFormUrl } from "@/lib/siteConfig";
+import { goFundMeUrl, instagramUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
 
-const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 
 const roadStops = [
-  { date: "May 8-9", event: "SoCal Clash", location: "Corona, CA" },
-  { date: "May 15-17", event: "SoCal Live", location: "Anaheim, CA" },
-  { date: "July 8-12", event: "Vegas Summer Live", location: "Las Vegas, NV" },
+  { date: "June 13-14", event: "Summer Tournament", location: "Seal Beach, CA (TBC)" },
+  { date: "June 19-21", event: "Coca Cola Nationals", location: "Garden Grove, CA" },
+  { date: "July 2-3", event: "MADE Hoops SoCal Summer Tune Up", location: "Corona, CA" },
 ];
 
 export default function Hero() {
@@ -32,18 +31,19 @@ export default function Hero() {
 
           <div className="hero-red-swipe mx-auto mt-5 md:mx-0" aria-hidden />
           <p className="mt-5 max-w-2xl text-2xl font-black leading-tight text-white sm:text-3xl md:text-[1.95rem]">
-            Tournament weekends.
+            Orange County based AAU basketball program.
             <br />
-            Team standards. Player growth.
+            Our slogan: {programStatements.slogan}.
           </p>
           <p className="mt-5 text-sm font-black uppercase tracking-[0.04em] text-[#b8d8ea] sm:text-base">
-            13U-15U &bull; MADE Hoops &bull; 2025 14U Champions
+            {programStatements.sloganMeaning} &bull; Proud participant in MADE Hoops events
           </p>
           <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/74 md:mx-0">
-            Gilliam Basketball Club is an Orange County AAU basketball program
-            building athletes for skills sessions, strength and conditioning,
-            road events, MADE Hoops competition, and moments that ask every
-            player to bring energy for the team.
+            Our program is designed to emphasize fundamental basketball skills
+            through game play and training tailored to each individual&apos;s need
+            and skill level. Through attention to detail, our goal is to improve
+            basketball skills for athletes who possess a passion for the game
+            and a willingness to learn.
           </p>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
@@ -120,17 +120,17 @@ export default function Hero() {
           </a>
 
           <a
-            href={bestOfWestPost}
+            href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             data-analytics-event="click_instagram"
-            data-analytics-label="Hero championship Instagram post"
-            aria-label="View GBC Huskies championship Instagram post"
+            data-analytics-label="Hero championship team photo"
+            aria-label="View GBC Huskies Instagram profile"
             className="hero-photo-card hero-photo-card-front group"
           >
             <Image
-              src="/media/instagram/best-of-west-champs.jpg"
-              alt="GBC Huskies players holding trophies after a championship win"
+              src="/media/instagram/championship-shirts-crop.jpg"
+              alt="GBC Huskies players in championship shirts after a tournament result"
               width={850}
               height={850}
               preload
@@ -138,8 +138,8 @@ export default function Hero() {
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
             <div className="polaroid-caption">
-              <span>2025 Coca Cola Nationals</span>
-              <strong>14U Champions</strong>
+              <span>Championship shirts</span>
+              <strong>Team standard</strong>
             </div>
           </a>
 

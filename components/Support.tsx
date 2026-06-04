@@ -15,8 +15,8 @@ const layerOffsets = ["lg:translate-y-3", "lg:translate-y-4", "lg:translate-y-5"
 
 const fundraiser = {
   raised: "$350",
-  goal: "$500",
-  progress: 70,
+  goal: "$4,500",
+  progress: 8,
   donations: 3,
 };
 
@@ -38,11 +38,6 @@ export default function Support() {
           <p className="mt-4 text-lg leading-8 text-[#1f2933]/80">
             Every contribution helps the Huskies continue building a strong
             basketball community and creating opportunities for players to compete and grow.
-          </p>
-          <p className="mt-4 rounded-lg border border-[#071827]/12 bg-[#f4f6f8] p-4 text-sm font-bold leading-6 text-[#1f2933]/74">
-            Tournament entry fees typically run $350-$600 per team, often with
-            two teams competing twice per month. The MADE Hoops circuit is
-            approximately $2,500 for one team.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -71,12 +66,12 @@ export default function Support() {
           <article className="rounded-lg border border-[var(--line)] bg-[#071827] p-5 text-white shadow-[0_22px_54px_rgba(7,24,39,0.16)] lg:translate-y-2">
             <div className="mb-5 overflow-hidden rounded-lg border border-white/12 bg-white">
               <Image
-                src="/media/instagram/support-fundraiser.jpg"
-                alt="GBC Huskies Help the Huskies fundraiser graphic"
+                src="/media/instagram/made-hoops-west-mania.jpg"
+                alt="GBC Huskies players in matching team shirts"
                 width={720}
                 height={720}
                 sizes="(min-width: 1024px) 48vw, 92vw"
-                className="aspect-[16/9] w-full object-cover object-bottom"
+                className="aspect-[16/9] w-full object-cover object-center"
               />
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">

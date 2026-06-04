@@ -1,62 +1,26 @@
 import Image from "next/image";
-import { ArrowRight, AtSign, ExternalLink, Play, UserRound } from "lucide-react";
+import { ArrowRight, AtSign, ExternalLink, UserRound } from "lucide-react";
 import { coachInstagramUrl, instagramUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const media = [
   {
-    src: "/media/instagram/made-hoops-rosters.jpg",
-    alt: "GBC Huskies MADE Hoops summer schedule graphic from Instagram",
-    label: "MADE Hoops schedule",
-    tag: "Recruiting",
-    url: "https://www.instagram.com/p/DXhlRQRjSLh/",
-    fit: "contain",
-    bg: "bg-white",
-  },
-  {
     src: "/media/instagram/made-hoops-west-mania.jpg",
-    alt: "GBC Huskies 15U team photo from MADE Hoops West Mania",
-    label: "15U West Mania",
-    tag: "Team result",
+    alt: "GBC Huskies players in matching team shirts at MADE Hoops West Mania",
+    label: "Matching Team Standard",
+    tag: "Same jersey",
     url: "https://www.instagram.com/p/DXVzpu5lc5m/",
     fit: "cover",
     bg: "bg-[#071827]",
   },
   {
-    src: "/media/instagram/best-of-west-champs.jpg",
-    alt: "GBC Huskies Best of the West Showdown champions photo",
-    label: "Best of the West",
-    tag: "Champions",
-    url: "https://www.instagram.com/p/DPu_Y6mjq6f/",
+    src: "/media/instagram/championship-shirts-crop.jpg",
+    alt: "GBC Huskies players wearing championship shirts after a tournament result",
+    label: "Championship Shirts",
+    tag: "Team photo",
+    url: instagramUrl,
     fit: "cover",
     bg: "bg-[#071827]",
-  },
-  {
-    src: "/media/instagram/aau-club-team.jpg",
-    alt: "GBC Huskies AAU club team information graphic from Instagram",
-    label: "Club team info",
-    tag: "Program",
-    url: "https://www.instagram.com/p/DV6webKEna1/",
-    fit: "contain",
-    bg: "bg-[#dfeff3]",
-  },
-  {
-    src: "/media/instagram/huskies-high-school.jpg",
-    alt: "GBC Huskies high school progression post from Instagram",
-    label: "High school path",
-    tag: "Development",
-    url: "https://www.instagram.com/p/DRc1xDykmnn/",
-    fit: "cover",
-    bg: "bg-[#071827]",
-  },
-  {
-    src: "/media/instagram/support-fundraiser.jpg",
-    alt: "GBC Huskies GoFundMe support graphic from Instagram",
-    label: "Help the Huskies",
-    tag: "Support",
-    url: "https://www.instagram.com/p/DPwwqI2EoaC/",
-    fit: "contain",
-    bg: "bg-white",
   },
 ];
 
@@ -101,8 +65,8 @@ export default function MediaGrid() {
           </div>
 
           <div>
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
-              {media.map((item, index) => (
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5">
+              {media.map((item) => (
                 <a
                   key={item.src}
                   href={item.url}
@@ -127,7 +91,7 @@ export default function MediaGrid() {
                       </span>
                       <span className="block text-sm font-black">{item.label}</span>
                     </span>
-                    {index === 4 ? <Play size={18} aria-hidden /> : <ExternalLink size={17} aria-hidden />}
+                    <ExternalLink size={17} aria-hidden />
                   </div>
                 </a>
               ))}

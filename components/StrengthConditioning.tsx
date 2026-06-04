@@ -28,6 +28,11 @@ export default function StrengthConditioning() {
             players become stronger, faster, more balanced, and more prepared
             for competitive basketball.
           </p>
+          <p className="mt-4 text-base leading-7 text-white/66">
+            Strength and conditioning programming is designed with certified
+            personal trainers, certified sports performance coaches, and a
+            licensed physical therapist.
+          </p>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">

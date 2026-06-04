@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { SeoTopic } from "@/lib/seoTopics";
 import SearchTopicTags from "./SearchTopicTags";
 import SiteMark from "./SiteMark";
@@ -33,32 +32,6 @@ export default function PageHeader({ eyebrow, title, description, note, children
             )}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/74">{description}</p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/payments"
-              data-analytics-event="click_payment_page"
-              data-analytics-label="Page header make a payment"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"
-            >
-              Make a Payment
-            </Link>
-            <Link
-              href="/store"
-              data-analytics-event="click_store_page"
-              data-analytics-label="Page header team store"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#b8d8ea]/35 bg-white/8 px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/14"
-            >
-              Team Store
-            </Link>
-            <Link
-              href="/reviews"
-              data-analytics-event="click_reviews_page"
-              data-analytics-label="Page header reviews"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#b8d8ea]/35 bg-white/8 px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/14"
-            >
-              Reviews
-            </Link>
-          </div>
           {topics.length ? <SearchTopicTags topics={topics} compact theme="dark" /> : null}
         </div>
         <div className="hidden justify-end lg:flex">

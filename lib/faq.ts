@@ -40,7 +40,7 @@ export const faqItems = [
   {
     category: "Payments",
     question: "How do parents make payments?",
-    answer: `Payments can be made by Zelle to ${zellePhoneDisplay} or by cash after the amount is confirmed with the coach. Use a clear memo with the player name and payment purpose. The website does not collect bank info, card info, tax info, SSNs, Zelle passwords, or payment account details.`,
+    answer: `Payments can be made by Zelle to ${zellePhoneDisplay} or by cash after the amount is confirmed with the coach. Use a clear memo with the player name and what the payment is for. The website does not collect bank info, card info, tax info, SSNs, Zelle passwords, or payment account details.`,
     links: [{ label: "Payment Options", href: "/payments", event: "click_payment_page" }],
   },
   {

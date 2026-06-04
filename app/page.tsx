@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import About from "@/components/About";
-import Championship from "@/components/Championship";
-import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
@@ -10,15 +7,9 @@ import MediaGrid from "@/components/MediaGrid";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
 import ParentQuickAnswers from "@/components/ParentQuickAnswers";
-import ReviewsPreview from "@/components/ReviewsPreview";
-import SearchTopicTags from "@/components/SearchTopicTags";
-import Skills from "@/components/Skills";
-import StrengthConditioning from "@/components/StrengthConditioning";
 import Support from "@/components/Support";
-import Teams from "@/components/Teams";
 import Tournaments from "@/components/Tournaments";
 import { buildMetadata } from "@/lib/metadata";
-import { getSeoTopicsForPath } from "@/lib/seoTopics";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies | Youth Basketball Program & Player Development",
@@ -34,19 +25,11 @@ export default function Home() {
       <main className="overflow-hidden pb-24 md:pb-0">
         <Hero />
         <Highlights />
-        <SearchTopicTags topics={getSeoTopicsForPath("/")} theme="dark" />
         <HomeActions />
         <ParentQuickAnswers />
         <MediaGrid />
-        <About />
-        <Skills />
-        <StrengthConditioning />
-        <Teams />
         <Tournaments />
-        <Championship />
-        <ReviewsPreview />
         <Support />
-        <ContactForm />
       </main>
       <Footer />
       <MobileStickyCTA />

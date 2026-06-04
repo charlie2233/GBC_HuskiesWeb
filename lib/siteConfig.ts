@@ -17,7 +17,7 @@ export const zellePhoneValue = "6572530078";
 export const areaServed = "Orange County, CA";
 export const instagramUrl = "https://www.instagram.com/gbc_huskies/";
 export const coachInstagramUrl = "https://www.instagram.com/coachjaygill/";
-export const goFundMeUrl = "https://gofund.me/192839eaa";
+export const goFundMeUrl = "https://www.gofundme.com/f/sd6zec-help-the-huskies";
 export const registrationFormUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSfRVsKkKjcZXcZESTNTXjga9qLWYElRvhPUtd4KXsAjYVYm7A/viewform?usp=publish-editor";
 
@@ -47,11 +47,11 @@ export const programStatements = {
   vision:
     "To be recognized as a top youth basketball program by placing our athletes and their parents' experience at the forefront of our program goals. By combining a high-quality basketball experience with structure and organization, we want our athletes to grow as both players and people, inspiring them to do great things both on and off the basketball court.",
   about:
-    "Our program is designed to emphasize fundamental basketball skills through gameplay and training tailored to each individual's needs and skill level. We take pride in studying the trends of today's game and implementing them into our training. Through attention to detail, our goal is to improve basketball skills for athletes who possess a passion for the game and a willingness to learn.",
+    "Our program is designed to emphasize fundamental basketball skills through game play and training tailored to each individual's need and skill level. Through attention to detail, our goal is to improve basketball skills for athletes who possess a passion for the game and a willingness to learn.",
   values:
     "We emphasize fundamental skill and work to ensure each player is given the best opportunity to grow their game. Through structure, we highlight each player's strengths and challenge them to excel in many different areas while teaching the importance of teamwork, discipline, work ethic, and sportsmanship.",
   slogan: "DEFENSE",
-  sloganMeaning: "Demanding Excellence From Everyone No Selfish Exceptions",
+  sloganMeaning: "Demanding Excellence From Everyone No Selfish Exceptions!!!",
 };
 
 export const mainRoutes = [
@@ -65,63 +65,6 @@ export const mainRoutes = [
   { path: "/contact", label: "Contact", priority: 0.82 },
   { path: "/faq", label: "FAQ", priority: 0.66 },
   { path: "/privacy", label: "Privacy", priority: 0.42 },
-];
-
-export const paymentItems = [
-  {
-    title: "Team Fees",
-    description: "Season, roster, or team participation payments for confirmed players.",
-    purpose: "Use this for approved season dues, roster fees, or team participation costs.",
-    examples: ["Season fee", "Roster spot", "Team participation balance"],
-    memo: "Player Name - Team Fee",
-    confirm: "Confirm the amount, due date, and whether it is one payment or part of a payment plan.",
-    type: "team",
-  },
-  {
-    title: "Tournament Fees",
-    description: "Event payments for tournament weekends, road events, and team competition costs.",
-    purpose: "Use this when Coach Jay gives a specific event or tournament amount.",
-    examples: ["SoCal event fee", "Vegas tournament fee", "Weekend tournament balance"],
-    memo: "Player Name - Tournament Name",
-    confirm: "Confirm the event name, player amount, and deadline before sending.",
-    type: "events",
-  },
-  {
-    title: "Monthly Payments",
-    description: "Recurring or split payments when a monthly arrangement has been approved.",
-    purpose: "Use this only after a monthly payment schedule is arranged with the coach.",
-    examples: ["Monthly team payment", "Split season payment", "Payment plan installment"],
-    memo: "Player Name - Month - Monthly",
-    confirm: "Confirm the monthly amount, the covered month, and how many payments remain.",
-    type: "monthly",
-  },
-  {
-    title: "Donations",
-    description: "Program support for travel, tournament access, training, equipment, and team needs.",
-    purpose: "Use this for supporter contributions that are not tied to one player's required fee.",
-    examples: ["General donation", "Travel support", "Team support contribution"],
-    memo: "Donation - Supporter Name",
-    confirm: "Confirm whether the donation should be general support or for a specific team need.",
-    type: "donation",
-  },
-  {
-    title: "Uniforms & Merch",
-    description: "Team gear, uniforms, shooting shirts, hoodies, shirts, shorts, and store items.",
-    purpose: "Store payments are paused until official order/payment links are ready.",
-    examples: ["Store paused", "Wait for coach confirmation", "Do not send merch payment yet"],
-    memo: "Player Name - Item - Size",
-    confirm: "Do not send merch or uniform payments until the coach confirms the store has reopened.",
-    type: "gear",
-  },
-  {
-    title: "Custom Payments",
-    description: "Any coach-approved payment that does not fit the standard categories.",
-    purpose: "Use this only when Coach Jay gives a custom amount or specific payment reason.",
-    examples: ["Adjusted balance", "Family arrangement", "Coach-approved custom amount"],
-    memo: "Player Name - Custom Purpose",
-    confirm: "Confirm the exact purpose and amount in writing before paying.",
-    type: "custom",
-  },
 ];
 
 export const storeArrivalNotice = "Please allow up to 3 weeks for team store items to arrive.";

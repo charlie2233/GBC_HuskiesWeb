@@ -1,13 +1,20 @@
 import Link from "next/link";
-import { CreditCard, MessageSquareHeart, ShoppingBag } from "lucide-react";
+import { CreditCard, HeartHandshake, MessageSquareHeart, ShoppingBag } from "lucide-react";
 
 const actions = [
   {
     title: "Make a Payment",
-    text: "Team fees, tournament fees, monthly payments, donations, merch, and custom payments.",
+    text: "Zelle payment info, cash option, and donation link in one place.",
     href: "/payments",
     event: "click_payment_page",
     icon: CreditCard,
+  },
+  {
+    title: "Become a Sponsor",
+    text: "Help support travel, tournaments, training, gear, and summer fundraising.",
+    href: "/contact",
+    event: "click_contact",
+    icon: HeartHandshake,
   },
   {
     title: "Visit Team Store",
@@ -28,7 +35,7 @@ const actions = [
 export default function HomeActions() {
   return (
     <section className="bg-[#020b12] py-12 text-white">
-      <div className="section-shell grid gap-4 lg:grid-cols-3">
+      <div className="section-shell grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {actions.map(({ title, text, href, event, icon: Icon }) => (
           <Link
             key={title}

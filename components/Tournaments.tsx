@@ -4,14 +4,15 @@ import { ArrowRight, CalendarDays, MapPin, Trophy } from "lucide-react";
 import BrandName from "./BrandName";
 
 const tournaments = [
-  { date: "May 8-9", event: "SoCal Clash", location: "Corona, CA", note: "Opening road test" },
-  { date: "May 15-17", event: "SoCal Live", location: "Anaheim, CA", note: "Local live weekend" },
-  { date: "July 2-3", event: "SoCal Summer Tune-Up", location: "Corona, CA", note: "Summer prep" },
-  { date: "July 8-10", event: "Vegas Summer Live S1", location: "Las Vegas, NV", note: "National-stage run" },
-  { date: "July 11-12", event: "Vegas Summer Live S2", location: "Las Vegas, NV", note: "Finish the week" },
+  { date: "June 13-14", event: "Summer Tournament", location: "Seal Beach, CA", note: "Location tentative" },
+  { date: "June 19-21", event: "Coca Cola Nationals", location: "Garden Grove, CA", note: "Championship stage" },
+  { date: "July 2-3", event: "MADE Hoops SoCal Summer Tune Up", location: "Corona, CA", note: "Summer tune-up" },
+  { date: "July 8-10", event: "MADE Hoops Vegas Summer Live Session 1", location: "Las Vegas, NV", note: "Vegas session 1" },
+  { date: "July 11-12", event: "MADE Hoops Vegas Summer Live Session 2", location: "Las Vegas, NV", note: "Vegas session 2" },
+  { date: "July 25-26", event: "Summer Tournament", location: "Irvine, CA", note: "Event name TBA" },
 ];
 
-const madeHoopsSchedulePost = "https://www.instagram.com/p/DXhlRQRjSLh/";
+const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 
 const results = [
   {
@@ -36,8 +37,8 @@ export default function Tournaments() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
               The Huskies season is built around training that shows up on
-              tournament weekends: local tests, MADE Hoops exposure, and travel
-              moments where the team standard has to travel too.
+              tournament weekends, local tests, and travel moments where the
+              team standard has to travel too.
             </p>
             <Link
               href="/contact"
@@ -52,21 +53,21 @@ export default function Tournaments() {
           <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-[#071827] p-3 shadow-[0_24px_68px_rgba(7,24,39,0.16)]">
             <div className="grid gap-3 sm:grid-cols-[0.7fr_1.3fr]">
               <a
-                href={madeHoopsSchedulePost}
+                href={westManiaPost}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-analytics-event="click_instagram"
-                data-analytics-label="Tournaments MADE Hoops schedule Instagram"
-                aria-label="View GBC Huskies MADE Hoops schedule Instagram post"
-                className="group overflow-hidden rounded-lg bg-white"
+                data-analytics-label="Tournaments MADE Hoops team photo"
+                aria-label="View GBC Huskies MADE Hoops team photo on Instagram"
+                className="group overflow-hidden rounded-lg bg-[#071827]"
               >
                 <Image
-                  src="/media/instagram/made-hoops-rosters.jpg"
-                  alt="GBC Huskies MADE Hoops summer schedule"
+                  src="/media/instagram/made-hoops-west-mania.jpg"
+                  alt="GBC Huskies players in matching team shirts at MADE Hoops West Mania"
                   width={750}
                   height={750}
                   sizes="(min-width: 1024px) 28vw, (min-width: 640px) 40vw, 88vw"
-                  className="aspect-[4/5] h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105"
+                  className="aspect-[4/5] h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
               </a>
               <div className="grid content-between gap-4 p-3 text-white">
@@ -76,8 +77,8 @@ export default function Tournaments() {
                   </p>
                   <h3 className="mt-2 font-display text-5xl leading-none">MADE Hoops Run</h3>
                   <p className="mt-3 text-sm leading-6 text-white/68">
-                    Schedule style pulled from public <BrandName /> Instagram
-                    content, with every date kept easy to scan on mobile.
+                    Summer dates, team travel energy, and a mobile-friendly
+                    event board for parents to scan quickly.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm font-black">
@@ -106,7 +107,7 @@ export default function Tournaments() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-3 md:grid-cols-5">
+        <div className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {tournaments.map((tournament) => (
             <article key={tournament.event} className="relative rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5">
               <div className="absolute -top-2 left-5 h-4 w-4 rounded-full border border-[var(--line)] bg-white" aria-hidden />

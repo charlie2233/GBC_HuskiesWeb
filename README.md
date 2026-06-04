@@ -44,7 +44,7 @@ login details, or passwords.
 
 Routes:
 
-- `/payments` - Zelle/cash hub for team fees, tournament fees, monthly payments, donations, merch, and custom payments
+- `/payments` - Zelle/cash hub with the official payment number, cash option, and GoFundMe donation link
 - `/store` - preview-only merch and gear page while ordering is paused
 - `/store/[slug]` - product detail pages with images, sizes, paused-order messaging, and arrival timing notes
 - `/reviews` - parent/player review cards and an on-site review form

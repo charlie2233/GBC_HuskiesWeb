@@ -34,26 +34,24 @@ First-name Family
 Do not add parent email, player full name, phone number, or private family
 details to public review cards.
 
-## Payment Purpose Cards
+## Payment Page
 
-Payment purpose cards live in:
+The payment page currently supports only three public actions:
+
+- Zelle payment information
+- Cash option
+- GoFundMe donations
+
+The recommended memo format is:
 
 ```text
-lib/siteConfig.ts
+Player Name - What The Payment Is For
 ```
 
-Edit the `paymentItems` array to adjust:
-
-- title
-- description
-- purpose
-- common examples
-- recommended memo
-- confirmation note
-
-The payment page currently supports Zelle and cash only. If Stripe links are
-added later, do not add secret keys or private payment credentials to the repo.
-Only public payment links should be used.
+Do not add public cards for team fees, monthly fees, custom payments, uniforms,
+or merch until the coach asks for them again. If Stripe links are added later,
+do not add secret keys or private payment credentials to the repo. Only public
+payment links should be used.
 
 ## Team Store Items
 

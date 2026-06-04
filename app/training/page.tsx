@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Dumbbell, Target } from "lucide-react";
-import BrandName from "@/components/BrandName";
 import Coaches from "@/components/Coaches";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
@@ -30,7 +29,7 @@ export default function TrainingPage() {
           description="Basketball training for young athletes focused on fundamentals, ball handling, shooting, footwork, defense, basketball IQ, strength, conditioning, teamwork, discipline, and work ethic."
           note={
             <>
-              <BrandName /> training content is based on existing program focus areas.
+              Training details can vary by age group, team, and season.
             </>
           }
           topics={getSeoTopicsForPath("/training")}

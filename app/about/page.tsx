@@ -46,7 +46,7 @@ export default function AboutPage() {
           description="GBC Huskies basketball is the team identity for Gilliam Basketball Club, built for player development, fundamentals, teamwork, discipline, sportsmanship, work ethic, and competitive youth basketball growth."
           note={
             <>
-              GBC stands for {programFullName}; <BrandName /> is listed as an Orange County AAU basketball program based on existing site content.
+              GBC stands for {programFullName}; <BrandName /> is an Orange County based AAU basketball program.
             </>
           }
           topics={getSeoTopicsForPath("/about")}

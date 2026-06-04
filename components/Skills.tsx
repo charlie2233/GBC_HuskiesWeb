@@ -47,6 +47,11 @@ export default function Skills() {
             translate to real games: ball handling, shooting, footwork,
             finishing, defense, decision-making, and basketball IQ.
           </p>
+          <p className="mt-4 text-base leading-7 text-[#1f2933]/72">
+            Skills training incorporates concepts and training experience from
+            current and former professional players as well as collegiate
+            basketball players.
+          </p>
         </div>
 
         <div className="mt-10 flex snap-x gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible md:grid-cols-3">
