@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
@@ -30,6 +31,7 @@ export default function Home() {
         <MediaGrid />
         <Tournaments />
         <Support />
+        <ContactForm />
       </main>
       <Footer />
       <MobileStickyCTA />
