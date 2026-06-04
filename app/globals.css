@@ -26,6 +26,7 @@
 html {
   scroll-padding-top: 96px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,6 +35,7 @@ body {
   background: var(--white);
   color: var(--charcoal);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @supports (content-visibility: auto) {
@@ -691,16 +693,31 @@ textarea {
   }
 
   .hero-preview-shell {
+    display: block;
     min-height: auto;
+    overflow: hidden;
+  }
+
+  .hero-preview-shell > .reveal {
+    width: 100%;
+    max-width: calc(100vw - 32px);
+    justify-self: center;
+    overflow: hidden;
   }
 
   .hero-title {
-    font-size: clamp(4.85rem, 20vw, 6.2rem);
+    max-width: 100%;
+    font-size: clamp(3.7rem, 13.4vw, 4.2rem);
+  }
+
+  .hero-title span {
+    white-space: nowrap;
   }
 
   .hero-collage {
+    margin-top: 2rem;
     height: 630px;
-    max-width: 410px;
+    max-width: min(100%, 410px);
   }
 
   .made-stamp {
