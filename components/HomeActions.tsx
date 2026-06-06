@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CreditCard, HeartHandshake, MessageSquareHeart, ShoppingBag } from "lucide-react";
+import { goFundMeUrl } from "@/lib/siteConfig";
 
 const actions = [
   {
@@ -12,9 +13,10 @@ const actions = [
   {
     title: "Become a Sponsor",
     text: "Help support travel, tournaments, training, gear, and summer fundraising.",
-    href: "/contact",
-    event: "click_contact",
+    href: goFundMeUrl,
+    event: "click_payment_donation",
     icon: HeartHandshake,
+    external: true,
   },
   {
     title: "Visit Team Store",
@@ -36,19 +38,41 @@ export default function HomeActions() {
   return (
     <section className="bg-[#020b12] py-12 text-white">
       <div className="section-shell grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {actions.map(({ title, text, href, event, icon: Icon }) => (
-          <Link
-            key={title}
-            href={href}
-            data-analytics-event={event}
-            data-analytics-label={`Homepage ${title}`}
-            className="group rounded-lg border border-[#b8d8ea]/18 bg-white/[0.055] p-5 shadow-[0_18px_42px_rgba(0,0,0,0.2)] transition hover:-translate-y-1 hover:border-[#b8d8ea]/42 hover:bg-white/[0.08]"
-          >
-            <Icon className="h-8 w-8 text-[#b8d8ea] transition group-hover:text-[#d71920]" aria-hidden />
-            <h2 className="mt-5 font-display text-4xl leading-none text-white">{title}</h2>
-            <p className="mt-2 text-sm font-semibold leading-6 text-white/64">{text}</p>
-          </Link>
-        ))}
+        {actions.map(({ title, text, href, event, icon: Icon, external }) => {
+          const className =
+            "group rounded-lg border border-[#b8d8ea]/18 bg-white/[0.055] p-5 shadow-[0_18px_42px_rgba(0,0,0,0.2)] transition hover:-translate-y-1 hover:border-[#b8d8ea]/42 hover:bg-white/[0.08]";
+          const content = (
+            <>
+              <Icon className="h-8 w-8 text-[#b8d8ea] transition group-hover:text-[#d71920]" aria-hidden />
+              <h2 className="mt-5 font-display text-4xl leading-none text-white">{title}</h2>
+              <p className="mt-2 text-sm font-semibold leading-6 text-white/64">{text}</p>
+            </>
+          );
+
+          return external ? (
+            <a
+              key={title}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-event={event}
+              data-analytics-label={`Homepage ${title}`}
+              className={className}
+            >
+              {content}
+            </a>
+          ) : (
+            <Link
+              key={title}
+              href={href}
+              data-analytics-event={event}
+              data-analytics-label={`Homepage ${title}`}
+              className={className}
+            >
+              {content}
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

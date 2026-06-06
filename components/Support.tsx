@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, BadgeDollarSign, HeartHandshake } from "lucide-react";
 import { goFundMeUrl } from "@/lib/siteConfig";
 
@@ -51,14 +50,16 @@ export default function Support() {
               Donate Through GoFundMe
               <ArrowRight size={18} aria-hidden />
             </a>
-            <Link
-              href="/contact"
-              data-analytics-event="click_contact"
+            <a
+              href={goFundMeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-event="click_payment_donation"
               data-analytics-label="Support section become a sponsor"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#071827]/18 px-5 font-extrabold text-[#071827] transition hover:-translate-y-0.5 hover:border-[#071827]"
             >
               Become a Sponsor
-            </Link>
+            </a>
           </div>
         </div>
 
