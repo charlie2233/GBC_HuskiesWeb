@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import FundraiserStrip from "@/components/FundraiserStrip";
 import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
 import HomeActions from "@/components/HomeActions";
@@ -25,8 +26,9 @@ export default function Home() {
       <Navbar />
       <main className="overflow-hidden pb-24 md:pb-0">
         <Hero />
-        <Highlights />
+        <FundraiserStrip />
         <HomeActions />
+        <Highlights />
         <ParentQuickAnswers />
         <MediaGrid />
         <Tournaments />
