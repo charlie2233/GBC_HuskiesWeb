@@ -29,12 +29,28 @@ export default function FundraiserStrip() {
           </div>
         </div>
 
-        <div className="rounded-lg border border-white/12 bg-white/[0.055] p-4 lg:min-w-72">
+        <div className="rounded-lg border border-white/12 bg-white/[0.055] p-4 lg:min-w-80">
+          <div className="mb-3 flex items-start justify-between gap-4">
+            <div>
+              <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#b8d8ea]">
+                Vegas Trip Goal
+              </p>
+              <p className="mt-1 text-sm font-black text-white">
+                Help the Huskies get to Vegas
+              </p>
+            </div>
+            <span className="rounded-lg bg-[#d71920] px-3 py-2 text-xs font-black text-white">
+              {fundraiser.progress}% funded
+            </span>
+          </div>
           <div className="flex items-center justify-between gap-4 text-sm font-black">
             <span className="text-[#b8d8ea]">{fundraiser.raised} raised</span>
             <span className="text-white/72">Goal {fundraiser.goal}</span>
           </div>
-          <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/14">
+          <div
+            className="mt-3 h-3 overflow-hidden rounded-full bg-white/14"
+            aria-label={`${fundraiser.raised} raised toward ${fundraiser.goal}`}
+          >
             <div className="h-full rounded-full bg-[#d71920]" style={{ width: `${fundraiser.progress}%` }} />
           </div>
         </div>

@@ -715,8 +715,8 @@ textarea {
   }
 
   .hero-collage {
-    margin-top: 2rem;
-    height: 630px;
+    margin-top: 1.25rem;
+    height: 470px;
     max-width: min(100%, 410px);
   }
 
@@ -753,16 +753,16 @@ textarea {
 
   .hero-photo-card-back {
     left: 10%;
-    top: 20%;
+    top: 17%;
     width: 82%;
-    height: 214px;
+    height: 178px;
   }
 
   .hero-photo-card-front {
     left: 3%;
-    top: 40%;
+    top: 38%;
     width: 72%;
-    height: 270px;
+    height: 232px;
     padding-bottom: 58px;
   }
 
@@ -788,7 +788,11 @@ textarea {
     bottom: 0;
     width: 88%;
     min-width: 0;
-    padding: 16px;
+    padding: 14px;
+  }
+
+  .next-road-card .road-stop-row:nth-child(n + 3) {
+    display: none;
   }
 
   .road-stop-row {

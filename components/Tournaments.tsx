@@ -14,14 +14,30 @@ const tournaments = [
 
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 
-const results = [
+const recaps = [
+  {
+    title: "Coca Cola Nationals",
+    result: "2025 14U Champions",
+    matchup: "Championship field",
+    highlight: "A championship run built on development, teamwork, and tournament toughness.",
+    image: "/media/instagram/championship-shirts-crop.jpg",
+    alt: "GBC Huskies players in championship shirts after winning a tournament result",
+  },
   {
     title: "MADE Hoops West Mania",
-    detail: "15U went 3-1 in division play and 3-2 overall against gold-level competition.",
+    result: "15U gold-level competition",
+    matchup: "Multiple opponents",
+    highlight: "15U went 3-1 in division play and 3-2 overall against gold-level competition.",
+    image: "/media/instagram/made-hoops-west-mania.jpg",
+    alt: "GBC Huskies team photo at MADE Hoops West Mania",
   },
   {
     title: "Best of the West Showdown",
-    detail: "2025 Gold champions, with every win by double digits.",
+    result: "2025 Gold Champions",
+    matchup: "Tournament bracket",
+    highlight: "Gold champions, with every win by double digits.",
+    image: "/media/instagram/best-of-west-champs.jpg",
+    alt: "GBC Huskies players after Best of the West Gold championship result",
   },
 ];
 
@@ -93,18 +109,45 @@ export default function Tournaments() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {results.map((result) => (
-            <article key={result.title} className="relative overflow-hidden rounded-lg bg-[#071827] p-5 text-white shadow-[0_18px_42px_rgba(7,24,39,0.12)]">
-              <div className="absolute inset-y-0 left-0 w-1.5 bg-[#d71920]" aria-hidden />
-              <p className="flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#b8d8ea]">
-                <Trophy size={16} aria-hidden />
-                Recent Result
-              </p>
-              <h3 className="mt-2 text-2xl font-black">{result.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/74">{result.detail}</p>
-            </article>
-          ))}
+        <div className="mt-12">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-[#d71920]">Tournament recaps</p>
+              <h3 className="mt-2 font-display text-5xl leading-none text-[#071827] md:text-6xl">
+                Results Parents Can Scan
+              </h3>
+            </div>
+            <p className="max-w-xl text-sm font-semibold leading-6 text-[#1f2933]/66">
+              Recap cards keep results, photos, and highlights visible without
+              overloading the homepage.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {recaps.map((recap) => (
+              <article key={recap.title} className="overflow-hidden rounded-lg bg-[#071827] text-white shadow-[0_18px_42px_rgba(7,24,39,0.12)]">
+                <Image
+                  src={recap.image}
+                  alt={recap.alt}
+                  width={720}
+                  height={540}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 42vw, 92vw"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="p-5">
+                  <p className="flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#b8d8ea]">
+                    <Trophy size={15} aria-hidden />
+                    {recap.result}
+                  </p>
+                  <h4 className="mt-2 text-2xl font-black">{recap.title}</h4>
+                  <p className="mt-3 text-xs font-black uppercase tracking-wide text-white/44">
+                    Matchup: {recap.matchup}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/74">{recap.highlight}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-3">

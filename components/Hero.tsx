@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="road-map-lines" aria-hidden />
       <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#d71920_0_38%,#b8d8ea_38%_70%,#ffffff_70%_73%,transparent_73%)]" aria-hidden />
 
-      <div className="section-shell hero-preview-shell relative grid min-h-[calc(86svh-80px)] items-center gap-9 pb-28 pt-8 md:grid-cols-[0.84fr_1.16fr] md:pb-0 md:pt-8 lg:gap-12">
+      <div className="section-shell hero-preview-shell relative grid min-h-[calc(86svh-80px)] items-center gap-9 pb-8 pt-8 md:grid-cols-[0.84fr_1.16fr] md:pb-0 md:pt-8 lg:gap-12">
         <div className="reveal relative z-20 min-w-0 text-center md:text-left">
           <p className="mb-4 inline-flex rounded-lg border border-[#b8d8ea]/26 bg-[#06111d]/72 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#b8d8ea]">
             {programFullName}
@@ -40,7 +40,7 @@ export default function Hero() {
             <span className="hidden md:inline" aria-hidden>&bull;</span>
             <span className="min-w-0 max-w-full break-words">Proud participant in MADE Hoops events</span>
           </p>
-          <p className="mx-auto mt-4 w-full max-w-[21rem] text-base leading-7 text-white/74 md:mx-0 md:max-w-xl">
+          <p className="mx-auto mt-4 hidden w-full max-w-[21rem] text-base leading-7 text-white/74 sm:block md:mx-0 md:max-w-xl">
             Our program is designed to emphasize fundamental basketball skills
             through game play and training tailored to each individual&apos;s need
             and skill level. Through attention to detail, our goal is to improve

@@ -1,6 +1,7 @@
 import {
   coachPhoneDisplay,
   contactEmail,
+  goFundMeUrl,
   storeArrivalNotice,
   teamStoreStatus,
   zellePhoneDisplay,
@@ -42,6 +43,39 @@ export const faqItems = [
     question: "How do parents make payments?",
     answer: `Payments can be made by Zelle to ${zellePhoneDisplay} or by cash after the amount is confirmed with the coach. Use a clear memo with the player name and what the payment is for. The website does not collect bank info, card info, tax info, SSNs, Zelle passwords, or payment account details.`,
     links: [{ label: "Payment Options", href: "/payments", event: "click_payment_page" }],
+  },
+  {
+    category: "Fundraising",
+    question: "Where does sponsor or donation money go?",
+    answer:
+      "Support helps with team travel, tournament opportunities, uniforms, equipment, training support, and program development. Families should contact the coach for current fundraising priorities before making a specific-purpose contribution.",
+    links: [
+      { label: "Donate Through GoFundMe", href: goFundMeUrl, event: "click_payment_donation" },
+      { label: "Contact GBC", href: "/contact", event: "click_contact" },
+    ],
+  },
+  {
+    category: "Fundraising",
+    question: "Can families donate cash?",
+    answer:
+      "Cash may be accepted through Coach Jay after the amount and purpose are confirmed. Do not leave cash with someone unless the coach has confirmed the collection process.",
+    links: [{ label: "Contact GBC", href: "/contact", event: "click_contact" }],
+  },
+  {
+    category: "Fundraising",
+    question: "Is Zelle accepted for fundraising support?",
+    answer: `Yes. Zelle can be sent to ${zellePhoneDisplay} after confirming the payment purpose. Use a clear memo such as player name - what the payment is for.`,
+    links: [{ label: "Payment Options", href: "/payments", event: "click_payment_page" }],
+  },
+  {
+    category: "Fundraising",
+    question: "Can a business sponsor GBC Huskies?",
+    answer:
+      "Businesses can ask about sponsorship opportunities, website recognition, social media recognition, and custom sponsor support. Sponsorship details should be confirmed directly with the coach before payment or logo placement.",
+    links: [
+      { label: "Sponsor / Donate", href: goFundMeUrl, event: "click_payment_donation" },
+      { label: "Contact GBC", href: "/contact", event: "click_contact" },
+    ],
   },
   {
     category: "Team Store",

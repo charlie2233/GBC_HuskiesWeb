@@ -103,17 +103,35 @@ export default function FaqPage() {
                     <p className="mt-3 text-sm font-semibold leading-7 text-[#1f2933]/74">{item.answer}</p>
                     {item.links?.length ? (
                       <div className="mt-5 flex flex-wrap gap-3">
-                        {item.links.map((link) => (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            data-analytics-event={link.event}
-                            data-analytics-label={`FAQ link ${link.label}`}
-                            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#071827]/12 bg-[#f4f6f8] px-4 text-sm font-black text-[#071827] transition hover:border-[#d71920]/36 hover:text-[#d71920]"
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
+                        {item.links.map((link) => {
+                          const isExternal = link.href.startsWith("http");
+                          const className =
+                            "inline-flex min-h-11 items-center justify-center rounded-lg border border-[#071827]/12 bg-[#f4f6f8] px-4 text-sm font-black text-[#071827] transition hover:border-[#d71920]/36 hover:text-[#d71920]";
+
+                          return isExternal ? (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-analytics-event={link.event}
+                              data-analytics-label={`FAQ link ${link.label}`}
+                              className={className}
+                            >
+                              {link.label}
+                            </a>
+                          ) : (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              data-analytics-event={link.event}
+                              data-analytics-label={`FAQ link ${link.label}`}
+                              className={className}
+                            >
+                              {link.label}
+                            </Link>
+                          );
+                        })}
                       </div>
                     ) : null}
                   </article>
