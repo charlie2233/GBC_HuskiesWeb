@@ -6,9 +6,9 @@ import SiteMark from "./SiteMark";
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 
 const roadStops = [
-  { date: "June 13-14", event: "Summer Tournament", location: "Seal Beach, CA (TBC)" },
-  { date: "June 19-21", event: "Coca Cola Nationals", location: "Garden Grove, CA" },
   { date: "July 2-3", event: "MADE Hoops SoCal Summer Tune Up", location: "Corona, CA" },
+  { date: "July 8-10", event: "MADE Hoops Vegas Summer Live Session 1", location: "Las Vegas, NV" },
+  { date: "July 11-12", event: "MADE Hoops Vegas Summer Live Session 2", location: "Las Vegas, NV" },
 ];
 
 export default function Hero() {
