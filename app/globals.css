@@ -187,6 +187,37 @@ textarea {
   transform: rotate(-28deg);
 }
 
+.hero-three-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.68;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+.hero-three-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 62% 30%, rgba(184, 216, 234, 0.12), transparent 30%),
+    linear-gradient(180deg, transparent 0%, rgba(2, 8, 13, 0.28) 78%, rgba(2, 8, 13, 0.76) 100%);
+  pointer-events: none;
+}
+
+.hero-three-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-three-scene-reduced-motion {
+  opacity: 0.42;
+}
+
 .hero-preview-shell::before {
   content: "";
   position: absolute;
@@ -670,6 +701,19 @@ textarea {
 }
 
 @media (max-width: 767px) {
+  .hero-three-scene {
+    inset: 0 0 auto;
+    height: min(790px, 100%);
+    opacity: 0.48;
+    mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
+  }
+
+  .hero-three-scene::after {
+    background:
+      radial-gradient(circle at 50% 20%, rgba(184, 216, 234, 0.12), transparent 35%),
+      linear-gradient(180deg, transparent 0%, rgba(2, 8, 13, 0.32) 72%, rgba(2, 8, 13, 0.88) 100%);
+  }
+
   .home-arena::after {
     left: 50%;
     top: 12px;
@@ -819,6 +863,12 @@ textarea {
 
   .feature-strip-item:last-child::before {
     height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-three-scene {
+    opacity: 0.38;
   }
 }
 

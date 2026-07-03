@@ -152,7 +152,7 @@ export default function Tournaments() {
 
         <div className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {tournaments.map((tournament) => (
-            <article key={tournament.event} className="relative rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5">
+            <article key={`${tournament.date}-${tournament.event}`} className="relative rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5">
               <div className="absolute -top-2 left-5 h-4 w-4 rounded-full border border-[var(--line)] bg-white" aria-hidden />
               <div className="absolute -top-2 right-5 h-4 w-4 rounded-full border border-[var(--line)] bg-white" aria-hidden />
               <div className="flex items-center gap-2 text-sm font-black text-[#d71920]">

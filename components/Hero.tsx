@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin, Trophy } from "lucide-react";
 import { goFundMeUrl, instagramUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
+import HeroThreeScene from "./HeroThreeScene";
 
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 
@@ -16,6 +17,7 @@ export default function Hero() {
     <section id="home" className="home-arena relative isolate overflow-hidden text-white">
       <div className="court-lines" aria-hidden />
       <div className="road-map-lines" aria-hidden />
+      <HeroThreeScene />
       <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#d71920_0_38%,#b8d8ea_38%_70%,#ffffff_70%_73%,transparent_73%)]" aria-hidden />
 
       <div className="section-shell hero-preview-shell relative grid min-h-[calc(86svh-80px)] items-center gap-9 pb-8 pt-8 md:grid-cols-[0.84fr_1.16fr] md:pb-0 md:pt-8 lg:gap-12">
@@ -113,8 +115,7 @@ export default function Hero() {
               alt="GBC Huskies team photo at MADE Hoops West Mania"
               width={850}
               height={850}
-              loading="eager"
-              fetchPriority="high"
+              preload
               sizes="(min-width: 1280px) 34vw, (min-width: 768px) 46vw, 82vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
