@@ -1,6 +1,6 @@
 # Deployment Status
 
-Last verified: 2026-07-02 10:05 PDT
+Last verified: 2026-07-03 18:40 PDT
 
 ## Live Production Host
 
@@ -9,11 +9,11 @@ Last verified: 2026-07-02 10:05 PDT
 - Stable Vercel URL: https://gbc-huskies-web.vercel.app
 - Vercel project: `gbc-huskies-web`
 - Vercel team/scope: `charlie2233s-projects`
-- Active deployment id: `dpl_EN1GvWeLtFTLTi4kQ1W5pvnc6MZz`
-- Active deployment URL: https://gbc-huskies-bb0331hpx-charlie2233s-projects.vercel.app
+- Active deployment id: `dpl_Ca2T7nsdQvFyxQWQsW9L8xDNucoY`
+- Active deployment URL: https://gbc-huskies-okxgx4vc5-charlie2233s-projects.vercel.app
 - Target: `production`
 - Status: `Ready`
-- Source commit: `3889e67`
+- Source commit: `47e58f6`
 
 ## Update Rule
 
