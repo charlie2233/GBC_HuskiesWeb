@@ -71,6 +71,15 @@ function makeLine(
   return new THREE.Line(geometry, material);
 }
 
+function makeCurveLine(
+  THREE: typeof import("three"),
+  curve: import("three").Curve<import("three").Vector3>,
+  color: number,
+  opacity: number,
+) {
+  return makeLine(THREE, curve.getPoints(80), color, opacity);
+}
+
 function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHandle {
   let disposed = false;
   let animationFrame = 0;
@@ -85,13 +94,22 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
     const qaCanvasSampling =
       window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      alpha: true,
-      antialias: true,
-      powerPreference: "high-performance",
-      preserveDrawingBuffer: qaCanvasSampling,
-    });
+    let renderer: import("three").WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        powerPreference: "high-performance",
+        preserveDrawingBuffer: qaCanvasSampling,
+      });
+    } catch {
+      canvas.dataset.threeReady = "unsupported";
+      frameRoot.classList.add("hero-three-scene-reduced-motion");
+      return () => {
+        frameRoot.classList.remove("hero-three-scene-reduced-motion");
+      };
+    }
     disposables.push(renderer);
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
@@ -101,13 +119,15 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 90);
     const root = new THREE.Group();
     scene.add(root);
+    const kineticGroup = new THREE.Group();
+    root.add(kineticGroup);
 
     const routeCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-4.5, -0.72, 2.3),
-      new THREE.Vector3(-2.5, -0.1, 1.25),
-      new THREE.Vector3(-0.45, 0.13, 0.25),
-      new THREE.Vector3(1.8, 0.55, -1.05),
-      new THREE.Vector3(4.1, 0.86, -2.15),
+      new THREE.Vector3(-4.7, -0.74, 2.25),
+      new THREE.Vector3(-3.12, -0.08, 1.12),
+      new THREE.Vector3(-1.78, 0.23, 0.05),
+      new THREE.Vector3(-0.4, 0.5, -0.9),
+      new THREE.Vector3(0.98, 0.66, -1.72),
     ]);
 
     const routeGeometry = new THREE.TubeGeometry(routeCurve, 110, 0.022, 9, false);
@@ -119,8 +139,30 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
       depthWrite: false,
     });
     const route = new THREE.Mesh(routeGeometry, routeMaterial);
-    root.add(route);
+    kineticGroup.add(route);
     disposables.push(routeGeometry, routeMaterial);
+
+    const routeGlowGeometry = new THREE.TubeGeometry(routeCurve, 110, 0.065, 10, false);
+    const routeGlowMaterial = new THREE.MeshBasicMaterial({
+      color: 0xb8d8ea,
+      transparent: true,
+      opacity: 0.12,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const routeGlow = new THREE.Mesh(routeGlowGeometry, routeGlowMaterial);
+    kineticGroup.add(routeGlow);
+    disposables.push(routeGlowGeometry, routeGlowMaterial);
+
+    const redArcCurve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-5.0, -0.95, 2.8),
+      new THREE.Vector3(-3.85, -0.22, 1.1),
+      new THREE.Vector3(-2.15, 0.12, -0.45),
+      new THREE.Vector3(-0.85, 0.28, -1.82),
+    ]);
+    const redArc = makeCurveLine(THREE, redArcCurve, 0xd71920, 0.32);
+    kineticGroup.add(redArc);
+    disposables.push(redArc.geometry, redArc.material);
 
     const pulseGeometry = new THREE.SphereGeometry(0.11, 24, 18);
     const pulseMaterial = new THREE.MeshBasicMaterial({
@@ -130,8 +172,20 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
       blending: THREE.AdditiveBlending,
     });
     const pulse = new THREE.Mesh(pulseGeometry, pulseMaterial);
-    root.add(pulse);
+    kineticGroup.add(pulse);
     disposables.push(pulseGeometry, pulseMaterial);
+
+    const pulseHaloGeometry = new THREE.SphereGeometry(0.23, 24, 18);
+    const pulseHaloMaterial = new THREE.MeshBasicMaterial({
+      color: 0xd71920,
+      transparent: true,
+      opacity: 0.22,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const pulseHalo = new THREE.Mesh(pulseHaloGeometry, pulseHaloMaterial);
+    kineticGroup.add(pulseHalo);
+    disposables.push(pulseHaloGeometry, pulseHaloMaterial);
 
     const courtGeometry = new THREE.PlaneGeometry(11.5, 7.2, 26, 16);
     const courtMaterial = new THREE.MeshBasicMaterial({
@@ -192,15 +246,37 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
     for (let i = 0; i < 8; i += 1) {
       const dot = new THREE.Mesh(dotGeometry, dotMaterial);
       dot.position.copy(routeCurve.getPoint(i / 7));
-      root.add(dot);
+      kineticGroup.add(dot);
     }
+
+    const particlePositions: number[] = [];
+    for (let i = 0; i < 90; i += 1) {
+      const seed = i + 1;
+      const x = -5.1 + ((Math.sin(seed * 13.37) + 1) / 2) * 6.0;
+      const y = -0.85 + ((Math.sin(seed * 7.91) + 1) / 2) * 3.45;
+      const z = -3.15 + ((Math.sin(seed * 5.31) + 1) / 2) * 5.6;
+      particlePositions.push(x, y, z);
+    }
+    const particleGeometry = new THREE.BufferGeometry();
+    particleGeometry.setAttribute("position", new THREE.Float32BufferAttribute(particlePositions, 3));
+    const particleMaterial = new THREE.PointsMaterial({
+      color: 0xb8d8ea,
+      size: 0.04,
+      transparent: true,
+      opacity: 0.36,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const particles = new THREE.Points(particleGeometry, particleMaterial);
+    kineticGroup.add(particles);
+    disposables.push(particleGeometry, particleMaterial);
 
     const panelGeometry = new THREE.PlaneGeometry(1.82, 0.995);
     disposables.push(panelGeometry);
     const panelSpecs = [
-      { title: "GBC", detail: "road season", color: "#d71920", position: [-3.1, 1.42, -1.55], rotation: [0.02, 0.28, -0.08] },
-      { title: "MADE", detail: "hoops events", color: "#b8d8ea", position: [2.55, 1.62, -1.65], rotation: [-0.05, -0.36, 0.07] },
-      { title: "DEFENSE", detail: "team standard", color: "#d71920", position: [0.95, 2.1, -2.35], rotation: [0.03, -0.18, -0.04] },
+      { title: "GBC", detail: "team energy", color: "#d71920", position: [-3.68, 1.42, -1.58], rotation: [0.02, 0.34, -0.08] },
+      { title: "DEFENSE", detail: "team standard", color: "#d71920", position: [-1.16, 2.12, -2.42], rotation: [0.02, -0.12, -0.035] },
+      { title: "VEGAS", detail: "fund the trip", color: "#b8d8ea", position: [-4.22, 2.32, -2.95], rotation: [-0.08, 0.46, 0.06] },
     ] as const;
 
     const panels: Array<{
@@ -216,14 +292,14 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
       const material = new THREE.MeshBasicMaterial({
         map: texture,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.58,
         side: THREE.DoubleSide,
         depthWrite: false,
       });
       const mesh = new THREE.Mesh(panelGeometry, material);
       mesh.position.set(panel.position[0], panel.position[1], panel.position[2]);
       mesh.rotation.set(panel.rotation[0], panel.rotation[1], panel.rotation[2]);
-      root.add(mesh);
+      kineticGroup.add(mesh);
       panels.push({ mesh, baseY: mesh.position.y, baseRotationZ: mesh.rotation.z });
       disposables.push(texture, material);
     }
@@ -238,8 +314,27 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
     });
     const basketball = new THREE.Mesh(ballGeometry, ballMaterial);
     basketball.position.set(-2.65, -0.46, 0.75);
-    root.add(basketball);
+    kineticGroup.add(basketball);
     disposables.push(ballGeometry, ballMaterial);
+
+    const ballRingMaterial = new THREE.MeshBasicMaterial({
+      color: 0xb8d8ea,
+      transparent: true,
+      opacity: 0.18,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+    const ballRings: import("three").Mesh[] = [];
+    for (let i = 0; i < 3; i += 1) {
+      const ringGeometry = new THREE.TorusGeometry(0.7 + i * 0.16, 0.012, 8, 64);
+      const ring = new THREE.Mesh(ringGeometry, ballRingMaterial);
+      ring.position.copy(basketball.position);
+      ring.rotation.set(Math.PI / 2.2, i * 0.62, i * 0.28);
+      kineticGroup.add(ring);
+      ballRings.push(ring);
+      disposables.push(ringGeometry);
+    }
+    disposables.push(ballRingMaterial);
 
     const rimGeometry = new THREE.TorusGeometry(0.42, 0.018, 8, 48);
     const rimMaterial = new THREE.MeshBasicMaterial({
@@ -249,8 +344,8 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
     });
     const rim = new THREE.Mesh(rimGeometry, rimMaterial);
     rim.rotation.x = Math.PI / 2;
-    rim.position.set(3.18, 0.42, -0.18);
-    root.add(rim);
+    rim.position.set(0.86, 0.46, -0.18);
+    kineticGroup.add(rim);
     disposables.push(rimGeometry, rimMaterial);
 
     const logoLoader = new THREE.TextureLoader();
@@ -270,7 +365,7 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
       const logo = new THREE.Mesh(logoGeometry, logoMaterial);
       logo.position.set(-4.42, 1.0, -2.7);
       logo.rotation.y = 0.34;
-      root.add(logo);
+      kineticGroup.add(logo);
       disposables.push(texture, logoGeometry, logoMaterial);
     });
 
@@ -312,18 +407,29 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
       const routeProgress = ((elapsed * 0.17) % 1 + 1) % 1;
       const travel = routeCurve.getPoint(routeProgress);
       pulse.position.copy(travel);
+      pulseHalo.position.copy(travel);
       pulse.scale.setScalar(1 + Math.sin(elapsed * 5.4) * 0.18);
+      pulseHalo.scale.setScalar(1 + Math.sin(elapsed * 5.4) * 0.32);
+      routeGlowMaterial.opacity = 0.1 + Math.sin(elapsed * 1.4) * 0.025;
 
       root.rotation.y = pointerTarget.x * 0.13 + Math.sin(elapsed * 0.34) * 0.025;
       root.rotation.x = -pointerTarget.y * 0.035;
+      kineticGroup.rotation.z = Math.sin(elapsed * 0.22) * 0.012;
       basketball.rotation.x += delta * 0.42;
       basketball.rotation.y += delta * 0.68;
       rim.rotation.z = Math.sin(elapsed * 0.75) * 0.1;
+      redArc.rotation.y = Math.sin(elapsed * 0.38) * 0.05;
+      particles.rotation.y = elapsed * 0.018;
 
       for (let index = 0; index < panels.length; index += 1) {
         const panel = panels[index];
         panel.mesh.position.y = panel.baseY + Math.sin(elapsed * 0.72 + index) * 0.025;
         panel.mesh.rotation.z = panel.baseRotationZ + Math.sin(elapsed * 0.52 + index) * 0.01;
+      }
+      for (let index = 0; index < ballRings.length; index += 1) {
+        const ring = ballRings[index];
+        ring.rotation.z += delta * (0.2 + index * 0.08);
+        ring.rotation.x += Math.sin(elapsed + index) * 0.0009;
       }
 
       camera.position.x += (pointerTarget.x * 0.44 - camera.position.x) * 0.018;
