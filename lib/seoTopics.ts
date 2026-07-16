@@ -17,6 +17,8 @@ export const baseSeoTopics = [
   { label: "youth basketball teams", href: "/teams" },
   { label: "basketball tournaments", href: "/teams" },
   { label: "MADE Hoops basketball", href: "/teams" },
+  { label: "2026 MADE Hoops Vegas Live S1 Champions", href: "/teams" },
+  { label: "15U Dodgers Division Champions", href: "/teams" },
   { label: "Coca Cola Nationals 14U Champions", href: "/teams" },
   { label: "GBC Huskies payments", href: "/payments" },
   { label: "basketball team store", href: "/store" },
@@ -58,6 +60,8 @@ const pageSeoTopics: Record<string, SeoTopic[]> = {
     { label: "16U basketball", href: "/teams" },
     { label: "local and national tournaments", href: "/teams" },
     { label: "MADE Hoops events", href: "/teams" },
+    { label: "MADE Hoops Vegas Live Session 1", href: "/teams" },
+    { label: "15U Dodgers Division Champions", href: "/teams" },
   ],
   "/payments": [
     { label: "GBC Huskies payments", href: "/payments" },

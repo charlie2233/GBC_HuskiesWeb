@@ -276,7 +276,7 @@ function buildScene(canvas: HTMLCanvasElement, frameRoot: HTMLElement): SceneHan
     const panelSpecs = [
       { title: "GBC", detail: "team energy", color: "#d71920", position: [-3.68, 1.42, -1.58], rotation: [0.02, 0.34, -0.08] },
       { title: "DEFENSE", detail: "team standard", color: "#d71920", position: [-1.16, 2.12, -2.42], rotation: [0.02, -0.12, -0.035] },
-      { title: "VEGAS", detail: "fund the trip", color: "#b8d8ea", position: [-4.22, 2.32, -2.95], rotation: [-0.08, 0.46, 0.06] },
+      { title: "CHAMPS", detail: "Vegas Live S1", color: "#b8d8ea", position: [-4.22, 2.32, -2.95], rotation: [-0.08, 0.46, 0.06] },
     ] as const;
 
     const panels: Array<{

@@ -422,10 +422,10 @@ textarea {
 
 .hero-photo-card-front {
   left: 13%;
-  top: 47%;
-  width: 44%;
-  height: 43%;
-  padding: 10px 10px 68px;
+  top: 36%;
+  width: 38%;
+  height: 53%;
+  padding: 10px 10px 64px;
   border: 1px solid rgba(255, 255, 255, 0.72);
   background: #f1efe7;
   transform: rotate(-5deg);
@@ -817,9 +817,9 @@ textarea {
 
   .hero-photo-card-front {
     left: 3%;
-    top: 38%;
-    width: 72%;
-    height: 232px;
+    top: 30%;
+    width: 57%;
+    height: 280px;
     padding-bottom: 58px;
   }
 

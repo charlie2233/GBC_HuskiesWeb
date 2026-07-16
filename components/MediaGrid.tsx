@@ -1,9 +1,19 @@
 import Image from "next/image";
 import { ArrowRight, AtSign, ExternalLink, UserRound } from "lucide-react";
+import { vegasLiveS1Championship } from "@/lib/achievements";
 import { coachInstagramUrl, instagramUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const media = [
+  {
+    src: vegasLiveS1Championship.image,
+    alt: vegasLiveS1Championship.alt,
+    label: "Vegas Live S1 Champions",
+    tag: "15U Dodgers Division",
+    url: vegasLiveS1Championship.instagramUrl,
+    fit: "contain",
+    bg: "bg-[#071827]",
+  },
   {
     src: "/media/instagram/made-hoops-west-mania.jpg",
     alt: "GBC Huskies players in matching team shirts at MADE Hoops West Mania",
@@ -14,11 +24,11 @@ const media = [
     bg: "bg-[#071827]",
   },
   {
-    src: "/media/instagram/championship-shirts-crop.jpg",
-    alt: "GBC Huskies players wearing championship shirts after a tournament result",
-    label: "Championship Shirts",
-    tag: "Team photo",
-    url: instagramUrl,
+    src: "/media/instagram/best-of-west-champs.jpg",
+    alt: "GBC Huskies players after winning the Best of the West Gold championship",
+    label: "Best of the West Gold",
+    tag: "Championship team",
+    url: "https://www.instagram.com/p/DPu_Y6mjq6f/",
     fit: "cover",
     bg: "bg-[#071827]",
   },
@@ -65,7 +75,7 @@ export default function MediaGrid() {
           </div>
 
           <div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
               {media.map((item) => (
                 <a
                   key={item.src}
@@ -80,9 +90,9 @@ export default function MediaGrid() {
                     src={item.src}
                     alt={item.alt}
                     width={720}
-                    height={720}
-                    sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 46vw"
-                    className={`aspect-square h-full w-full ${item.fit === "contain" ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-105`}
+                    height={900}
+                    sizes="(min-width: 1024px) 18vw, (min-width: 768px) 28vw, 92vw"
+                    className={`aspect-[4/5] h-full w-full ${item.fit === "contain" ? "object-contain p-2" : "object-cover"} transition duration-500 group-hover:scale-105`}
                   />
                   <div className="absolute inset-x-0 bottom-0 flex min-h-16 items-center justify-between bg-gradient-to-t from-black/84 to-transparent px-4 pb-4 pt-8 text-white">
                     <span>
@@ -97,8 +107,8 @@ export default function MediaGrid() {
               ))}
             </div>
             <p className="mt-5 text-sm leading-6 text-white/50">
-              Media sourced from public @gbc_huskies Instagram posts. Use only
-              approved player photos and videos on the public website.
+              Media sourced from public MADE Hoops and @gbc_huskies Instagram
+              posts. Use only approved player photos and videos on the public website.
             </p>
           </div>
         </div>

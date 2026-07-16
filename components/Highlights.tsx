@@ -23,8 +23,8 @@ const highlights = [
     icon: CalendarDays,
   },
   {
-    title: "2025 Coca Cola Nationals",
-    text: "14U Champions.",
+    title: "2026 Vegas Live S1",
+    text: "15U Dodgers Champions.",
     href: "/teams",
     event: "click_join_program",
     icon: Trophy,

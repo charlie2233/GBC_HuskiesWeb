@@ -20,6 +20,7 @@ Public source pass completed on 2026-05-06.
 
 ## Recent Public Post Signals
 
+- July 11, 2026 MADE Hoops Events collaboration post: GBC Huskies 15U won the Vegas Live Session 1 15U Dodgers Division Championship at the Las Vegas Convention Center. Source: https://www.instagram.com/p/DaqHve6EXX6/
 - April 24, 2026 post: looking for players for 2026 spring/summer MADE Hoops rosters; contact Coach Jay by DM or call/text `657-253-0078`; cannot turn 18 before August 1.
 - April 20-21, 2026 posts: MADE Hoops West Mania, 15U group went 3-1 in division play and 3-2 overall against gold-level competition.
 - November 24, 2025 post: GBC freshman made high school teams at varsity, JV, and freshman levels; program emphasizes development first.
@@ -39,6 +40,7 @@ Local copies were saved under `public/media/instagram/` so the website does not 
 - `made-hoops-west-mania.jpg` from https://www.instagram.com/p/DXVzpu5lc5m/
 - `huskies-high-school.jpg` from https://www.instagram.com/p/DRc1xDykmnn/
 - `best-of-west-champs.jpg` from https://www.instagram.com/p/DPu_Y6mjq6f/
+- `vegas-live-s1-15u-champions.jpg` from the official MADE Hoops Events collaboration post https://www.instagram.com/p/DaqHve6EXX6/
 
 ## GoFundMe
 

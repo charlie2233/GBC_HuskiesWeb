@@ -10,6 +10,7 @@ import {
   siteName,
   siteUrl,
 } from "@/lib/siteConfig";
+import { vegasLiveS1Championship } from "@/lib/achievements";
 import { baseSeoTopics } from "@/lib/seoTopics";
 
 const topicNames = baseSeoTopics.map((topic) => topic.label);
@@ -26,6 +27,10 @@ const structuredData = {
       image: logoUrl,
       description: siteDescription,
       sport: "Basketball",
+      award: [
+        `${vegasLiveS1Championship.year} ${vegasLiveS1Championship.title} ${vegasLiveS1Championship.result}`,
+        "2025 Coca Cola Nationals 14U Champions",
+      ],
       knowsAbout: topicNames,
       email: contactEmail,
       telephone: coachPhoneDisplay,

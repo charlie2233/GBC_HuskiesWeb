@@ -16,7 +16,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies | Youth Basketball Program & Player Development",
   description:
-    "Gilliam Basketball Club, home of GBC Huskies, is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.",
+    "Gilliam Basketball Club, home of GBC Huskies, is an Orange County youth basketball program and 2026 MADE Hoops Vegas Live Session 1 15U Dodgers Division champion.",
   path: "/",
 });
 

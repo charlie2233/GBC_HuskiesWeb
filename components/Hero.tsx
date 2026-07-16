@@ -1,15 +1,29 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin, Trophy } from "lucide-react";
-import { goFundMeUrl, instagramUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
+import { vegasLiveS1Championship } from "@/lib/achievements";
+import { goFundMeUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
 import HeroThreeScene from "./HeroThreeScene";
 
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 
 const roadStops = [
-  { date: "July 2-3", event: "MADE Hoops SoCal Summer Tune Up", location: "Corona, CA" },
-  { date: "July 8-10", event: "MADE Hoops Vegas Summer Live Session 1", location: "Las Vegas, NV" },
-  { date: "July 11-12", event: "MADE Hoops Vegas Summer Live Session 2", location: "Las Vegas, NV" },
+  {
+    date: "July 8-10",
+    event: "Vegas Live S1 Champions",
+    location: "15U Dodgers Division",
+    href: vegasLiveS1Championship.instagramUrl,
+    external: true,
+    result: true,
+  },
+  {
+    date: "July 25-26",
+    event: "Summer Tournament",
+    location: "Irvine, CA",
+    href: "#tournaments",
+    external: false,
+    result: false,
+  },
 ];
 
 export default function Hero() {
@@ -40,7 +54,9 @@ export default function Hero() {
           <p className="mx-auto mt-5 flex w-full max-w-[21rem] flex-col items-center justify-center gap-x-2 gap-y-2 overflow-hidden text-sm font-black uppercase tracking-[0.04em] text-[#b8d8ea] sm:text-base md:mx-0 md:max-w-xl md:flex-row md:flex-wrap md:items-start md:justify-start md:gap-y-1">
             <span className="min-w-0 max-w-full break-words">{programStatements.sloganMeaning}</span>
             <span className="hidden md:inline" aria-hidden>&bull;</span>
-            <span className="min-w-0 max-w-full break-words">Proud participant in MADE Hoops events</span>
+            <span className="min-w-0 max-w-full break-words">
+              2026 Vegas Live S1 15U Dodgers Division Champions
+            </span>
           </p>
           <p className="mx-auto mt-4 hidden w-full max-w-[21rem] text-base leading-7 text-white/74 sm:block md:mx-0 md:max-w-xl">
             Our program is designed to emphasize fundamental basketball skills
@@ -123,26 +139,26 @@ export default function Hero() {
           </a>
 
           <a
-            href={instagramUrl}
+            href={vegasLiveS1Championship.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             data-analytics-event="click_instagram"
-            data-analytics-label="Hero championship team photo"
-            aria-label="View GBC Huskies Instagram profile"
+            data-analytics-label="Hero Vegas Live S1 championship post"
+            aria-label="View the GBC Huskies Vegas Live Session 1 championship post on Instagram"
             className="hero-photo-card hero-photo-card-front group"
           >
             <Image
-              src="/media/instagram/championship-shirts-crop.jpg"
-              alt="GBC Huskies players in championship shirts after a tournament result"
-              width={850}
-              height={850}
+              src={vegasLiveS1Championship.image}
+              alt={vegasLiveS1Championship.alt}
+              width={900}
+              height={1200}
               preload
               sizes="(min-width: 1280px) 26vw, (min-width: 768px) 36vw, 78vw"
-              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              className="h-full w-full bg-[#071827] object-contain transition duration-500 group-hover:scale-[1.025]"
             />
             <div className="polaroid-caption">
-              <span>Championship shirts</span>
-              <strong>Team standard</strong>
+              <span>Vegas Live S1</span>
+              <strong>15U Champions</strong>
             </div>
           </a>
 
@@ -151,7 +167,9 @@ export default function Hero() {
           <div className="next-road-card">
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
-                <p className="font-display text-4xl leading-none text-white">Next Road Stops</p>
+                <p className="font-display text-3xl leading-none text-white xl:text-4xl">
+                  Results + Next Stop
+                </p>
                 <span className="red-marker" aria-hidden />
               </div>
               <Trophy className="mt-1 h-6 w-6 text-[#b8d8ea]" aria-hidden />
@@ -160,13 +178,15 @@ export default function Hero() {
               {roadStops.map((stop) => (
                 <a
                   key={stop.event}
-                  href="#tournaments"
-                  data-analytics-event="click_join_program"
+                  href={stop.href}
+                  target={stop.external ? "_blank" : undefined}
+                  rel={stop.external ? "noopener noreferrer" : undefined}
+                  data-analytics-event={stop.external ? "click_instagram" : "click_join_program"}
                   data-analytics-label={`Hero road stop ${stop.event}`}
                   className="road-stop-row grid grid-cols-[104px_1fr] items-center gap-4 rounded-lg border border-white/12 bg-white/[0.055] px-4 py-3 transition hover:border-[#b8d8ea]/38 hover:bg-white/[0.09]"
                 >
                   <span className="flex items-center gap-2 text-xs font-black uppercase text-[#b8d8ea]">
-                    <CalendarDays size={18} aria-hidden />
+                    {stop.result ? <Trophy size={18} aria-hidden /> : <CalendarDays size={18} aria-hidden />}
                     {stop.date}
                   </span>
                   <span>
