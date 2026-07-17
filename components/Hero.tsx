@@ -147,13 +147,13 @@ export default function Hero() {
             <span className="hero-team-card-label">
               <span>
                 <MapPin size={17} aria-hidden />
-                Program Update
+                Possible Expansion
               </span>
               <ArrowRight className="transition group-hover:translate-x-1" size={18} aria-hidden />
             </span>
-            <strong className="hero-team-card-title">Exploring Fresno</strong>
+            <strong className="hero-team-card-title">Fresno / Valley Area</strong>
             <span className="hero-team-card-copy">
-              GBC is discussing a possible Valley-area expansion. Details are not final.
+              GBC is exploring a possible Fresno/Valley program expansion. Plans are not final.
             </span>
           </Link>
 
