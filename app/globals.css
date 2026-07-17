@@ -469,6 +469,77 @@ textarea {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
 }
 
+.hero-team-card {
+  position: absolute;
+  right: 5%;
+  bottom: 13%;
+  z-index: 5;
+  display: block;
+  width: 280px;
+  min-height: 126px;
+  border: 1px solid rgba(184, 216, 234, 0.24);
+  border-left: 4px solid #d71920;
+  border-radius: 8px;
+  background: rgba(6, 17, 29, 0.92);
+  padding: 15px 16px;
+  color: white;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(12px);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.hero-team-card:hover {
+  border-color: rgba(184, 216, 234, 0.54);
+  background: rgba(10, 29, 46, 0.96);
+  transform: translateY(-3px);
+}
+
+.hero-team-card:focus-visible {
+  outline: 3px solid #b8d8ea;
+  outline-offset: 4px;
+}
+
+.hero-team-card-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #b8d8ea;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-team-card-label > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-team-card-title {
+  display: block;
+  margin-top: 0.6rem;
+  color: white;
+  font-family: var(--font-bebas), Impact, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.hero-team-card-copy {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .support-chip {
   position: absolute;
   right: 6%;
@@ -802,6 +873,37 @@ textarea {
     top: 38%;
     width: 58px;
     height: 58px;
+  }
+
+  .hero-team-card {
+    top: 54%;
+    right: 0;
+    bottom: auto;
+    width: 42%;
+    min-height: 108px;
+    padding: 12px;
+  }
+
+  .hero-team-card-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-team-card-label > span {
+    gap: 5px;
+  }
+
+  .hero-team-card-label svg:first-child {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hero-team-card-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-team-card-copy {
+    display: none;
   }
 
   .collage-logo-watermark {
