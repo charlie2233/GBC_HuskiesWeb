@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Crown, HeartHandshake, MapPin, UsersRound } from "lucide-react";
+import { ArrowRight, Crown, HeartHandshake, MapPin } from "lucide-react";
 import { vegasLiveS1Championship } from "@/lib/achievements";
 import { goFundMeUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
@@ -138,22 +138,22 @@ export default function Hero() {
           <Crown className="hero-crown-sketch" size={76} aria-hidden />
 
           <Link
-            href="/teams"
-            data-analytics-event="click_join_program"
-            data-analytics-label="Hero team opportunities card"
+            href="/contact"
+            data-analytics-event="click_contact"
+            data-analytics-label="Hero Fresno expansion update"
             className="hero-team-card group"
-            aria-label="Explore GBC Huskies team opportunities from 9U through 17U"
+            aria-label="Contact GBC Huskies about the possible Fresno and Valley area expansion"
           >
             <span className="hero-team-card-label">
               <span>
-                <UsersRound size={17} aria-hidden />
-                Team Opportunities
+                <MapPin size={17} aria-hidden />
+                Program Update
               </span>
               <ArrowRight className="transition group-hover:translate-x-1" size={18} aria-hidden />
             </span>
-            <strong className="hero-team-card-title">9U-17U Teams</strong>
+            <strong className="hero-team-card-title">Exploring Fresno</strong>
             <span className="hero-team-card-copy">
-              Development, competition, and a team-first standard.
+              GBC is discussing a possible Valley-area expansion. Details are not final.
             </span>
           </Link>
 
