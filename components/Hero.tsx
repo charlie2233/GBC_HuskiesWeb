@@ -1,30 +1,11 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin, Trophy } from "lucide-react";
+import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin } from "lucide-react";
 import { vegasLiveS1Championship } from "@/lib/achievements";
 import { goFundMeUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
 import HeroThreeScene from "./HeroThreeScene";
 
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
-
-const roadStops = [
-  {
-    date: "July 8-10",
-    event: "Vegas Live S1 Champions",
-    location: "15U Dodgers Division",
-    href: vegasLiveS1Championship.instagramUrl,
-    external: true,
-    result: true,
-  },
-  {
-    date: "July 25-26",
-    event: "Summer Tournament",
-    location: "Irvine, CA",
-    href: "#tournaments",
-    external: false,
-    result: false,
-  },
-];
 
 export default function Hero() {
   return (
@@ -163,43 +144,6 @@ export default function Hero() {
           </a>
 
           <Crown className="hero-crown-sketch" size={76} aria-hidden />
-
-          <div className="next-road-card">
-            <div className="mb-4 flex items-start justify-between gap-4">
-              <div>
-                <p className="font-display text-3xl leading-none text-white xl:text-4xl">
-                  Results + Next Stop
-                </p>
-                <span className="red-marker" aria-hidden />
-              </div>
-              <Trophy className="mt-1 h-6 w-6 text-[#b8d8ea]" aria-hidden />
-            </div>
-            <div className="grid gap-3">
-              {roadStops.map((stop) => (
-                <a
-                  key={stop.event}
-                  href={stop.href}
-                  target={stop.external ? "_blank" : undefined}
-                  rel={stop.external ? "noopener noreferrer" : undefined}
-                  data-analytics-event={stop.external ? "click_instagram" : "click_join_program"}
-                  data-analytics-label={`Hero road stop ${stop.event}`}
-                  className="road-stop-row grid grid-cols-[104px_1fr] items-center gap-4 rounded-lg border border-white/12 bg-white/[0.055] px-4 py-3 transition hover:border-[#b8d8ea]/38 hover:bg-white/[0.09]"
-                >
-                  <span className="flex items-center gap-2 text-xs font-black uppercase text-[#b8d8ea]">
-                    {stop.result ? <Trophy size={18} aria-hidden /> : <CalendarDays size={18} aria-hidden />}
-                    {stop.date}
-                  </span>
-                  <span>
-                    <span className="block text-base font-black text-white">{stop.event}</span>
-                    <span className="mt-1 flex items-center gap-1 text-xs font-semibold text-white/58">
-                      <MapPin size={13} aria-hidden />
-                      {stop.location}
-                    </span>
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
 
           <a
             href={goFundMeUrl}
