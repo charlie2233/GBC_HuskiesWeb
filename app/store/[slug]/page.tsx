@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarClock, LockKeyhole, PackageCheck, ShieldCheck } from "lucide-react";
+import { ArrowLeft, LockKeyhole, PackageCheck, ShieldCheck, Truck } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
@@ -96,7 +96,7 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
                 </div>
 
                 <p className="mt-5 flex items-start gap-3 rounded-lg border border-[#b8d8ea]/30 bg-[#b8d8ea]/12 p-4 text-sm font-bold leading-6 text-white">
-                  <CalendarClock className="mt-0.5 h-5 w-5 flex-none text-[#b8d8ea]" aria-hidden />
+                  <Truck className="mt-0.5 h-5 w-5 flex-none text-[#b8d8ea]" aria-hidden />
                   {storeArrivalNotice}
                 </p>
                 <p className="mt-4 flex items-start gap-3 rounded-lg border border-[#d71920]/32 bg-[#d71920]/12 p-4 text-sm font-bold leading-6 text-white">

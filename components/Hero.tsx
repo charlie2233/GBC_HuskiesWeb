@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Crown, HeartHandshake, MapPin } from "lucide-react";
+import { ArrowRight, Crown, HeartHandshake, MapPin } from "lucide-react";
 import { vegasLiveS1Championship } from "@/lib/achievements";
 import { goFundMeUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
@@ -59,15 +59,6 @@ export default function Hero() {
               <span className="hero-ball-icon" aria-hidden />
               Register for Season
               <ArrowRight size={19} aria-hidden />
-            </a>
-            <a
-              href="#tournaments"
-              data-analytics-event="click_join_program"
-              data-analytics-label="Hero view event run"
-              className="hidden min-h-12 items-center justify-center gap-3 rounded-lg border border-[#b8d8ea]/35 bg-[#06111d]/72 px-6 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/12 sm:inline-flex"
-            >
-              <CalendarDays size={19} aria-hidden />
-              View Event Run
             </a>
           </div>
         </div>

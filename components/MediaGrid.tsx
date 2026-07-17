@@ -46,7 +46,7 @@ export default function MediaGrid() {
             </h2>
             <p className="mt-5 text-base leading-7 text-white/68 md:text-lg md:leading-8">
               Stay connected with <BrandName /> for team updates, tournament
-              schedules, highlights, photos, videos, and program announcements.
+              results, highlights, photos, videos, and program announcements.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
               <a

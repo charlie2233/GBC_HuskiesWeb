@@ -80,7 +80,7 @@ delivery details, and the up-to-3-weeks arrival expectation.
 
 ## Tournament And Team Info
 
-Team, tournament, schedule, and program copy currently lives across:
+Team, tournament result, and program copy currently lives across:
 
 ```text
 lib/siteConfig.ts

@@ -100,7 +100,7 @@ export const faqItems = [
   {
     category: "Contact",
     question: "How fast should families expect a response?",
-    answer: `Use the contact page, email ${contactEmail}, or call/text ${coachPhoneDisplay}. Response timing can vary around practices, school schedules, and tournament weekends, so include the important details in the first message.`,
+    answer: `Use the contact page, email ${contactEmail}, or call/text ${coachPhoneDisplay}. Response timing can vary around practices, school commitments, and tournament weekends, so include the important details in the first message.`,
     links: [{ label: "Contact", href: "/contact", event: "click_contact" }],
   },
 ] satisfies FaqItem[];

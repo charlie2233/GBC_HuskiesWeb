@@ -1,4 +1,4 @@
-import { CalendarDays, Dumbbell, Heart, Target, Trophy } from "lucide-react";
+import { Dumbbell, Heart, Medal, Target, Trophy } from "lucide-react";
 
 const highlights = [
   {
@@ -20,7 +20,7 @@ const highlights = [
     text: "Compete against the best.",
     href: "/teams",
     event: "click_join_program",
-    icon: CalendarDays,
+    icon: Medal,
   },
   {
     title: "2026 Vegas Live S1",

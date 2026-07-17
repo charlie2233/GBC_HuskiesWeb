@@ -1,17 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, MapPin, Trophy } from "lucide-react";
+import { ArrowRight, Trophy } from "lucide-react";
 import { vegasLiveS1Championship } from "@/lib/achievements";
-import BrandName from "./BrandName";
-
-const tournaments = [
-  { date: "June 13-14", event: "Summer Tournament", location: "Seal Beach, CA", note: "Location tentative" },
-  { date: "June 19-21", event: "Coca Cola Nationals", location: "Garden Grove, CA", note: "Championship stage" },
-  { date: "July 2-3", event: "MADE Hoops SoCal Summer Tune Up", location: "Corona, CA", note: "Summer tune-up" },
-  { date: "July 8-10", event: "MADE Hoops Vegas Summer Live Session 1", location: "Las Vegas, NV", note: "15U Dodgers Division Champions" },
-  { date: "July 11-12", event: "MADE Hoops Vegas Summer Live Session 2", location: "Las Vegas, NV", note: "Vegas session 2" },
-  { date: "July 25-26", event: "Summer Tournament", location: "Irvine, CA", note: "Event name TBA" },
-];
 
 const westManiaPost = "https://www.instagram.com/p/DXVzpu5lc5m/";
 const bestOfWestPost = "https://www.instagram.com/p/DPu_Y6mjq6f/";
@@ -63,7 +53,7 @@ export default function Tournaments() {
         <div className="relative grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>
             <h2 className="font-display text-6xl leading-none text-[#071827] md:text-8xl">
-              Road Weeks & Event Energy
+              Tournament Results & Event Energy
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
               The Huskies season is built around training that shows up on
@@ -182,29 +172,6 @@ export default function Tournaments() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {tournaments.map((tournament) => (
-            <article key={`${tournament.date}-${tournament.event}`} className="relative rounded-lg border border-[var(--line)] bg-[#f4f6f8] p-5">
-              <div className="absolute -top-2 left-5 h-4 w-4 rounded-full border border-[var(--line)] bg-white" aria-hidden />
-              <div className="absolute -top-2 right-5 h-4 w-4 rounded-full border border-[var(--line)] bg-white" aria-hidden />
-              <div className="flex items-center gap-2 text-sm font-black text-[#d71920]">
-                <CalendarDays size={18} aria-hidden />
-                {tournament.date}
-              </div>
-              <h3 className="mt-3 text-2xl font-black text-[#071827]">{tournament.event}</h3>
-              <p className="mt-2 text-sm font-bold text-[#071827]/58">{tournament.note}</p>
-              <p className="mt-2 flex items-center gap-2 text-sm text-[#1f2933]/72">
-                <MapPin size={16} aria-hidden />
-                {tournament.location}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        <p className="mt-5 text-sm leading-6 text-[#1f2933]/65">
-          Schedule subject to change. Contact <BrandName /> for the latest
-          tournament information.
-        </p>
       </div>
     </section>
   );

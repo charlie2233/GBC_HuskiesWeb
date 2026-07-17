@@ -65,7 +65,7 @@ export default function TeamsPage() {
             <div>
               <h2 className="font-display text-5xl leading-none">Ask About Team Opportunities</h2>
               <p className="mt-2 text-sm font-semibold leading-6 text-white/68">
-                Families can ask about youth basketball teams, AAU basketball tournament schedules, and player development expectations.
+                Families can ask about youth basketball teams, AAU basketball tournament opportunities, and player development expectations.
               </p>
             </div>
             <Link

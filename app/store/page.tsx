@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarClock, LockKeyhole, Ruler, ShieldCheck } from "lucide-react";
+import { LockKeyhole, Ruler, ShieldCheck, Truck } from "lucide-react";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
@@ -93,7 +93,7 @@ export default function StorePage() {
                         Sizes: {item.sizes}
                       </p>
                       <p className="mt-3 flex items-start gap-2 rounded-lg border border-[#b8d8ea]/70 bg-[#eaf4fa] p-3 text-xs font-bold leading-5 text-[#071827]/78">
-                        <CalendarClock className="mt-0.5 h-4 w-4 flex-none text-[#d71920]" aria-hidden />
+                        <Truck className="mt-0.5 h-4 w-4 flex-none text-[#d71920]" aria-hidden />
                         {storeArrivalNotice}
                       </p>
                     </div>
