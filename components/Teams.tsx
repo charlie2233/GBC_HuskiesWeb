@@ -5,22 +5,6 @@ import BrandName from "./BrandName";
 
 const teams = [
   {
-    name: "9U / 3rd Grade",
-    text: "Introductory team experience focused on fundamentals, effort, listening habits, and learning how to compete.",
-  },
-  {
-    name: "10U / 4th Grade",
-    text: "Development-first basketball environment built around skill growth, teamwork, and confidence.",
-  },
-  {
-    name: "11U / 5th Grade",
-    text: "Fundamental team basketball with an emphasis on spacing, defense, ball movement, and accountability.",
-  },
-  {
-    name: "12U / 6th Grade",
-    text: "Competitive habits, skill work, and team concepts for athletes preparing for stronger tournament play.",
-  },
-  {
     name: "13U / 7th Grade",
     text: "AAU team development for athletes ready to train consistently and compete with a higher team standard.",
   },
@@ -31,14 +15,6 @@ const teams = [
   {
     name: "15U / 9th Grade",
     text: "High school transition team experience for players building confidence, role clarity, and competitive toughness.",
-  },
-  {
-    name: "16U / 10th Grade",
-    text: "Upper-level team experience with recruiting awareness and program resources designed to help players prepare for college opportunities.",
-  },
-  {
-    name: "17U / 11th Grade",
-    text: "Recruiting-minded team experience that uses program resources, exposure events, and player development to support athletes working toward college basketball.",
   },
 ];
 
@@ -52,8 +28,8 @@ export default function Teams() {
               Huskies Teams
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
-              <BrandName /> provides team opportunities from 9U/3rd grade
-              through 17U/11th grade for athletes ready to train, compete, and
+              <BrandName /> currently provides team opportunities from 13U/7th
+              grade through 15U/9th grade for athletes ready to train, compete, and
               represent the program in tournament play.
             </p>
             <p className="mt-4 text-base leading-7 text-[#1f2933]/72">
