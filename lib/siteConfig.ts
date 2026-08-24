@@ -10,6 +10,7 @@ export const logoPath = "/brand/gbc-huskies-circle-logo.png";
 export const logoUrl = `${siteUrl}${logoPath}`;
 export const ogImageUrl = logoUrl;
 export const contactEmail = "gbchuskiesoc@gmail.com";
+export const currentTeamRange = "13U-15U";
 export const coachPhoneDisplay = "657-253-0078";
 export const coachPhoneHref = "tel:+16572530078";
 export const zellePhoneDisplay = coachPhoneDisplay;
@@ -147,10 +148,12 @@ export function getStoreItemBySlug(slug: string) {
 }
 
 export const reviewFormUrl = process.env.NEXT_PUBLIC_REVIEW_FORM_URL || "";
+export const formspreeEndpoint =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ||
+  "https://formspree.io/f/mbdzrwbo";
 export const reviewFormEndpoint =
   process.env.NEXT_PUBLIC_REVIEW_FORMSPREE_ENDPOINT ||
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ||
-  "";
+  formspreeEndpoint;
 export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 export const testimonials = [

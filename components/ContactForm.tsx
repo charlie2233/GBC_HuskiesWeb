@@ -1,8 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { FileText, Mail, Phone, Send } from "lucide-react";
-import { coachPhoneDisplay, coachPhoneHref, contactEmail, registrationFormUrl } from "@/lib/siteConfig";
+import {
+  coachPhoneDisplay,
+  coachPhoneHref,
+  contactEmail,
+  formspreeEndpoint,
+  registrationFormUrl,
+} from "@/lib/siteConfig";
 import BrandName from "./BrandName";
 
 const interestTypes = [
@@ -21,39 +28,22 @@ export default function ContactForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+
+    formData.set("formType", "GBC Huskies Contact");
+    formData.set("_subject", "GBC Huskies Website Inquiry");
+    formData.set("sourcePage", window.location.href);
 
     setStatus("sending");
 
     try {
-      if (endpoint) {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" },
-        });
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
 
-        if (!response.ok) {
-          throw new Error("Form submission failed");
-        }
-      } else {
-        const lines = [
-          "GBC Huskies Website Inquiry",
-          "",
-          `Parent/Guardian Name: ${formData.get("parentName") ?? ""}`,
-          `Player Name: ${formData.get("playerName") ?? ""}`,
-          `Player Grade: ${formData.get("playerGrade") ?? ""}`,
-          `Player Age: ${formData.get("playerAge") ?? ""}`,
-          `Email: ${formData.get("email") ?? ""}`,
-          `Phone Number: ${formData.get("phone") ?? ""}`,
-          `Interest Type: ${formData.get("interestType") ?? ""}`,
-          "",
-          "Message:",
-          `${formData.get("message") ?? ""}`,
-        ];
-        const subject = encodeURIComponent("GBC Huskies Website Inquiry");
-        const body = encodeURIComponent(lines.join("\n"));
-        window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      if (!response.ok) {
+        throw new Error("Form submission failed");
       }
 
       form.reset();
@@ -108,31 +98,43 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="rounded-lg bg-white p-5 text-[#071827] shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:p-7">
+        <form
+          onSubmit={handleSubmit}
+          aria-busy={status === "sending"}
+          className="rounded-lg bg-white p-5 text-[#071827] shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:p-7"
+        >
+          <input
+            type="text"
+            name="_gotcha"
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            aria-hidden="true"
+          />
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-black">
               Parent/Guardian Name
-              <input name="parentName" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
+              <input name="parentName" autoComplete="name" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
             </label>
             <label className="grid gap-2 text-sm font-black">
               Player Name
-              <input name="playerName" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
+              <input name="playerName" autoComplete="off" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
             </label>
             <label className="grid gap-2 text-sm font-black">
               Player Grade
-              <input name="playerGrade" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
+              <input name="playerGrade" autoComplete="off" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
             </label>
             <label className="grid gap-2 text-sm font-black">
               Player Age
-              <input name="playerAge" required inputMode="numeric" className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
+              <input name="playerAge" autoComplete="off" required inputMode="numeric" className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
             </label>
             <label className="grid gap-2 text-sm font-black">
               Email
-              <input type="email" name="email" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
+              <input type="email" name="email" autoComplete="email" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
             </label>
             <label className="grid gap-2 text-sm font-black">
               Phone Number
-              <input type="tel" name="phone" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
+              <input type="tel" name="phone" autoComplete="tel" required className="min-h-12 rounded-lg border border-[#071827]/16 px-4 font-normal outline-none transition focus:border-[#d71920]" />
             </label>
             <label className="grid gap-2 text-sm font-black sm:col-span-2">
               Interest Type
@@ -153,6 +155,15 @@ export default function ContactForm() {
             </label>
           </div>
 
+          <p className="mt-4 text-xs font-semibold leading-5 text-[#1f2933]/66">
+            Your details are used only to respond to this inquiry. Do not
+            include medical or payment information. See our{" "}
+            <Link href="/privacy" className="font-black text-[#8a1116] underline underline-offset-2">
+              privacy policy
+            </Link>
+            .
+          </p>
+
           <button
             type="submit"
             disabled={status === "sending"}
@@ -164,17 +175,23 @@ export default function ContactForm() {
             {status === "sending" ? "Sending..." : "Send Message"}
           </button>
 
-          {status === "sent" ? (
-            <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
-              Thanks for contacting <BrandName />. Your message has been sent,
-              and we&apos;ll get back to you soon.
-            </p>
-          ) : null}
-          {status === "error" ? (
-            <p className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
-              Something went wrong. Please email {contactEmail} directly.
-            </p>
-          ) : null}
+          <div aria-live="polite" aria-atomic="true">
+            {status === "sent" ? (
+              <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
+                Thanks for contacting <BrandName />. Your message has been sent,
+                and we&apos;ll get back to you soon.
+              </p>
+            ) : null}
+            {status === "error" ? (
+              <p role="alert" className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
+                Something went wrong. Please email{" "}
+                <a className="underline underline-offset-2" href={`mailto:${contactEmail}`}>
+                  {contactEmail}
+                </a>{" "}
+                directly.
+              </p>
+            ) : null}
+          </div>
         </form>
       </div>
     </section>

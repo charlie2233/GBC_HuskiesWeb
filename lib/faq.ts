@@ -1,6 +1,7 @@
 import {
   coachPhoneDisplay,
   contactEmail,
+  currentTeamRange,
   goFundMeUrl,
   storeArrivalNotice,
   teamStoreStatus,
@@ -24,8 +25,7 @@ export const faqItems = [
   {
     category: "Joining",
     question: "How do I ask about joining a GBC Huskies team?",
-    answer:
-      "Start by contacting the program with the parent or guardian name, player name, grade, age, basketball experience, and what you are looking for. The coach can confirm current team needs, training options, and next steps.",
+    answer: `GBC currently serves ${currentTeamRange} players. Start by contacting the program with the parent or guardian name, player name, grade, age, basketball experience, and what you are looking for. The coach can confirm current team needs, training options, and next steps.`,
     links: [
       { label: "Contact GBC", href: "/contact", event: "click_contact" },
       { label: "Teams", href: "/teams" },
@@ -108,7 +108,7 @@ export const faqItems = [
 export const parentQuickAnswers = [
   {
     title: "Joining a Team",
-    text: "Send player grade, age, experience, and the team or training interest.",
+    text: `Current teams are ${currentTeamRange}. Send player grade, age, experience, and team or training interest.`,
     href: "/contact",
     linkLabel: "Contact GBC",
     event: "click_contact",

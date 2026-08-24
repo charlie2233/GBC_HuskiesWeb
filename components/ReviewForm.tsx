@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { Send, ShieldCheck, Star } from "lucide-react";
 import { buildPublicReview } from "@/lib/reviews";
 import { contactEmail, reviewFormEndpoint } from "@/lib/siteConfig";
@@ -38,45 +39,21 @@ export default function ReviewForm() {
     formData.set("moderationRequired", "true");
     formData.set("publicDisplayName", publicReview?.name || "");
     formData.set("publicDisplayDetail", publicReview?.detail || "");
+    formData.set("_subject", "GBC Huskies Review Submission");
+    formData.set("sourcePage", window.location.href);
 
     setStatus("sending");
 
     try {
-      if (reviewFormEndpoint) {
-        const response = await fetch(reviewFormEndpoint, {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" },
-        });
+      const response = await fetch(reviewFormEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
 
-        if (!response.ok) {
-          throw new Error("Review submission failed");
-        }
-
-        form.reset();
-        setStatus("submitted");
-        return;
+      if (!response.ok) {
+        throw new Error("Review submission failed");
       }
-
-      const lines = [
-        "GBC Huskies Review Submission",
-        "",
-        `Parent/Guardian Name: ${formData.get("guardianName") ?? ""}`,
-        `Parent Email: ${formData.get("email") ?? ""}`,
-        `Player Name: ${formData.get("playerName") ?? ""}`,
-        `Player Grade/Team: ${formData.get("playerGradeTeam") ?? ""}`,
-        `Rating: ${formData.get("rating") ?? ""}`,
-        `Display Preference: ${formData.get("displayPreference") ?? ""}`,
-        `Permission to Display: ${formData.get("displayPermission") ?? ""}`,
-        "",
-        "Review/Testimonial Message:",
-        `${formData.get("message") ?? ""}`,
-        "",
-        "Manual approval note: Do not publish this review until the coach approves the public display text.",
-      ];
-      const subject = encodeURIComponent("GBC Huskies Review Submission");
-      const body = encodeURIComponent(lines.join("\n"));
-      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
       form.reset();
       setStatus("submitted");
@@ -104,7 +81,11 @@ export default function ReviewForm() {
               <p className="text-sm font-semibold leading-6 text-white/72">
                 Do not include sensitive private details. Email, player name,
                 and private contact fields are never shown in the public review
-                cards. Anonymous display is supported.
+                cards. Anonymous display is supported. Read the{" "}
+                <Link href="/privacy" className="font-black text-white underline underline-offset-2">
+                  privacy policy
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -112,8 +93,17 @@ export default function ReviewForm() {
 
         <form
           onSubmit={handleSubmit}
+          aria-busy={status === "sending"}
           className="rounded-lg bg-white p-5 text-[#071827] shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:p-7"
         >
+          <input
+            type="text"
+            name="_gotcha"
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            aria-hidden="true"
+          />
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-black">
               Parent/Guardian Name
@@ -228,18 +218,23 @@ export default function ReviewForm() {
             {status === "sending" ? "Submitting..." : "Submit Review"}
           </button>
 
-          {status === "submitted" ? (
-            <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
-              Thanks for sharing your review. It has been prepared for manual
-              review and will not appear publicly until approved.
-            </p>
-          ) : null}
-          {status === "error" ? (
-            <p className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
-              Something went wrong. Please email the coach at {contactEmail} if
-              you want to send your review.
-            </p>
-          ) : null}
+          <div aria-live="polite" aria-atomic="true">
+            {status === "submitted" ? (
+              <p className="mt-4 rounded-lg bg-[#b8d8ea]/28 p-4 text-sm font-bold leading-6 text-[#071827]">
+                Thanks for sharing your review. It has been sent for manual
+                review and will not appear publicly until approved.
+              </p>
+            ) : null}
+            {status === "error" ? (
+              <p role="alert" className="mt-4 rounded-lg bg-[#d71920]/10 p-4 text-sm font-bold leading-6 text-[#8a1116]">
+                Something went wrong. Please email the coach at{" "}
+                <a className="underline underline-offset-2" href={`mailto:${contactEmail}`}>
+                  {contactEmail}
+                </a>{" "}
+                if you want to send your review.
+              </p>
+            ) : null}
+          </div>
         </form>
       </div>
     </section>

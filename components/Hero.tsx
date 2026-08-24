@@ -2,7 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Crown, HeartHandshake, MapPin } from "lucide-react";
 import { vegasLiveS1Championship } from "@/lib/achievements";
-import { goFundMeUrl, programFullName, programStatements, registrationFormUrl } from "@/lib/siteConfig";
+import {
+  currentTeamRange,
+  goFundMeUrl,
+  programFullName,
+  programStatements,
+  registrationFormUrl,
+} from "@/lib/siteConfig";
 import SiteMark from "./SiteMark";
 import HeroThreeScene from "./HeroThreeScene";
 
@@ -29,7 +35,9 @@ export default function Hero() {
 
           <div className="hero-red-swipe mx-auto mt-5 md:mx-0" aria-hidden />
           <p className="mx-auto mt-5 w-full max-w-[21rem] text-2xl font-black leading-tight text-white sm:text-3xl md:mx-0 md:max-w-2xl md:text-[1.95rem]">
-            Orange County based AAU basketball program.
+            Orange County based{" "}
+            <span className="whitespace-nowrap">{currentTeamRange}</span> AAU
+            basketball program.
             <br />
             Our slogan: {programStatements.slogan}.
           </p>
