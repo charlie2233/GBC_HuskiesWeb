@@ -112,7 +112,7 @@ export default function Hero() {
               alt="GBC Huskies team photo at MADE Hoops West Mania"
               width={850}
               height={850}
-              preload
+              loading="eager"
               sizes="(min-width: 1280px) 34vw, (min-width: 768px) 46vw, 82vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
@@ -133,7 +133,7 @@ export default function Hero() {
               alt={vegasLiveS1Championship.alt}
               width={900}
               height={1200}
-              preload
+              loading="eager"
               sizes="(min-width: 1280px) 26vw, (min-width: 768px) 36vw, 78vw"
               className="h-full w-full bg-[#071827] object-contain transition duration-500 group-hover:scale-[1.025]"
             />
