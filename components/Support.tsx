@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { ArrowRight, BadgeDollarSign, HeartHandshake } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, HeartHandshake, RefreshCw } from "lucide-react";
 import { goFundMeUrl } from "@/lib/siteConfig";
+import { formatFundraiserCurrency, type FundraiserStats } from "@/lib/fundraiser";
 
 const tiers = [
   { name: "Friend of the Huskies", amount: "$100+", recognition: "Website thank-you" },
@@ -12,14 +13,14 @@ const tiers = [
 
 const layerOffsets = ["lg:translate-y-3", "lg:translate-y-4", "lg:translate-y-5", "lg:translate-y-6", "lg:translate-y-7"];
 
-const fundraiser = {
-  raised: "$350",
-  goal: "$4,500",
-  progress: 8,
-  donations: 3,
+type SupportProps = {
+  fundraiser: FundraiserStats;
 };
 
-export default function Support() {
+export default function Support({ fundraiser }: SupportProps) {
+  const raised = formatFundraiserCurrency(fundraiser.raised, fundraiser.currencyCode);
+  const goal = formatFundraiserCurrency(fundraiser.goal, fundraiser.currencyCode);
+
   return (
     <section id="support" className="bg-white py-20 md:py-28">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -77,10 +78,16 @@ export default function Support() {
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">GoFundMe Goal</p>
+                <p className="text-sm font-black uppercase tracking-wide text-[#b8d8ea]">GoFundMe Tracker</p>
                 <h3 className="mt-2 font-display text-5xl leading-none">
-                  {fundraiser.raised} raised of {fundraiser.goal}
+                  {raised} raised of {goal}
                 </h3>
+                <p className="mt-3 flex items-center gap-2 text-xs font-bold text-white/58">
+                  <RefreshCw size={13} aria-hidden />
+                  {fundraiser.source === "gofundme"
+                    ? "Automatically checks GoFundMe about every 30 minutes"
+                    : "Showing the last verified totals while GoFundMe reconnects"}
+                </p>
               </div>
               <p className="rounded-lg bg-white/10 px-3 py-2 text-sm font-black text-[#b8d8ea]">
                 {fundraiser.progress}% funded

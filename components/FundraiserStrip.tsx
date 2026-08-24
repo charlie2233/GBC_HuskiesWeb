@@ -1,17 +1,18 @@
-import { ArrowRight, BadgeDollarSign, HeartHandshake, Landmark } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, HeartHandshake, Landmark, RefreshCw } from "lucide-react";
 import {
   goFundMeUrl,
   zellePhoneDisplay,
 } from "@/lib/siteConfig";
+import { formatFundraiserCurrency, type FundraiserStats } from "@/lib/fundraiser";
 
-const fundraiser = {
-  title: "Help Fund the Vegas Trip",
-  raised: "$350",
-  goal: "$4,500",
-  progress: 8,
+type FundraiserStripProps = {
+  fundraiser: FundraiserStats;
 };
 
-export default function FundraiserStrip() {
+export default function FundraiserStrip({ fundraiser }: FundraiserStripProps) {
+  const raised = formatFundraiserCurrency(fundraiser.raised, fundraiser.currencyCode);
+  const goal = formatFundraiserCurrency(fundraiser.goal, fundraiser.currencyCode);
+
   return (
     <section className="border-y border-[#b8d8ea]/14 bg-[#071827] py-5 text-white">
       <div className="section-shell grid gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-center">
@@ -24,7 +25,7 @@ export default function FundraiserStrip() {
               Summer fundraiser
             </p>
             <h2 className="mt-1 font-display text-4xl leading-none text-white md:text-5xl">
-              {fundraiser.title}
+              Help Fund the Vegas Trip
             </h2>
           </div>
         </div>
@@ -38,18 +39,24 @@ export default function FundraiserStrip() {
               <p className="mt-1 text-sm font-black text-white">
                 Help the Huskies get to Vegas
               </p>
+              <p className="mt-2 flex items-center gap-1.5 text-[11px] font-bold text-white/58">
+                <RefreshCw size={12} aria-hidden />
+                {fundraiser.source === "gofundme"
+                  ? "Auto-synced from GoFundMe"
+                  : "Showing last verified GoFundMe total"}
+              </p>
             </div>
             <span className="rounded-lg bg-[#d71920] px-3 py-2 text-xs font-black text-white">
               {fundraiser.progress}% funded
             </span>
           </div>
           <div className="flex items-center justify-between gap-4 text-sm font-black">
-            <span className="text-[#b8d8ea]">{fundraiser.raised} raised</span>
-            <span className="text-white/72">Goal {fundraiser.goal}</span>
+            <span className="text-[#b8d8ea]">{raised} raised</span>
+            <span className="text-white/72">Goal {goal}</span>
           </div>
           <div
             className="mt-3 h-3 overflow-hidden rounded-full bg-white/14"
-            aria-label={`${fundraiser.raised} raised toward ${fundraiser.goal}`}
+            aria-label={`${raised} raised toward ${goal}`}
           >
             <div className="h-full rounded-full bg-[#d71920]" style={{ width: `${fundraiser.progress}%` }} />
           </div>

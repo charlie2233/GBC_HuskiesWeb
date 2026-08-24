@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import ParentQuickAnswers from "@/components/ParentQuickAnswers";
 import Support from "@/components/Support";
 import Tournaments from "@/components/Tournaments";
+import { getFundraiserStats } from "@/lib/fundraiser";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata({
@@ -20,19 +21,21 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-export default function Home() {
+export default async function Home() {
+  const fundraiser = await getFundraiserStats();
+
   return (
     <>
       <Navbar />
       <main className="overflow-hidden pb-24 md:pb-0">
         <Hero />
-        <FundraiserStrip />
+        <FundraiserStrip fundraiser={fundraiser} />
         <HomeActions />
         <Highlights />
         <ParentQuickAnswers />
         <MediaGrid />
         <Tournaments />
-        <Support />
+        <Support fundraiser={fundraiser} />
         <ContactForm />
       </main>
       <Footer />
