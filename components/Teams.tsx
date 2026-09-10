@@ -2,17 +2,7 @@ import Link from "next/link";
 import { ArrowRight, FileText, Phone, Users } from "lucide-react";
 import { areaServed, coachPhoneHref, currentTeamRange, registrationFormUrl } from "@/lib/siteConfig";
 import BrandName from "./BrandName";
-
-const teams = [
-  {
-    name: "Beginner Development",
-    text: "Build a strong foundation through fundamental skills, confidence, and a love for the game. All skill levels are welcome.",
-  },
-  {
-    name: "Advanced Competition",
-    text: "Develop game-ready skills and compete in high-exposure, national tournament settings with a team-first standard.",
-  },
-];
+import { basketballPrograms } from "@/lib/contactInquiry";
 
 export default function Teams() {
   return (
@@ -64,7 +54,7 @@ export default function Teams() {
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {teams.map((team) => (
+          {basketballPrograms.map((team) => (
             <article key={team.name} className="rounded-lg bg-white p-6 shadow-[0_18px_42px_rgba(7,24,39,0.08)]">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-lg bg-[#071827] text-[#b8d8ea]">
                 <Users size={28} aria-hidden />
@@ -72,7 +62,7 @@ export default function Teams() {
               <h3 className="font-display text-5xl leading-none text-[#071827]">{team.name}</h3>
               <p className="mt-4 text-base leading-7 text-[#1f2933]/78">{team.text}</p>
               <Link
-                href="/contact"
+                href={`/contact?program=${team.id}#inquiry`}
                 data-analytics-event="click_contact"
                 data-analytics-label={`Ask about ${team.name}`}
                 className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#d71920] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#f02a31]"

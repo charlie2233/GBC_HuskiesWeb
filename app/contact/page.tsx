@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import BrandName from "@/components/BrandName";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import Navbar from "@/components/Navbar";
-import PageHeader from "@/components/PageHeader";
 import { buildMetadata } from "@/lib/metadata";
-import { getSeoTopicsForPath } from "@/lib/seoTopics";
+import { getInquiryProgram } from "@/lib/contactInquiry";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact GBC Huskies | Youth Basketball Program",
@@ -15,23 +13,16 @@ export const metadata: Metadata = buildMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: {
+  searchParams: Promise<{ program?: string | string[] }>;
+}) {
+  const program = getInquiryProgram((await searchParams).program);
+
   return (
     <>
       <Navbar />
       <main className="overflow-hidden pb-24 md:pb-0">
-        <PageHeader
-          eyebrow="Contact the program"
-          title="Contact GBC Huskies"
-          description="Reach out about youth basketball training, team opportunities, basketball skills training, tournament information, payments, sponsorship, or general program questions."
-          note={
-            <>
-              <BrandName /> uses contact information already published on the current site.
-            </>
-          }
-          topics={getSeoTopicsForPath("/contact")}
-        />
-        <ContactForm />
+        <ContactForm key={program?.id ?? "general"} standalone initialProgram={program?.name} />
       </main>
       <Footer />
       <MobileStickyCTA />
