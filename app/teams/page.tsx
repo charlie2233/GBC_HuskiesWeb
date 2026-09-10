@@ -10,11 +10,12 @@ import Teams from "@/components/Teams";
 import Tournaments from "@/components/Tournaments";
 import { buildMetadata } from "@/lib/metadata";
 import { getSeoTopicsForPath } from "@/lib/seoTopics";
+import { areaServed, currentTeamRange } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies Teams | Youth Basketball Program",
   description:
-    "Learn about GBC Huskies youth basketball teams, player development, training, teamwork, and program opportunities.",
+    `Explore GBC Huskies ${currentTeamRange} basketball in ${areaServed}, from beginner skill development to advanced national competition.`,
   path: "/teams",
 });
 
@@ -26,7 +27,7 @@ export default function TeamsPage() {
         <PageHeader
           eyebrow="Youth basketball teams"
           title="GBC Huskies Teams"
-          description="GBC Huskies youth basketball teams are built around player development, competitive standards, teamwork, discipline, sportsmanship, and tournament experience."
+          description={`${currentTeamRange}. All skill levels. Basketball development and competition in ${areaServed}.`}
           note={
             <>
               <BrandName /> does not publish full rosters unless families and the program approve.

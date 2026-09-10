@@ -13,11 +13,11 @@ import Support from "@/components/Support";
 import Tournaments from "@/components/Tournaments";
 import { getFundraiserStats } from "@/lib/fundraiser";
 import { buildMetadata } from "@/lib/metadata";
+import { siteDescription } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
   title: "GBC Huskies | Youth Basketball Program & Player Development",
-  description:
-    "Gilliam Basketball Club, home of GBC Huskies, is an Orange County youth basketball program and 2026 MADE Hoops Vegas Live Session 1 15U Dodgers Division champion.",
+  description: siteDescription,
   path: "/",
 });
 

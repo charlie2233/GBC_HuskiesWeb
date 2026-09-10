@@ -29,7 +29,7 @@ const mobileActions = [
 
 export default function MobileStickyCTA() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/12 bg-[#071827]/96 p-3 shadow-[0_-12px_32px_rgba(0,0,0,0.28)] backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/12 bg-[#071827]/96 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_32px_rgba(0,0,0,0.28)] backdrop-blur md:hidden">
       <div className="mx-auto grid max-w-md grid-cols-3 gap-2">
         {mobileActions.map(({ label, href, event, analyticsLabel, icon: Icon, external }) => {
           const className =

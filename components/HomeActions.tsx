@@ -22,7 +22,7 @@ const actions = [
   },
   {
     title: "Support GBC",
-    text: "Help with travel, tournaments, training, gear, and the summer fundraiser.",
+    text: "Support player development, tournament fees, uniforms, and team travel.",
     href: goFundMeUrl,
     event: "click_payment_donation",
     icon: HeartHandshake,

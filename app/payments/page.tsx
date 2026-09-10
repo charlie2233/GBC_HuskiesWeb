@@ -108,7 +108,7 @@ export default function PaymentsPage() {
                   <h2 className="mt-4 font-display text-5xl leading-none text-[#071827]">Donations</h2>
                   <p className="mt-3 text-sm font-semibold leading-6 text-[#1f2933]/72">
                     Supporters can help the Huskies with travel, tournaments,
-                    training access, uniforms, equipment, and summer fundraising.
+                    training access, uniforms, equipment, and player development.
                   </p>
                   <a
                     href={goFundMeUrl}

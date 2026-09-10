@@ -44,7 +44,7 @@ export default function Coaches() {
             Training Led With Standards
           </h2>
           <p className="mt-5 text-lg leading-8 text-white/74">
-            {programFullName} training is guided by coaches who care about the
+            {programFullName} training is guided by experienced, USA Gold-licensed coaches who care about the
             full player: fundamentals, discipline, teamwork, sportsmanship, and
             growth on and off the basketball court.
           </p>

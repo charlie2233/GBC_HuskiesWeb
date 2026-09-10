@@ -15,29 +15,33 @@ export default function FundraiserStrip({ fundraiser }: FundraiserStripProps) {
 
   return (
     <section className="border-y border-[#b8d8ea]/14 bg-[#071827] py-5 text-white">
-      <div className="section-shell grid gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-center">
-        <div className="flex min-w-0 items-start gap-4">
+      <div className="section-shell grid gap-4 md:grid-cols-2 md:items-center xl:grid-cols-[1fr_auto_auto]">
+        <div className="flex min-w-0 items-start gap-4 md:row-span-2 xl:row-span-1">
           <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-[#d71920]">
             <HeartHandshake size={25} aria-hidden />
           </div>
           <div className="min-w-0">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#b8d8ea]">
-              Summer fundraiser
+              Team fundraiser
             </p>
             <h2 className="mt-1 font-display text-4xl leading-none text-white md:text-5xl">
-              Help Fund the Vegas Trip
+              Support the Huskies
             </h2>
+            <p className="mt-3 max-w-lg text-sm font-semibold leading-6 text-white/72">
+              Help our players keep training and competing. Contributions support tournament fees,
+              uniforms, and team travel.
+            </p>
           </div>
         </div>
 
-        <div className="rounded-lg border border-white/12 bg-white/[0.055] p-4 lg:min-w-80">
+        <div className="rounded-lg border border-white/12 bg-white/[0.055] p-4 xl:min-w-80">
           <div className="mb-3 flex items-start justify-between gap-4">
             <div>
               <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#b8d8ea]">
-                Vegas Trip Goal
+                GoFundMe Goal
               </p>
               <p className="mt-1 text-sm font-black text-white">
-                Help the Huskies get to Vegas
+                Every contribution counts
               </p>
               <p className="mt-2 flex items-center gap-1.5 text-[11px] font-bold text-white/58">
                 <RefreshCw size={12} aria-hidden />
@@ -56,13 +60,17 @@ export default function FundraiserStrip({ fundraiser }: FundraiserStripProps) {
           </div>
           <div
             className="mt-3 h-3 overflow-hidden rounded-full bg-white/14"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={fundraiser.progress}
             aria-label={`${raised} raised toward ${goal}`}
           >
             <div className="h-full rounded-full bg-[#d71920]" style={{ width: `${fundraiser.progress}%` }} />
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[25rem]">
+        <div className="grid gap-3 sm:grid-cols-2 xl:min-w-[22rem]">
           <a
             href={goFundMeUrl}
             target="_blank"
@@ -85,7 +93,7 @@ export default function FundraiserStrip({ fundraiser }: FundraiserStripProps) {
           </a>
         </div>
 
-        <p className="flex items-center gap-2 text-sm font-semibold leading-6 text-white/64 lg:col-span-3">
+        <p className="flex items-center gap-2 text-sm font-semibold leading-6 text-white/64 md:col-span-2 xl:col-span-3">
           <BadgeDollarSign className="h-5 w-5 flex-none text-[#b8d8ea]" aria-hidden />
           Zelle payments can be sent to {zellePhoneDisplay}. Cash is accepted through Coach Jay.
         </p>

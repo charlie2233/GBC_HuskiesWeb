@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import { buildMetadata } from "@/lib/metadata";
 import { getSeoTopicsForPath } from "@/lib/seoTopics";
-import { programFullName, programStatements } from "@/lib/siteConfig";
+import { areaServed, currentTeamRange, programFullName, programStatements } from "@/lib/siteConfig";
 
 export const metadata: Metadata = buildMetadata({
   title: "About GBC Huskies | Gilliam Basketball Club Mission & Values",
@@ -43,10 +43,10 @@ export default function AboutPage() {
         <PageHeader
           eyebrow="Mission and values"
           title="About GBC Huskies"
-          description="GBC Huskies basketball is the team identity for Gilliam Basketball Club, built for player development, fundamentals, teamwork, discipline, sportsmanship, work ethic, and competitive youth basketball growth."
+          description={`Two hearts. One family. GBC Huskies welcomes ${currentTeamRange} athletes of all skill levels in ${areaServed}.`}
           note={
             <>
-              GBC stands for {programFullName}; <BrandName /> is an Orange County based AAU basketball program.
+              GBC stands for {programFullName}; one basketball family across two counties.
             </>
           }
           topics={getSeoTopicsForPath("/about")}
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="section-shell">
             <div className="max-w-4xl">
               <h2 className="font-display text-6xl leading-none text-[#071827] md:text-7xl">
-                Mission, Vision, and Values
+                Why Play for GBC Huskies?
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#1f2933]/78">
                 <BrandName /> is built around structure, attention to detail,
@@ -64,6 +64,20 @@ export default function AboutPage() {
                 become better players and people.
               </p>
             </div>
+
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2">
+              {[
+                ["Experienced Coaching", "USA Gold-licensed coaches dedicated to youth growth."],
+                ["National Exposure", "Opportunities to compete in top tournaments across the country."],
+                ["Player Development", "Skills training, film sessions, and strength and conditioning."],
+                ["Family Environment", "Building character, leadership, and lifelong relationships."],
+              ].map(([title, text]) => (
+                <li key={title} className="border-l-2 border-[#d71920] pl-4">
+                  <h3 className="text-lg font-bold text-[#071827]">{title}</h3>
+                  <p className="mt-2 text-base leading-7 text-[#1f2933]/80">{text}</p>
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {values.map(({ title, text, icon: Icon }) => (

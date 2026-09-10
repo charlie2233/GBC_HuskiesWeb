@@ -5,17 +5,18 @@ export const siteName = "GBC Huskies Basketball";
 export const programFullName = "Gilliam Basketball Club";
 export const organizationName = "Gilliam Basketball Club";
 export const siteDescription =
-  "Gilliam Basketball Club, home of GBC Huskies, is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, work ethic, and helping athletes grow on and off the court.";
+  "GBC Huskies serves 8U-16U athletes of all skill levels in Orange County and Fresno County through skills training, film sessions, strength and conditioning, and local and national competition.";
 export const logoPath = "/brand/gbc-huskies-circle-logo.png";
 export const logoUrl = `${siteUrl}${logoPath}`;
 export const ogImageUrl = logoUrl;
 export const contactEmail = "gbchuskiesoc@gmail.com";
-export const currentTeamRange = "13U-15U";
+export const currentTeamRange = "8U-16U";
 export const coachPhoneDisplay = "657-253-0078";
 export const coachPhoneHref = "tel:+16572530078";
 export const zellePhoneDisplay = coachPhoneDisplay;
 export const zellePhoneValue = "6572530078";
-export const areaServed = "Orange County, CA";
+export const programRegions = ["Orange County", "Fresno County"] as const;
+export const areaServed = `${programRegions.join(" and ")}, CA`;
 export const instagramUrl = "https://www.instagram.com/gbc_huskies/";
 export const coachInstagramUrl = "https://www.instagram.com/coachjaygill/";
 export const goFundMeUrl = "https://www.gofundme.com/f/sd6zec-help-the-huskies";
@@ -48,7 +49,7 @@ export const programStatements = {
   vision:
     "To be recognized as a top youth basketball program by placing our athletes and their parents' experience at the forefront of our program goals. By combining a high-quality basketball experience with structure and organization, we want our athletes to grow as both players and people, inspiring them to do great things both on and off the basketball court.",
   about:
-    "Our program is designed to emphasize fundamental basketball skills through game play and training tailored to each individual's need and skill level. Through attention to detail, our goal is to improve basketball skills for athletes who possess a passion for the game and a willingness to learn.",
+    "Two hearts. One family. GBC Huskies brings Orange County and Fresno County together through basketball. Athletes of all skill levels build their game through skills training, film sessions, strength and conditioning, and a team-first environment.",
   values:
     "We emphasize fundamental skill and work to ensure each player is given the best opportunity to grow their game. Through structure, we highlight each player's strengths and challenge them to excel in many different areas while teaching the importance of teamwork, discipline, work ethic, and sportsmanship.",
   slogan: "DEFENSE",

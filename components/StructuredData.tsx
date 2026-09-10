@@ -1,5 +1,5 @@
 import {
-  areaServed,
+  programRegions,
   coachInstagramUrl,
   coachPhoneDisplay,
   contactEmail,
@@ -34,10 +34,10 @@ const structuredData = {
       knowsAbout: topicNames,
       email: contactEmail,
       telephone: coachPhoneDisplay,
-      areaServed: {
+      areaServed: programRegions.map((region) => ({
         "@type": "AdministrativeArea",
-        name: areaServed,
-      },
+        name: `${region}, CA`,
+      })),
       sameAs: [instagramUrl, coachInstagramUrl],
     },
     {

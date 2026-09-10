@@ -1,6 +1,6 @@
 # GBC Huskies Basketball
 
-Official website for GBC Huskies Basketball, the team identity for Gilliam Basketball Club, an Orange County AAU basketball program focused on skills development, strength and conditioning, and local/national tournament competition.
+Official website for GBC Huskies Basketball, the team identity for Gilliam Basketball Club, serving 8U-16U athletes of all skill levels in Orange County and Fresno County. The program focuses on skills development, film sessions, strength and conditioning, and local/national tournament competition.
 
 ## Tech Stack
 

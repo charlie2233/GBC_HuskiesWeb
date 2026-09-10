@@ -5,6 +5,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import RouteTransitions from "@/components/RouteTransitions";
 import StructuredData from "@/components/StructuredData";
 import { buildMetadata } from "@/lib/metadata";
+import { siteDescription } from "@/lib/siteConfig";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,8 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gbchuskies.com"),
   ...buildMetadata({
     title: "GBC Huskies | Youth Basketball Program & Player Development",
-    description:
-      "Gilliam Basketball Club, home of GBC Huskies, is a youth basketball program focused on fundamentals, player development, teamwork, discipline, sportsmanship, and helping athletes grow on and off the court.",
+    description: siteDescription,
     path: "/",
   }),
 };

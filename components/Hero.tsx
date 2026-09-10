@@ -35,11 +35,10 @@ export default function Hero() {
 
           <div className="hero-red-swipe mx-auto mt-5 md:mx-0" aria-hidden />
           <p className="mx-auto mt-5 w-full max-w-[21rem] text-2xl font-black leading-tight text-white sm:text-3xl md:mx-0 md:max-w-2xl md:text-[1.95rem]">
-            Orange County based{" "}
-            <span className="whitespace-nowrap">{currentTeamRange}</span> AAU
-            basketball program.
+            <span className="whitespace-nowrap">{currentTeamRange}</span> AAU basketball.
             <br />
-            Our slogan: {programStatements.slogan}.
+            Orange County &amp; Fresno County.
+            <span className="mt-3 block text-lg font-bold text-[#b8d8ea]">All skill levels. Two hearts. One family.</span>
           </p>
           <p className="mx-auto mt-5 flex w-full max-w-[21rem] flex-col items-center justify-center gap-x-2 gap-y-2 overflow-hidden text-sm font-black uppercase tracking-[0.04em] text-[#b8d8ea] sm:text-base md:mx-0 md:max-w-xl md:flex-row md:flex-wrap md:items-start md:justify-start md:gap-y-1">
             <span className="min-w-0 max-w-full break-words">{programStatements.sloganMeaning}</span>
@@ -49,11 +48,9 @@ export default function Hero() {
             </span>
           </p>
           <p className="mx-auto mt-4 hidden w-full max-w-[21rem] text-base leading-7 text-white/74 sm:block md:mx-0 md:max-w-xl">
-            Our program is designed to emphasize fundamental basketball skills
-            through game play and training tailored to each individual&apos;s need
-            and skill level. Through attention to detail, our goal is to improve
-            basketball skills for athletes who possess a passion for the game
-            and a willingness to learn.
+            From first fundamentals to high-exposure national competition,
+            we help players develop through skills training, film sessions,
+            strength and conditioning, and team-first basketball.
           </p>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
@@ -148,20 +145,20 @@ export default function Hero() {
           <Link
             href="/contact"
             data-analytics-event="click_contact"
-            data-analytics-label="Hero Fresno expansion update"
+            data-analytics-label="Hero two county program"
             className="hero-team-card group"
-            aria-label="Contact GBC Huskies about the possible Fresno and Valley area expansion"
+            aria-label="Contact GBC Huskies about Orange County and Fresno County teams"
           >
             <span className="hero-team-card-label">
               <span>
                 <MapPin size={17} aria-hidden />
-                Possible Expansion
+                Two Hearts. One Family.
               </span>
               <ArrowRight className="transition group-hover:translate-x-1" size={18} aria-hidden />
             </span>
-            <strong className="hero-team-card-title">Fresno / Valley Area</strong>
+            <strong className="hero-team-card-title">Orange County<br />Fresno County</strong>
             <span className="hero-team-card-copy">
-              GBC is exploring a possible Fresno/Valley program expansion. Plans are not final.
+              {currentTeamRange}. All skill levels. Find your place in the Huskies family.
             </span>
           </Link>
 

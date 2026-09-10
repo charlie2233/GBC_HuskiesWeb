@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  areaServed,
   coachInstagramUrl,
   contactEmail,
   goFundMeUrl,
@@ -21,7 +22,7 @@ export default function Footer() {
               <p className="font-display text-3xl leading-none">
                 <BrandName suffix="Basketball" />
               </p>
-              <p className="mt-1 text-sm text-white/62">{programFullName} • Orange County, CA</p>
+              <p className="mt-1 text-sm text-white/62">{programFullName} • {areaServed}</p>
             </div>
           </div>
         </div>

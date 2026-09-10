@@ -45,7 +45,8 @@ export default function Skills() {
           <p className="mt-5 text-lg leading-8 text-[#1f2933]/80">
             <BrandName /> skills development is built around the details that
             translate to real games: ball handling, shooting, footwork,
-            finishing, defense, decision-making, and basketball IQ.
+            finishing, defense, decision-making, and basketball IQ. Film sessions
+            help players connect what they learn in training to game situations.
           </p>
           <p className="mt-4 text-base leading-7 text-[#1f2933]/72">
             Skills training incorporates concepts and training experience from

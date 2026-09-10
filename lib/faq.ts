@@ -1,4 +1,5 @@
 import {
+  areaServed,
   coachPhoneDisplay,
   contactEmail,
   currentTeamRange,
@@ -25,7 +26,7 @@ export const faqItems = [
   {
     category: "Joining",
     question: "How do I ask about joining a GBC Huskies team?",
-    answer: `GBC currently serves ${currentTeamRange} players. Start by contacting the program with the parent or guardian name, player name, grade, age, basketball experience, and what you are looking for. The coach can confirm current team needs, training options, and next steps.`,
+    answer: `GBC welcomes ${currentTeamRange} players of all skill levels in ${areaServed}. Start by contacting the program with the parent or guardian name, player name, grade, age, county, basketball experience, and what you are looking for. The coach can confirm current team needs, training options, and next steps.`,
     links: [
       { label: "Contact GBC", href: "/contact", event: "click_contact" },
       { label: "Teams", href: "/teams" },
@@ -35,7 +36,7 @@ export const faqItems = [
     category: "Training",
     question: "What should players expect from training?",
     answer:
-      "Training is built around fundamentals, game-speed skill work, strength and conditioning habits, attention to detail, teamwork, work ethic, and sportsmanship. Players should arrive ready to listen, compete, and improve.",
+      "Training includes fundamental skill development, film sessions, and strength and conditioning. Beginner players focus on building skills; advanced players work toward high-exposure national competition. Players should arrive ready to listen, compete, and improve.",
     links: [{ label: "Training", href: "/training" }],
   },
   {
